@@ -57,7 +57,7 @@ export async function POST(request) {
     // await transporter.sendMail(mailOptions);
 
     // // Redirect to thank you page or back to contact with success
-    // return NextResponse.redirect('/contact?success=true');
+     return NextResponse.redirect('/contact?success=true');
 
   } catch (error) {
     console.error('Contact form error:', error);

@@ -66,7 +66,7 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <Link href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               About
             </Link>
             <Link href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">

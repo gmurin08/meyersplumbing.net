@@ -1,7 +1,5 @@
-
 import Link from 'next/link';
 import { Phone, Clock, Shield, Star, Wrench, Droplets } from 'lucide-react';
-import Video from 'next-video'
 import BackgroundVideo from 'next-video/background-video';
 
 import desktopHero from '/videos/desktop-hero.mp4'

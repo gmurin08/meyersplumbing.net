@@ -1,5 +1,7 @@
 import { Phone, Mail, MapPin, Clock, MessageSquare } from 'lucide-react';
 import Image from 'next/image';
+import ContactForm from '@/components/forms/main-contact'
+import data from 'globals.json'
 export default function ContactPage() {
 
   return (
@@ -13,9 +15,9 @@ export default function ContactPage() {
         width={1920}
         alt="Tools background"
         className="w-full h-full object-cover scale-110 transform-gpu will-change-transform"
-        style={{
-            transform: 'translate3d(0, calc(var(--scroll-y, 0) * 0.5px), 0)'
-        }}
+        // style={{
+        //     transform: 'translate3d(0, calc(var(--scroll-y, 0) * 0.5px), 0)'
+        // }}
         />
     </div>
     
@@ -31,7 +33,7 @@ export default function ContactPage() {
     </section>
 
       {/* Emergency Alert */}
-      <section className="bg-red-600 text-white py-6">
+      <section className=" text-white py-6">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-2">Plumbing Emergency?</h2>
           <p className="mb-4">Don't wait! Call us now for immediate assistance</p>
@@ -40,19 +42,20 @@ export default function ContactPage() {
             className="inline-flex items-center space-x-2 bg-white text-red-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors"
           >
             <Phone className="h-6 w-6" />
-            <span>(555) 123-4567</span>
+            <span>{data.business_phone}</span>
           </a>
         </div>
       </section>
 
       {/* Contact Information & Form */}
-      <section className='bg-white' style={{position:'relative', zIndex:'-11'}} >
-        <Image style={{position:'absolute', zIndex:'-10'}}
+      <section className='bg-[url(/images/hero/luxury-bg-white.webp)] bg-cover'  >
+        {/* <Image style={{position:'absolute', zIndex:'-10'}}
+          alt="bg image"
          src={'/images/hero/luxury-bg-white.webp'} 
          width={1920}
          height={1080}
         className="absolute -z-10 w-full h-[2000px] md:h-screen object-fit "
-         />
+         /> */}
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
@@ -140,128 +143,7 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className='py-16'>
-              <div className="bg-white p-8 rounded-lg shadow-lg border">
-                <div className="flex items-center space-x-3 mb-6">
-                  <MessageSquare className="h-6 w-6 text-blue-600" />
-                  <h2 className="text-2xl font-bold text-gray-900">Send us a Message</h2>
-                </div>
-                
-                <form method="POST" action="/api/contact" className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        First Name *
-                      </label>
-                      <input 
-                        type="text" 
-                        name="firstName"
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                        placeholder="Your first name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Last Name *
-                      </label>
-                      <input 
-                        type="text" 
-                        name="lastName"
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                        placeholder="Your last name"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Phone Number *
-                    </label>
-                    <input 
-                      type="tel" 
-                      name="phone"
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                      placeholder="(555) 123-4567"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address
-                    </label>
-                    <input 
-                      type="email"
-                      name="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Service Type
-                    </label>
-                    <select 
-                      name="serviceType"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                    >
-                      <option value="">Select a service...</option>
-                      <option value="emergency">Emergency Repair</option>
-                      <option value="water-heater">Water Heater Service</option>
-                      <option value="drain-cleaning">Drain Cleaning</option>
-                      <option value="leak-detection">Leak Detection</option>
-                      <option value="bathroom">Bathroom Plumbing</option>
-                      <option value="general">General Plumbing</option>
-                      <option value="estimate">Free Estimate</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
-                    </label>
-                    <textarea 
-                      name="message"
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors resize-vertical"
-                      placeholder="Please describe your plumbing issue or what service you need..."
-                    ></textarea>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Preferred Contact Time
-                    </label>
-                    <select 
-                      name="preferredTime"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
-                    >
-                      <option value="">No preference</option>
-                      <option value="morning">Morning (8AM - 12PM)</option>
-                      <option value="afternoon">Afternoon (12PM - 5PM)</option>
-                      <option value="evening">Evening (5PM - 8PM)</option>
-                      <option value="asap">ASAP - Emergency</option>
-                    </select>
-                  </div>
-
-                  <button 
-                    type="submit"
-                    className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 outline-none"
-                  >
-                    Send Message
-                  </button>
-
-                  <p className="text-sm text-gray-600 text-center">
-                    * Required fields. For emergencies, please call us directly at{' '}
-                    <a href="tel:555-123-4567" className="text-blue-600 font-medium">
-                      (555) 123-4567
-                    </a>
-                  </p>
-                </form>
-              </div>
+              <ContactForm/>
             </div>
           </div>
         </div>

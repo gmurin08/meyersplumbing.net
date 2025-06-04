@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from 'lucide-react';
-
+import Image from 'next/image';
+import { Phone, Mail, MapPin, Clock, Facebook } from 'lucide-react';
+import globals from 'globals.json'
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
@@ -14,7 +15,7 @@ export default function Footer() {
             className="inline-flex items-center space-x-2 bg-white text-red-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors"
           >
             <Phone className="h-6 w-6" />
-            <span>(555) 123-4567</span>
+            <span>{globals.business_phone}</span>
           </a>
         </div>
       </div>
@@ -24,22 +25,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="text-2xl font-bold">
-              <span className="text-blue-400">MVP</span>
+            <div className="text-2xl font-bold w-1/2">
+              <Image src='/logo/logo-flat.webp' width={500} height={243}/>
             </div>
             <h4 className="text-lg font-semibold">M. MEYERS PLUMBING</h4>
+            <div className='flex justify-center'>
             <p className="text-gray-400 text-sm leading-relaxed">
               Professional plumbing services available 24/7. Licensed, insured, and committed to quality workmanship.
-            </p>
+            </p></div>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Twitter className="h-5 w-5" />
+                {/* <Google className="h-5 w-5"/> */}
               </a>
             </div>
           </div>
@@ -125,23 +122,22 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <Phone className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <a href="tel:555-123-4567" className="text-white hover:text-blue-400 transition-colors font-medium">
-                    (555) 123-4567
+                  <a href={`tel:${globals.business_phone}`} className="text-white hover:text-blue-400 transition-colors font-medium">
+                    {globals.business_phone}
                   </a>
                   <p className="text-gray-400 text-xs">24/7 Emergency Line</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                <a href="mailto:info@meyersplumbing.com" className="text-gray-400 hover:text-white transition-colors">
-                  info@meyersplumbing.com
+                <a href={`mailto:${globals.business_email}`} className="text-gray-400 hover:text-white transition-colors">
+                  {globals.business_email}
                 </a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
                 <div className="text-gray-400">
-                  <p>123 Main Street</p>
-                  <p>Your City, ST 12345</p>
+                  <p>Proudly Serving Pittsburgh, PA</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
