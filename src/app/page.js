@@ -42,18 +42,21 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Emergency Repairs", icon: "🚨", desc: "24/7 emergency plumbing services" },
-              { title: "Water Heaters", icon: "🔥", desc: "Installation, repair, and maintenance" },
-              { title: "Drain Cleaning", icon: "🚿", desc: "Professional drain and sewer cleaning" },
-              { title: "Leak Detection", icon: "💧", desc: "Advanced leak detection technology" },
-              { title: "Pipe Repair", icon: "🔧", desc: "Trenchless pipe repair solutions" },
-              { title: "Bathroom Plumbing", icon: "🛁", desc: "Complete bathroom plumbing services" }
+              { title: "Emergency Repairs", icon: "🚨", desc: "24/7 emergency plumbing services", image:'/images/cards/emergency.webp' },
+              { title: "Water Heaters", icon: "🔥", desc: "Installation, repair, and maintenance", image:'/images/cards/water-heater.webp' },
+              { title: "Drain Cleaning", icon: "🚿", desc: "Professional drain and sewer cleaning", image:'/images/cards/drain.webp' },
+              { title: "Leak Detection", icon: "💧", desc: "Advanced leak detection technology", image:'/images/cards/pipe-repair.webp' },
+              { title: "Residential", icon: "🔧", desc: "Trenchless pipe repair solutions", image:'/images/cards/residential.webp' },
+              { title: "Commercial", icon: "🛁", desc: "Complete bathroom plumbing services", image:'/images/cards/commercial.webp' }
             ].map((service, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div key={index} 
+              style={{ backgroundImage: `url(${service.image})`, backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat'}}
+              className="h-75 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                 <div className="text-4xl mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.desc}</p>
-                <Link href="/services" className="text-blue-600 font-medium hover:text-blue-800">
+                <p className="text-white-600 mb-4">{service.desc}</p>
+                <Link href="/services" className="text-red-400 font-medium hover:text-blue-800">
                   Learn More →
                 </Link>
               </div>

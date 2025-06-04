@@ -53,16 +53,10 @@ export default function AboutPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <Users className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Matt Meyers Photo</p>
-                  <p className="text-sm">Master Plumber & Owner</p>
-                </div>
-              </div>
+            <div className="order-1 bg-[url('/images/portraits/matt.webp')]">
+                  {/* <Image src='/images/portraits/matt.webp' width={345} height={502} alt='Matthew Meyers, owner of Matt Meyers Plumbing'/> */}
             </div>
-            <div className="order-1 lg:order-2">
+            <div className="order-2">
               <h2 className="text-3xl font-bold mb-6 text-gray-900">Meet Matt Meyers</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
