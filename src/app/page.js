@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { Phone, Clock, Shield, Star, Wrench, Droplets } from 'lucide-react';
 import BackgroundVideo from 'next-video/background-video';
-
 import desktopHero from '/videos/desktop-hero.mp4'
+import globals from '/globals.json'
+import CTAButton from '@/components/ui/ctabtn'
+
 export default function HomePage() {
   return (<><BackgroundVideo src={desktopHero} />
     <div>

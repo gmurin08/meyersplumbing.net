@@ -1,8 +1,10 @@
 'use client'
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Clock, MapPin, Menu, X } from 'lucide-react';
+import { Phone, Clock, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import globals from '/globals.json'
+import CTAButton from '@/components/ui/ctabtn'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,13 +15,13 @@ export default function Header() {
       <div className="bg-red-600 text-white py-2">
         <div className="max-w-7xl mx-auto px-4 flex justify-center items-center space-x-6 text-sm font-medium">
           <div className="flex items-center space-x-2">
-            <Clock className="h-4 w-4" />
+            <Clock className="h-4 w-4 " />
             <span>24/7 Emergency Service</span>
           </div>
           <div className="hidden sm:flex items-center space-x-2">
             <Phone className="h-4 w-4" />
-            <a href="tel:555-123-4567" className="hover:text-red-200">
-              (555) 123-4567
+            <a href={`tel:${globals.business_phone}`} className="hover:text-red-200">
+              {globals.business_phone}
             </a>
           </div>
         </div>
@@ -79,7 +81,7 @@ export default function Header() {
 
           {/* CTA Button & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <a 
+            {/* <a 
               href="tel:555-123-4567"
               className="hidden sm:inline-flex bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
             >
@@ -90,7 +92,9 @@ export default function Header() {
               className="bg-orange-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors"
             >
               Free Quote
-            </Link>
+            </Link> */}
+                      <CTAButton/>
+
             
             {/* Mobile Menu Button */}
             <button 
@@ -100,7 +104,7 @@ export default function Header() {
               {mobileMenuOpen ? (
                 <X className="h-6 w-6 text-gray-700" />
               ) : (
-                <Menu className="h-6 w-6 text-gray-700" />
+                <Menu className="h-6 w-6 ml-6 text-gray-700" />
               )}
             </button>
           </div>

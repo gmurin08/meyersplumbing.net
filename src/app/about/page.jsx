@@ -1,7 +1,7 @@
 import { Award, Users, Clock, Shield, Wrench, Heart } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import ServiceAreas from '@/components/sections/ServiceAreas'
 export default function AboutPage() {
   return (
     <div>
@@ -148,31 +148,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Service Areas */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Proudly Serving Pittsburgh and Surrounding Areas</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
-            {[
-              'Pittsburgh', 'Bethel Park', 'Mt. Lebanon', 'Upper St. Clair',
-              'Peters Township', 'McMurray', 'Canonsburg', 'Washington',
-              'Bridgeville', 'South Park', 'Jefferson Hills', 'West Mifflin',
-              'Baldwin', 'Whitehall', 'Brentwood', 'Dormont'
-            ].map((area, index) => (
-              <div key={index} className="bg-white p-4 rounded-lg shadow-sm border">
-                <span className="text-gray-700 font-medium">{area}</span>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <p className="text-gray-600">
-              Don't see your area listed? <Link href="/contact" className="text-blue-600 hover:text-blue-800 font-medium">Contact us</Link> to see if we service your location.
-            </p>
-          </div>
-        </div>
-      </section>
-
+      {/* Service Areas*/}
+      
+<ServiceAreas/> 
       {/* Call to Action */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
