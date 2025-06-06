@@ -1,13 +1,31 @@
 'use client'
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Clock, Menu, X } from 'lucide-react';
+import { Phone, Clock, Menu, X, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import globals from '/globals.json'
 import CTAButton from '@/components/ui/ctabtn'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
+  const handleMobileLinkClick = () => {
+    setMobileMenuOpen(false);
+    setMobileServicesOpen(false);
+  };
+
+  const services = [
+    { name: 'Emergency Services', href: '/services/emergency-services' },
+    { name: 'Residential Plumbing', href: '/services/residential' },
+    { name: 'Commercial Plumbing', href: '/services/commercial' },
+    { name: 'Water Heaters', href: '/services/water-heaters' },
+    { name: 'Drain Cleaning', href: '/services/drain-cleaning' },
+    { name: 'Gas Lines', href: '/services/gas-lines' },
+    { name: 'Excavation', href: '/services/excavation' },
+    { name: 'Trenchless Repair', href: '/services/trenchless' },
+    { name: 'Toilet Repair', href: '/services/toilets' }
+  ];
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
@@ -50,28 +68,22 @@ export default function Header() {
               {/* Services Dropdown */}
               <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-2">
-                  <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                    Emergency Services
-                  </Link>
-                  <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                    Residential Plumbing
-                  </Link>
-                  <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                    Commercial Plumbing
-                  </Link>
-                  <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                    Water Heaters
-                  </Link>
-                  <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                    Drain Cleaning
-                  </Link>
+                  {services.map((service, index) => (
+                    <Link 
+                      key={index}
+                      href={service.href} 
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
             <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               About
             </Link>
-            <Link href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <Link href="/service-areas" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               Service Areas
             </Link>
             <Link href="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
@@ -115,28 +127,53 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-gray-200">
           <div className="px-4 py-4 space-y-4">
-            <Link href="/" className="block text-gray-700 font-medium py-2">
+            <Link href="/" onClick={handleMobileLinkClick} className="block text-gray-700 font-medium py-2">
               Home
             </Link>
-            <Link href="#" className="block text-gray-700 font-medium py-2">
-              Services
-            </Link>
-            <Link href="#" className="block text-gray-700 font-medium py-2">
+            
+            {/* Mobile Services Dropdown */}
+            <div>
+              <button
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                className="flex items-center justify-between w-full text-gray-700 font-medium py-2"
+              >
+                <span>Services</span>
+                <ChevronDown 
+                  className={`h-4 w-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+              {mobileServicesOpen && (
+                <div className="ml-4 mt-2 space-y-2">
+                  {services.map((service, index) => (
+                    <Link
+                      key={index}
+                      href={service.href}
+                      onClick={handleMobileLinkClick}
+                      className="block text-sm text-gray-600 py-2 hover:text-blue-600"
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link href="/about" onClick={handleMobileLinkClick} className="block text-gray-700 font-medium py-2">
               About
             </Link>
-            <Link href="#" className="block text-gray-700 font-medium py-2">
+            <Link href="/service-areas" onClick={handleMobileLinkClick} className="block text-gray-700 font-medium py-2">
               Service Areas
             </Link>
-            <Link href="/contact" className="block text-gray-700 font-medium py-2">
+            <Link href="/contact" onClick={handleMobileLinkClick} className="block text-gray-700 font-medium py-2">
               Contact
             </Link>
             <div className="pt-4 border-t border-gray-200">
               <a 
-                href="tel:555-123-4567"
+                href={`tel:${globals.business_phone}`}
                 className="flex items-center space-x-2 text-blue-600 font-semibold py-2"
               >
                 <Phone className="h-5 w-5" />
-                <span>(555) 123-4567</span>
+                <span>{globals.business_phone}</span>
               </a>
             </div>
           </div>
