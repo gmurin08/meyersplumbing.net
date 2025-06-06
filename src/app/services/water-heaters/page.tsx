@@ -3,6 +3,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import globals from 'globals.json';
 
+export const metadata = {
+  title: 'Water Heater Installation & Repair - Pittsburgh Plumbing Services',
+  description: 'Professional water heater installation, repair & replacement in Pittsburgh PA. Same-day emergency service, tankless & traditional units. Licensed plumber serving Oakdale, Moon Township & surrounding areas.',
+  keywords: 'water heater installation Pittsburgh, water heater repair PA, tankless water heater, emergency water heater service, Oakdale plumber',
+  openGraph: {
+    title: 'Water Heater Services - Pittsburgh Emergency Plumber',
+    description: 'Expert water heater installation & repair in Pittsburgh PA. Same-day service available. Call for emergency water heater replacement.',
+    url: 'https://meyersplumbing.net/services/water-heaters',
+  }
+};
+
 export default function WaterHeatersPage() {
   const heaterTypes = [
     {

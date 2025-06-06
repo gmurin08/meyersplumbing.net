@@ -3,6 +3,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import globals from 'globals.json';
 
+export const metadata = {
+  title: 'Residential Plumbing Services - Pittsburgh & Oakdale PA | Expert Home Plumbers',
+  description: 'Professional residential plumbing services in Pittsburgh PA. Kitchen, bathroom, water heater repair & installation. Licensed home plumbers serving Oakdale, Moon Township, Mt Lebanon & surrounding areas.',
+  keywords: 'residential plumber Pittsburgh, home plumbing services PA, bathroom plumber Oakdale, kitchen plumbing Moon Township, water heater installation Mt Lebanon',
+  openGraph: {
+    title: 'Residential Plumbing Services - Pittsburgh Home Plumber',
+    description: 'Expert residential plumbing services for Pittsburgh homes. Kitchen, bathroom, and whole house plumbing solutions.',
+    url: 'https://meyersplumbing.net/services/residential',
+  }
+};
+
 export default function ResidentialPlumbingPage() {
   const serviceCategories = [
     {

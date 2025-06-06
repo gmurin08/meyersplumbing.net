@@ -11,7 +11,7 @@ export default function Footer() {
           <h3 className="text-2xl font-bold mb-2">Plumbing Emergency?</h3>
           <p className="text-red-100 mb-4">Don't wait! Call us now for immediate assistance</p>
           <a 
-            href="tel:555-123-4567"
+            href={`tel:${globals.business_phone}`}
             className="inline-flex items-center space-x-2 bg-white text-red-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors"
           >
             <Phone className="h-6 w-6" />

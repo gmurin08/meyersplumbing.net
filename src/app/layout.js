@@ -21,14 +21,14 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://meyersplumbing.com'), // Replace with your actual domain
+  metadataBase: new URL('https://meyersplumbing.net'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'M. Meyers Plumbing - 24/7 Emergency Plumbing Services',
     description: 'Professional plumbing services available 24/7. Licensed, insured plumber serving residential and commercial clients.',
-    url: 'https://meyersplumbing.com',
+    url: 'https://meyersplumbing.net',
     siteName: 'M. Meyers Plumbing',
     images: [
       {

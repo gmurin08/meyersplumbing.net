@@ -21,10 +21,10 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="tel:555-123-4567"
+              href={`tel:${globals.business_phone}`}
               className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-red-700 transition-colors"
             >
-              Call Now: (555) 123-4567
+              Call Now: {globals.business_phone}
             </a>
             <Link 
               href="/get-quote"
@@ -130,11 +130,11 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="tel:555-123-4567"
+              href={`tel:${globals.business_phone}`}
               className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-red-700 transition-colors inline-flex items-center justify-center space-x-2"
             >
               <Phone className="h-6 w-6" />
-              <span>(555) 123-4567</span>
+              <span>{globals.business_phone}</span>
             </a>
             <Link 
               href="/schedule-service"

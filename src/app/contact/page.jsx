@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Clock, MessageSquare } from 'lucide-react';
 import Image from 'next/image';
 import ContactForm from '@/components/forms/main-contact'
+import ServiceAreaMap from '@/components/ui/ServiceAreaMap'
 import data from 'globals.json'
 export default function ContactPage() {
 
@@ -38,7 +39,7 @@ export default function ContactPage() {
           <h2 className="text-2xl font-bold mb-2">Plumbing Emergency?</h2>
           <p className="mb-4">Don't wait! Call us now for immediate assistance</p>
           <a 
-            href="tel:555-123-4567"
+            href={`tel:${data.business_phone}`}
             className="inline-flex items-center space-x-2 bg-white text-red-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors"
           >
             <Phone className="h-6 w-6" />
@@ -72,10 +73,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                     <a 
-                      href="tel:555-123-4567" 
+                      href={`tel:${data.business_phone}`} 
                       className="text-blue-600 hover:text-blue-800 font-medium text-lg"
                     >
-                      (555) 123-4567
+                      {data.business_phone}
                     </a>
                     <p className="text-gray-600 text-sm">24/7 Emergency Line</p>
                   </div>
@@ -89,10 +90,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <a 
-                      href="mailto:info@meyersplumbing.com" 
+                      href={`mailto:${data.business_email}`} 
                       className="text-blue-600 hover:text-blue-800"
                     >
-                      info@meyersplumbing.com
+                      {data.business_email}
                     </a>
                     <p className="text-gray-600 text-sm">We'll respond within 24 hours</p>
                   </div>
@@ -106,8 +107,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
                     <p className="text-gray-700">
-                      123 Main Street<br />
-                      Your City, ST 12345
+                      {data.business_address}<br />
+                      {data.business_city}, {data.business_state} {data.business_zip}
                     </p>
                   </div>
                 </div>
@@ -133,10 +134,10 @@ export default function ContactPage() {
               <div className="mt-8 p-6 bg-gray-50 rounded-lg">
                 <h3 className="font-semibold text-gray-900 mb-3">Service Areas</h3>
                 <p className="text-gray-700 text-sm">
-                  We proudly serve the greater metropolitan area including:
+                  We proudly serve the greater Pittsburgh area including:
                 </p>
                 <p className="text-gray-600 text-sm mt-2">
-                  Downtown, Northside, Westend, Eastbrook, Southville, and surrounding communities
+                  Pittsburgh, Bethel Park, Mt. Lebanon, Upper St. Clair, Peters Township, McMurray, Canonsburg, Bridgeville, Moon, Sewickley, Imperial, Robinson Township, Carnegie, and surrounding communities
                 </p>
               </div>
             </div>
@@ -149,16 +150,24 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section Placeholder */}
+      {/* Interactive Map Section */}
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-900">Find Us</h2>
-          <div className="bg-gray-300 rounded-lg h-96 flex items-center justify-center">
-            <div className="text-center text-gray-600">
-              <MapPin className="h-12 w-12 mx-auto mb-4" />
-              <p className="text-lg font-medium">Interactive Map Coming Soon</p>
-              <p className="text-sm">123 Main Street, Your City, ST 12345</p>
-            </div>
+          <h2 className="text-3xl font-bold text-center mb-8 text-gray-900">Our Service Area</h2>
+          <div className="mb-6 text-center">
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Based in Oakdale, PA, we proudly serve Pittsburgh and the surrounding communities. 
+              Click on the pins to see our main office and service areas.
+            </p>
+          </div>
+          <ServiceAreaMap />
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-500">
+              <span className="inline-block w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+              Main Office
+              <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-2 ml-6"></span>
+              Service Areas
+            </p>
           </div>
         </div>
       </section>

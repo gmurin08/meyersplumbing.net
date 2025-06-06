@@ -9,10 +9,12 @@ import CTAButton from '@/components/ui/ctabtn'
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
 
   const handleMobileLinkClick = () => {
     setMobileMenuOpen(false);
     setMobileServicesOpen(false);
+    setMobileAreasOpen(false);
   };
 
   const services = [
@@ -25,6 +27,18 @@ export default function Header() {
     { name: 'Excavation', href: '/services/excavation' },
     { name: 'Trenchless Repair', href: '/services/trenchless' },
     { name: 'Toilet Repair', href: '/services/toilets' }
+  ];
+
+  const serviceAreas = [
+    { name: 'All Service Areas', href: '/service-areas' },
+    { name: 'Pittsburgh', href: '/service-areas/pittsburgh' },
+    { name: 'Moon Township', href: '/service-areas/moon-township' },
+    { name: 'Robinson Township', href: '/service-areas/robinson-township' },
+    { name: 'Sewickley', href: '/service-areas/sewickley' },
+    { name: 'Carnegie', href: '/service-areas/carnegie' },
+    { name: 'Mt. Lebanon', href: '/service-areas/mt-lebanon' },
+    { name: 'Upper St. Clair', href: '/service-areas/upper-st-clair' },
+    { name: 'Peters Township', href: '/service-areas/peters-township' }
   ];
 
   return (
@@ -83,9 +97,28 @@ export default function Header() {
             <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               About
             </Link>
-            <Link href="/service-areas" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-              Service Areas
-            </Link>
+            <div className="relative group">
+              <Link href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors flex items-center space-x-1">
+                <span>Service Areas</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </Link>
+              {/* Service Areas Dropdown */}
+              <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="py-2">
+                  {serviceAreas.map((area, index) => (
+                    <Link 
+                      key={index}
+                      href={area.href} 
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                    >
+                      {area.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
             <Link href="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               Contact
             </Link>
@@ -161,9 +194,34 @@ export default function Header() {
             <Link href="/about" onClick={handleMobileLinkClick} className="block text-gray-700 font-medium py-2">
               About
             </Link>
-            <Link href="/service-areas" onClick={handleMobileLinkClick} className="block text-gray-700 font-medium py-2">
-              Service Areas
-            </Link>
+
+            {/* Mobile Service Areas Dropdown */}
+            <div>
+              <button
+                onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
+                className="flex items-center justify-between w-full text-gray-700 font-medium py-2"
+              >
+                <span>Service Areas</span>
+                <ChevronDown 
+                  className={`h-4 w-4 transition-transform ${mobileAreasOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+              {mobileAreasOpen && (
+                <div className="ml-4 mt-2 space-y-2">
+                  {serviceAreas.map((area, index) => (
+                    <Link
+                      key={index}
+                      href={area.href}
+                      onClick={handleMobileLinkClick}
+                      className="block text-sm text-gray-600 py-2 hover:text-blue-600"
+                    >
+                      {area.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link href="/contact" onClick={handleMobileLinkClick} className="block text-gray-700 font-medium py-2">
               Contact
             </Link>

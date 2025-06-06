@@ -10,10 +10,10 @@ const ServiceAreas = () =>{
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Proudly Serving Pittsburgh and Surrounding Areas</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
             {[
-              'Pittsburgh', 'Bethel Park', 'Mt. Lebanon', 'Upper St. Clair',
-              'Peters Township', 'McMurray', 'Canonsburg', 'Washington',
-              'Bridgeville', 'South Park', 'Jefferson Hills', 'West Mifflin',
-              'Baldwin', 'Whitehall', 'Brentwood', 'Dormont'
+              'Pittsburgh', 'Moon Township', 'Robinson Township', 'Sewickley',
+              'Coraopolis', 'Carnegie', 'Bridgeville', 'Mt. Lebanon',
+              'Upper St. Clair', 'Peters Township', 'McMurray', 'Canonsburg',
+              'Bethel Park', 'Dormont', 'Imperial', 'Findlay Township'
             ].map((area, index) => (
               <NuCard key={index}>
                 <span className="text-gray-700 font-medium">{area}</span>

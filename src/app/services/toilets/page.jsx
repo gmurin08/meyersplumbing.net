@@ -2,6 +2,17 @@ import { Wrench, Droplets, Settings, AlertTriangle, CheckCircle, Clock, DollarSi
 import Link from 'next/link';
 import globals from '/globals.json';
 
+export const metadata = {
+  title: 'Toilet Installation & Repair Services - Pittsburgh & Oakdale PA | Expert Toilet Plumbers',
+  description: 'Professional toilet installation, repair & replacement in Pittsburgh PA. Emergency toilet service, running toilet repair, toilet clogs. Licensed plumbers serving Oakdale, Moon Township, Peters Township.',
+  keywords: 'toilet installation Pittsburgh, toilet repair PA, running toilet fix, toilet replacement Oakdale, clogged toilet Moon Township, toilet plumber Peters Township',
+  openGraph: {
+    title: 'Toilet Services - Pittsburgh Professional Plumber',
+    description: 'Expert toilet installation, repair and replacement services in Pittsburgh PA. Emergency toilet service available.',
+    url: 'https://meyersplumbing.net/services/toilets',
+  }
+};
+
 export default function ToiletServicesPage() {
   const toiletServices = [
     {

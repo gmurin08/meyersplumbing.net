@@ -3,6 +3,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import globals from 'globals.json';
 
+export const metadata = {
+  title: 'Professional Excavation Services - Pittsburgh & Oakdale PA | Licensed Plumbing Excavation',
+  description: 'Expert plumbing excavation services in Pittsburgh PA. Pipe replacement, sewer line repair, emergency excavation. Licensed & insured contractors serving Oakdale, Moon Township, Robinson Township.',
+  keywords: 'excavation services Pittsburgh, pipe excavation PA, sewer line excavation Oakdale, emergency excavation Moon Township, plumbing excavation Robinson Township',
+  openGraph: {
+    title: 'Excavation Services - Pittsburgh Professional Plumber',
+    description: 'Professional plumbing excavation services in Pittsburgh PA. Expert pipe replacement and sewer line repair.',
+    url: 'https://meyersplumbing.net/services/excavation',
+  }
+};
+
 export default function ExcavationPage() {
   const excavationTypes = [
     {

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Block access to admin/internal pages if any exist
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Point to sitemap
+Sitemap: https://meyersplumbing.net/sitemap.xml
+
+# Crawl delay to be respectful (optional)
+Crawl-delay: 1

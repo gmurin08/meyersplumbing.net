@@ -3,6 +3,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import globals from 'globals.json';
 
+export const metadata = {
+  title: 'Professional Drain Cleaning Services - Pittsburgh & Oakdale PA',
+  description: 'Expert drain cleaning & clog removal in Pittsburgh PA. Hydro jetting, video inspection, emergency drain service. Fast response to Oakdale, Moon Township, Robinson Township & all surrounding areas.',
+  keywords: 'drain cleaning Pittsburgh, clogged drain repair, hydro jetting PA, sewer cleaning Oakdale, emergency drain service',
+  openGraph: {
+    title: 'Drain Cleaning Services - Pittsburgh Emergency Plumber',
+    description: 'Professional drain cleaning & clog removal in Pittsburgh PA. Emergency service available 24/7.',
+    url: 'https://meyersplumbing.net/services/drain-cleaning',
+  }
+};
+
 export default function DrainCleaningPage() {
   const drainTypes = [
     {

@@ -3,6 +3,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import globals from 'globals.json';
 
+export const metadata = {
+  title: 'Commercial Plumbing Services - Pittsburgh & Oakdale PA | 24/7 Emergency',
+  description: 'Professional commercial plumbing services in Pittsburgh PA. 24/7 emergency response, preventive maintenance, licensed & insured. Serving Oakdale, Moon Township, Robinson Township & surrounding areas.',
+  keywords: 'commercial plumbing Pittsburgh, business plumber PA, emergency commercial plumbing, restaurant plumbing Oakdale, office building plumber Moon Township',
+  openGraph: {
+    title: 'Commercial Plumbing Services - Pittsburgh Emergency Plumber',
+    description: 'Professional commercial plumbing for businesses in Pittsburgh PA. 24/7 emergency service, preventive maintenance programs.',
+    url: 'https://meyersplumbing.net/services/commercial',
+  }
+};
+
 export default function CommercialPlumbingPage() {
   const businessTypes = [
     {

@@ -1,9 +1,16 @@
 import { Flame, Shield, AlertTriangle, Wrench, CheckCircle, Clock, Phone, Home, Zap, TreePine, Award, Star, Settings, Eye, HardHat, FileCheck } from 'lucide-react';
 import Link from 'next/link';
+import globals from 'globals.json';
 
-// Mock globals for demo
-const globals = {
-  business_phone: "(555) 123-4567"
+export const metadata = {
+  title: 'Gas Line Installation & Repair Services - Pittsburgh & Oakdale PA | Licensed Gas Fitters',
+  description: 'Professional gas line installation, repair & emergency services in Pittsburgh PA. Licensed gas fitters for new construction, appliance connections, gas leaks. Serving Oakdale, Moon Township, Peters Township.',
+  keywords: 'gas line installation Pittsburgh, gas line repair PA, gas leak emergency Oakdale, gas fitter Moon Township, natural gas installation Peters Township',
+  openGraph: {
+    title: 'Gas Line Services - Pittsburgh Licensed Gas Fitters',
+    description: 'Professional gas line installation and repair services in Pittsburgh PA. Emergency gas line service available 24/7.',
+    url: 'https://meyersplumbing.net/services/gas-lines',
+  }
 };
 
 export default function GasLinesPage() {
