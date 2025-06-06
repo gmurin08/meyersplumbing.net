@@ -3,6 +3,18 @@ import Image from 'next/image';
 import ContactForm from '@/components/forms/main-contact'
 import ServiceAreaMap from '@/components/ui/ServiceAreaMap'
 import data from 'globals.json'
+
+export const metadata = {
+  title: 'Contact Us - Pittsburgh & Oakdale PA | 24/7 Response',
+  description: '24/7 emergency plumbing services in Pittsburgh PA. Fast response for burst pipes, sewer backups, gas leaks & plumbing disasters. Licensed emergency plumbers serving Oakdale, Moon Township, Robinson Township.',
+  keywords: 'emergency plumber Pittsburgh, 24/7 plumbing service PA, burst pipe repair, sewer backup Oakdale, gas leak emergency Moon Township',
+  openGraph: {
+    title: 'Emergency Plumbing Services - Pittsburgh 24/7 Plumber',
+    description: '24/7 emergency plumbing services in Pittsburgh PA. Fast response for plumbing disasters and emergencies.',
+    url: 'https://meyersplumbing.net/contact',
+  }
+};
+
 export default function ContactPage() {
 
   return (
