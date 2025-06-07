@@ -26,7 +26,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="text-2xl font-bold w-1/2">
-              <Image src='/logo/logo-flat.webp' width={500} height={243}/>
+              <Image src='/logo/logo-flat.webp' width={500} height={243} alt="Matt Meyers Plumbing Logo"/>
             </div>
             <h4 className="text-lg font-semibold">M. MEYERS PLUMBING</h4>
             <div className='flex justify-center'>
@@ -34,7 +34,7 @@ export default function Footer() {
               Professional plumbing services available 24/7. Licensed, insured, and committed to quality workmanship.
             </p></div>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="#" alt="Visit us on facebook" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Facebook className="h-5 w-5" />
                 {/* <Google className="h-5 w-5"/> */}
               </a>
