@@ -1,4 +1,5 @@
-import { Wrench, Droplets, Settings, AlertTriangle, CheckCircle, Clock, DollarSign, Award, Shield, Home, Eye, Phone } from 'lucide-react';
+import { Wrench, Droplets, Settings, AlertTriangle, CheckCircle, Clock, Award, Shield, Home, Eye, Phone } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import globals from '/globals.json';
 
@@ -18,6 +19,7 @@ export default function ToiletServicesPage() {
     {
       service: "Toilet Installation",
       icon: Wrench,
+      image: "/images/svc/toilet-lid.webp", // Add your image URL here
       description: "Professional installation of new toilets with proper sealing and connections",
       features: [
         "Complete toilet installation service",
@@ -26,12 +28,12 @@ export default function ToiletServicesPage() {
         "Floor flange repair if needed",
         "Disposal of old toilet included"
       ],
-      timeframe: "1-3 hours",
-      pricing: "$200-400 + toilet cost"
+      timeframe: "1-3 hours"
     },
     {
       service: "Toilet Repair",
       icon: Settings,
+      image: "/images/svc/toilet.webp", // Add your image URL here
       description: "Expert repair of running toilets, clogs, leaks, and mechanical issues",
       features: [
         "Running toilet diagnostics and repair",
@@ -40,12 +42,12 @@ export default function ToiletServicesPage() {
         "Leak detection and sealing",
         "Clog removal and auger service"
       ],
-      timeframe: "30 minutes - 2 hours",
-      pricing: "$150-350"
+      timeframe: "30 minutes - 2 hours"
     },
     {
       service: "Toilet Replacement",
       icon: Droplets,
+      image: "/images/svc/toilet-bowl.webp", // Add your image URL here
       description: "Complete toilet replacement with upgraded models and improved efficiency",
       features: [
         "Old toilet removal and disposal",
@@ -54,12 +56,12 @@ export default function ToiletServicesPage() {
         "Professional installation",
         "Water efficiency upgrades"
       ],
-      timeframe: "2-4 hours", 
-      pricing: "$300-600 + toilet cost"
+      timeframe: "2-4 hours"
     },
     {
       service: "Emergency Toilet Service",
       icon: AlertTriangle,
+      image: "/images/svc/emergency.webp", // Add your image URL here
       description: "24/7 emergency service for urgent toilet problems and overflows",
       features: [
         "Emergency overflow cleanup",
@@ -68,8 +70,7 @@ export default function ToiletServicesPage() {
         "Water damage prevention",
         "Temporary solutions available"
       ],
-      timeframe: "1-2 hours response",
-      pricing: "$200-500 + materials"
+      timeframe: "1-2 hours response"
     }
   ];
 
@@ -104,28 +105,24 @@ export default function ToiletServicesPage() {
     {
       type: "Standard Two-Piece",
       description: "Traditional toilet with separate tank and bowl",
-      priceRange: "$150-400",
       efficiency: "1.6-1.28 GPF",
       bestFor: "Budget-conscious homeowners"
     },
     {
       type: "One-Piece Toilet", 
       description: "Sleek design with integrated tank and bowl",
-      priceRange: "$300-800",
       efficiency: "1.28-1.0 GPF", 
       bestFor: "Modern bathrooms and easy maintenance"
     },
     {
       type: "Comfort Height",
       description: "ADA compliant height for easier sitting and standing",
-      priceRange: "$200-600",
       efficiency: "1.6-1.28 GPF",
       bestFor: "Accessibility needs and aging in place"
     },
     {
       type: "Dual Flush",
       description: "Two flush options for liquid and solid waste",
-      priceRange: "$300-700", 
       efficiency: "0.8/1.6 GPF",
       bestFor: "Water conservation and environmental concerns"
     }
@@ -219,12 +216,24 @@ export default function ToiletServicesPage() {
             <div key={index} className="mb-16 last:mb-0">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className={`${index % 2 === 0 ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}>
-                  <div className="bg-cyan-100 rounded-lg h-80 flex items-center justify-center">
-                    <div className="text-center text-cyan-600">
-                      <service.icon className="h-16 w-16 mx-auto mb-4" />
-                      <p className="text-lg font-medium">{service.service}</p>
-                      <p className="text-sm">Professional toilet services</p>
-                    </div>
+                  <div className="relative bg-gray-200 rounded-lg h-80 overflow-hidden">
+                    {service.image ? (
+                      <Image 
+                        src={service.image}
+                        alt={`${service.service} professional toilet service`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      />
+                    ) : (
+                      <div className="h-full flex items-center justify-center">
+                        <div className="text-center text-cyan-600">
+                          <service.icon className="h-16 w-16 mx-auto mb-4" />
+                          <p className="text-lg font-medium">{service.service}</p>
+                          <p className="text-sm">Professional toilet services</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className={`${index % 2 === 0 ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}`}>
@@ -251,15 +260,9 @@ export default function ToiletServicesPage() {
                   </div>
                   
                   <div className="bg-white p-4 rounded-lg border border-cyan-200">
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <p className="font-medium text-cyan-700">Timeframe:</p>
-                        <p className="text-gray-700">{service.timeframe}</p>
-                      </div>
-                      <div>
-                        <p className="font-medium text-cyan-700">Pricing:</p>
-                        <p className="text-gray-700">{service.pricing}</p>
-                      </div>
+                    <div className="text-sm">
+                      <p className="font-medium text-cyan-700">Timeframe:</p>
+                      <p className="text-gray-700">{service.timeframe}</p>
                     </div>
                   </div>
                 </div>
@@ -280,10 +283,6 @@ export default function ToiletServicesPage() {
                 <p className="text-gray-700 mb-4 text-sm">{toilet.description}</p>
                 
                 <div className="space-y-3">
-                  <div className="flex justify-between text-sm">
-                    <span className="font-medium text-gray-700">Price Range:</span>
-                    <span className="text-gray-600">{toilet.priceRange}</span>
-                  </div>
                   <div className="flex justify-between text-sm">
                     <span className="font-medium text-gray-700">Water Use:</span>
                     <span className="text-gray-600">{toilet.efficiency}</span>
@@ -324,13 +323,13 @@ export default function ToiletServicesPage() {
               </ul>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <DollarSign className="h-12 w-12 text-orange-600 mx-auto mb-4" />
-              <h3 className="font-semibold text-gray-900 mb-2">Fair Pricing</h3>
+              <Eye className="h-12 w-12 text-orange-600 mx-auto mb-4" />
+              <h3 className="font-semibold text-gray-900 mb-2">Thorough Inspection</h3>
               <ul className="text-sm text-gray-700 space-y-1">
-                <li>• Transparent estimates</li>
-                <li>• No hidden fees</li>
-                <li>• Competitive rates</li>
-                <li>• Value-focused service</li>
+                <li>• Complete system check</li>
+                <li>• Problem identification</li>
+                <li>• Preventive recommendations</li>
+                <li>• Detailed explanations</li>
               </ul>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
@@ -348,15 +347,27 @@ export default function ToiletServicesPage() {
       </section>
 
       {/* Emergency Section */}
-      <section className="py-16 bg-red-50">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="relative py-16 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/svc/overflow.webp"
+            alt="Toilet overflow emergency service"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        {/* Gray Overlay with 75% opacity */}
+        <div className="absolute inset-0 bg-gray-900/75"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <AlertTriangle className="h-16 w-16 text-red-600 mx-auto mb-6" />
-            <h2 className="text-3xl font-bold mb-4 text-gray-900">Toilet Emergency?</h2>
-            <p className="text-xl text-gray-700 mb-8">
+            <AlertTriangle className="h-16 w-16 text-red-400 mx-auto mb-6" />
+            <h2 className="text-3xl font-bold mb-4 text-white">Toilet Emergency?</h2>
+            <p className="text-xl text-gray-200 mb-8">
               Overflowing toilet? Major leak? Don&apos;t wait - water damage can happen fast. Call us immediately for emergency toilet service.
             </p>
-            <div className="bg-white border-2 border-red-500 rounded-lg p-6 mb-8">
+            <div className="bg-white/90 border-2 border-red-500 rounded-lg p-6 mb-8">
               <h3 className="font-bold text-red-800 text-lg mb-4">Emergency Steps:</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                 <div>
@@ -379,13 +390,13 @@ export default function ToiletServicesPage() {
             >
               Emergency: {globals.business_phone}
             </a>
-            <p className="text-sm text-gray-600 mt-4">24/7 Emergency Service Available</p>
+            <p className="text-sm text-gray-300 mt-4">24/7 Emergency Service Available</p>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-blue-950 text-white">
+      <section className="py-16 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Professional Toilet Services in {globals.business_city}, {globals.business_state}</h2>
           <p className="text-xl mb-8">

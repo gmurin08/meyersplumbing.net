@@ -12,6 +12,7 @@ export default function TrenchlessPipeRepairPage() {
     {
       method: "Pipe Bursting",
       icon: Zap,
+      image: "/images/svc/pipe-bursting.webp",
       bestFor: "Complete pipe replacement, severely damaged lines",
       process: "New pipe is pulled through while breaking apart the old one",
       advantages: ["Completely new pipe system", "Can upsize pipe diameter", "Works with most pipe materials", "Single access point needed"],
@@ -23,6 +24,7 @@ export default function TrenchlessPipeRepairPage() {
     {
       method: "Pipe Lining (CIPP)",
       icon: Shield,
+      image: "/images/svc/cipp.webp",
       bestFor: "Structural repairs, root intrusion, minor cracks",
       process: "Resin-saturated liner cures inside existing pipe",
       advantages: ["Preserves existing pipe", "Seamless interior surface", "Resistant to root intrusion", "Cost-effective solution"],
@@ -52,12 +54,7 @@ export default function TrenchlessPipeRepairPage() {
       traditional: "$3,000-15,000",
       advantage: "trenchless"
     },
-    {
-      factor: "Upfront Investment",
-      trenchless: "Higher initial cost",
-      traditional: "Lower material costs",
-      advantage: "traditional"
-    },
+
     {
       factor: "Total Project Cost",
       trenchless: "Often 20-30% less",
@@ -69,18 +66,6 @@ export default function TrenchlessPipeRepairPage() {
       trenchless: "Minimal impact",
       traditional: "Highly weather dependent",
       advantage: "trenchless"
-    },
-    {
-      factor: "Pipe Access",
-      trenchless: "Limited access needed",
-      traditional: "Complete pipe exposure",
-      advantage: "traditional"
-    },
-    {
-      factor: "Repair Scope",
-      trenchless: "Limited to certain conditions",
-      traditional: "Handles any situation",
-      advantage: "traditional"
     }
   ];
 
@@ -299,7 +284,7 @@ export default function TrenchlessPipeRepairPage() {
       </section>
 
       {/* Trenchless vs Traditional Comparison */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">Trenchless vs. Traditional: The Clear Winner</h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
@@ -334,7 +319,7 @@ export default function TrenchlessPipeRepairPage() {
             </table>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Trenchless Methods */}
       <section className="py-16 bg-gray-50">
@@ -345,12 +330,24 @@ export default function TrenchlessPipeRepairPage() {
             <div key={index} className="mb-16 last:mb-0">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className={`${index % 2 === 0 ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}>
-                  <div className="bg-gray-200 rounded-lg h-80 flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <method.icon className="h-16 w-16 mx-auto mb-4" />
-                      <p className="text-lg font-medium">{method.method}</p>
-                      <p className="text-sm">Advanced technology in action</p>
-                    </div>
+                  <div className="relative bg-gray-200 rounded-lg h-80 overflow-hidden">
+                    {method.image ? (
+                      <Image 
+                        src={method.image}
+                        alt={`${method.method} trenchless pipe repair technology`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      />
+                    ) : (
+                      <div className="h-full flex items-center justify-center">
+                        <div className="text-center text-gray-600">
+                          <method.icon className="h-16 w-16 mx-auto mb-4" />
+                          <p className="text-lg font-medium">{method.method}</p>
+                          <p className="text-sm">Advanced technology in action</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className={`${index % 2 === 0 ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}`}>
@@ -535,12 +532,14 @@ export default function TrenchlessPipeRepairPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <div className="bg-green-100 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-green-600">
-                  <Camera className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Advanced Technology</p>
-                  <p className="text-sm">Precision equipment in action</p>
-                </div>
+              <div className="relative bg-green-100 rounded-lg h-96 overflow-hidden">
+                <Image 
+                  src="/images/svc/technology.webp"
+                  alt="Advanced trenchless pipe repair technology equipment"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                />
               </div>
             </div>
             <div className="order-1 lg:order-2">
@@ -618,12 +617,14 @@ export default function TrenchlessPipeRepairPage() {
               </div>
             </div>
             <div className="order-2 lg:order-2">
-              <div className="bg-green-100 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-green-600">
-                  <TreePine className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Environmental Protection</p>
-                  <p className="text-sm">Sustainable repair solutions</p>
-                </div>
+              <div className="relative bg-green-100 rounded-lg h-96 overflow-hidden">
+                <Image 
+                  src="/images/svc/environment.webp"
+                  alt="Environmental protection through trenchless technology"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                />
               </div>
             </div>
           </div>

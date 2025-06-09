@@ -157,7 +157,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-gray-400">
-              © 2025 M. Meyers Plumbing. All rights reserved. | Licensed & Insured | License #123456
+              © 2025 M. Meyers Plumbing. All rights reserved. | Licensed & Insured | License #PA202254
             </div>
             <div className="flex space-x-6 text-sm">
               <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">

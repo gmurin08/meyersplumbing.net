@@ -1,7 +1,10 @@
+'use client'
 import { Award, Users, Clock, Shield, Wrench, Heart } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import ServiceAreas from '@/components/sections/ServiceAreas'
+import ServiceAreas from '@/components/sections/ServiceAreas';
+import NumbersCounter from '@/components/ui/NumbersCounter';
+import CompactContactForm from '@/components/forms/compact-contact';
 export default function AboutPage() {
   return (
     <div>
@@ -12,7 +15,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">About M. Meyers Plumbing</h1>
             <p className="text-xl max-w-2xl mx-auto">
-              Three generations of trusted plumbing expertise serving the Pittsburgh area with integrity and quality craftsmanship.
+              Trusted plumbing expertise serving the Pittsburgh area with integrity and quality craftsmanship.
             </p>
           </div>
         </div>
@@ -37,12 +40,14 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <Wrench className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Family Photo Coming Soon</p>
-                  <p className="text-sm">Three Generations of Plumbers</p>
-                </div>
+              <div className="relative bg-gray-200 rounded-lg h-96 overflow-hidden">
+                <Image 
+                  src="/images/vans/van-mockup.webp"
+                  alt="M. Meyers Plumbing service van ready to serve the Pittsburgh area"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                />
               </div>
             </div>
           </div>
@@ -67,14 +72,12 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold mb-6 text-gray-900">Meet Matt Meyers</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Matt Meyers is a licensed Master Plumber with over 20 years of experience in the plumbing industry. Growing up in the family business, Matt learned the trade from his father and has been dedicated to maintaining the high standards that M. Meyers Plumbing is known for.
+                  Matt Meyers is a licensed Master Plumber with over 20 years of experience in the plumbing industry. With deep roots in the industry, Matt learned the trade from skilled professionals and has been dedicated to maintaining the high standards that M. Meyers Plumbing is known for.
                 </p>
                 <p>
                   Matt holds state certifications in residential and commercial plumbing, backflow prevention, and gas line installation. He stays current with the latest plumbing technologies and techniques through continuing education and industry training.
                 </p>
-                <p>
-                  When he's not fixing pipes or installing water heaters, Matt enjoys spending time with his family and coaching youth baseball in the local community.
-                </p>
+ 
               </div>
               <div className="mt-6 space-y-2">
                 <div className="flex items-center space-x-3">
@@ -131,33 +134,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* By the Numbers */}
-      <section className="py-16 bg-blue-900 text-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">M. Meyers Plumbing by the Numbers</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold mb-2">38+</div>
-              <div className="text-blue-200">Years in Business</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">5,000+</div>
-              <div className="text-blue-200">Happy Customers</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">24/7</div>
-              <div className="text-blue-200">Emergency Service</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">100%</div>
-              <div className="text-blue-200">Satisfaction Guaranteed</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* By the Numbers - Animated Counter */}
+      <NumbersCounter />
       {/* Service Areas*/}
       
 <ServiceAreas/> 
+
+      {/* Compact Contact Form */}
+      <div className="relative w-full py-8">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/vans/van-mockup.webp"
+            alt="M. Meyers Plumbing service van background"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        {/* Black Overlay */}
+        <div className="absolute inset-0 bg-black/80"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
+          <CompactContactForm />
+        </div>
+      </div>
+
       {/* Call to Action */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">

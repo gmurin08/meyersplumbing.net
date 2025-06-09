@@ -2,6 +2,7 @@ import { Home, Heart, Shield, Wrench, Droplets, Thermometer, Zap, CheckCircle, S
 import Image from 'next/image';
 import Link from 'next/link';
 import globals from 'globals.json';
+import ReviewsWidget from '@/components/reviews-widget';
 
 export const metadata = {
   title: 'Residential Plumbing Services - Pittsburgh & Oakdale PA | Expert Home Plumbers',
@@ -19,24 +20,28 @@ export default function ResidentialPlumbingPage() {
     {
       icon: Droplets,
       title: "Kitchen Plumbing",
+      image: "/images/svc/kitchen.webp", // Add your image URL here
       services: ["Garbage Disposal Installation", "Kitchen Sink Repair", "Dishwasher Connections", "Water Line Installation", "Faucet Replacement"],
       description: "The heart of your home deserves expert care"
     },
     {
       icon: Home,
       title: "Bathroom Plumbing", 
+      image: "/images/svc/bathroom.webp", // Add your image URL here
       services: ["Toilet Installation & Repair", "Shower & Tub Installation", "Bathroom Remodels", "Vanity Plumbing", "Tile & Fixture Work"],
       description: "Your personal sanctuary, perfectly plumbed"
     },
     {
       icon: Thermometer,
       title: "Water Heaters",
+      image: "/images/svc/water-heater.webp", // Add your image URL here
       services: ["Tank & Tankless Installation", "Water Heater Repair", "Maintenance Programs", "Energy Efficiency Upgrades", "Emergency Replacement"],
       description: "Reliable hot water when you need it most"
     },
     {
       icon: Wrench,
       title: "Whole House Systems",
+      image: "/images/svc/whole-home.webp", // Add your image URL here
       services: ["Main Line Repair", "Sump Pump Installation", "Water Softener Systems", "Whole House Filtration", "Pressure Regulation"],
       description: "Complete home plumbing solutions"
     }
@@ -46,6 +51,7 @@ export default function ResidentialPlumbingPage() {
     {
       title: "New Homeowners",
       icon: Heart,
+      image: "/images/svc/home.webp", // Add your image URL here
       description: "Welcome home! We'll help you understand your plumbing systems and prevent costly surprises.",
       services: ["Plumbing Inspection", "Preventive Maintenance", "System Education", "Warranty Registration"],
       tip: "Get a plumbing inspection within 90 days of purchase to catch potential issues early."
@@ -53,6 +59,7 @@ export default function ResidentialPlumbingPage() {
     {
       title: "Growing Families",
       icon: Users,
+      image: "/images/svc/family.webp", // Add your image URL here
       description: "More people means more demand. We'll upgrade your systems to handle the extra load.",
       services: ["Bathroom Additions", "Water Pressure Upgrades", "Water Heater Sizing", "Child-Safe Fixtures"],
       tip: "Consider a tankless water heater upgrade when adding family members."
@@ -60,6 +67,7 @@ export default function ResidentialPlumbingPage() {
     {
       title: "Empty Nesters",
       icon: Home,
+      image: "/images/svc/sinks.webp", // Add your image URL here
       description: "Time to upgrade! Invest in luxury features and efficiency improvements you've always wanted.",
       services: ["Luxury Bathroom Remodels", "High-Efficiency Systems", "Smart Home Integration", "Accessibility Upgrades"],
       tip: "This is the perfect time for that master bathroom renovation you've been dreaming about."
@@ -173,29 +181,53 @@ export default function ResidentialPlumbingPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Complete Home Plumbing Solutions</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {serviceCategories.map((category, index) => (
-              <div key={index} className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-lg border border-blue-100 hover:shadow-lg transition-shadow">
-                <div className="flex items-center mb-6">
-                  <div className="bg-blue-100 p-3 rounded-lg mr-4">
-                    <category.icon className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-gray-900">{category.title}</h3>
-                    <p className="text-gray-600 italic">{category.description}</p>
+          
+          {serviceCategories.map((category, index) => (
+            <div key={index} className="mb-16 last:mb-0">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className={`${index % 2 === 0 ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}>
+                  <div className="relative bg-gray-200 rounded-lg h-80 overflow-hidden">
+                    {category.image ? (
+                      <Image 
+                        src={category.image}
+                        alt={`${category.title} residential plumbing service`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      />
+                    ) : (
+                      <div className="h-full flex items-center justify-center">
+                        <div className="text-center text-blue-600">
+                          <category.icon className="h-16 w-16 mx-auto mb-4" />
+                          <p className="text-lg font-medium">{category.title}</p>
+                          <p className="text-sm">Professional residential service</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-                <ul className="space-y-2">
-                  {category.services.map((service, serviceIndex) => (
-                    <li key={serviceIndex} className="flex items-center text-gray-700">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
-                      <span>{service}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className={`${index % 2 === 0 ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}`}>
+                  <div className="flex items-center mb-6">
+                    <div className="bg-blue-100 p-4 rounded-full mr-4">
+                      <category.icon className="h-8 w-8 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900">{category.title}</h3>
+                      <p className="text-gray-600 italic">{category.description}</p>
+                    </div>
+                  </div>
+                  <ul className="space-y-3 mb-6">
+                    {category.services.map((service, serviceIndex) => (
+                      <li key={serviceIndex} className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700">{service}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -211,12 +243,24 @@ export default function ResidentialPlumbingPage() {
             <div key={index} className="mb-16 last:mb-0">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className={`${index % 2 === 0 ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}>
-                  <div className="bg-gray-200 rounded-lg h-80 flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <stage.icon className="h-16 w-16 mx-auto mb-4" />
-                      <p className="text-lg font-medium">{stage.title} Photo</p>
-                      <p className="text-sm">Happy family in their home</p>
-                    </div>
+                  <div className="relative bg-gray-200 rounded-lg h-80 overflow-hidden">
+                    {stage.image ? (
+                      <Image 
+                        src={stage.image}
+                        alt={`${stage.title} enjoying their home plumbing services`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      />
+                    ) : (
+                      <div className="h-full flex items-center justify-center">
+                        <div className="text-center text-gray-600">
+                          <stage.icon className="h-16 w-16 mx-auto mb-4" />
+                          <p className="text-lg font-medium">{stage.title} Photo</p>
+                          <p className="text-sm">Happy family in their home</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className={`${index % 2 === 0 ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}`}>
@@ -250,12 +294,14 @@ export default function ResidentialPlumbingPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <Clock className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Seasonal Maintenance Calendar</p>
-                  <p className="text-sm">Year-round home care</p>
-                </div>
+              <div className="relative bg-gray-200 rounded-lg h-96 overflow-hidden">
+                <Image 
+                  src="/images/svc/calendar.webp" // Add your image URL here
+                  alt="Seasonal home maintenance plumbing checklist"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                />
               </div>
             </div>
             <div className="order-1 lg:order-2">
@@ -294,22 +340,8 @@ export default function ResidentialPlumbingPage() {
       <section className="py-16 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Real Projects, Real Results</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-sm text-gray-500">{testimonial.timeframe}</span>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{testimonial.project}</h3>
-                <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
-                <p className="font-medium text-gray-900">— {testimonial.name}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
+            <ReviewsWidget/>
           </div>
         </div>
       </section>
@@ -360,34 +392,48 @@ export default function ResidentialPlumbingPage() {
               </div>
             </div>
             <div className="order-2 lg:order-2">
-              <div className="bg-blue-900 text-white p-8 rounded-lg">
-                <h3 className="text-2xl font-bold mb-6 text-center">Our Guarantee to You</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
-                    <span>1-Year warranty on all workmanship</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
-                    <span>Upfront, transparent pricing</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
-                    <span>Clean, respectful service</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
-                    <span>Licensed & insured professionals</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
-                    <span>100% satisfaction guarantee</span>
-                  </div>
+              <div className="relative overflow-hidden rounded-lg border border-black">
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <Image 
+                    src="/images/svc/customer.webp"
+                    alt="Happy customer satisfied with plumbing service guarantee"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1200px) 50vw, 600px"
+                  />
                 </div>
-                <div className="mt-6 pt-6 border-t border-blue-700">
-                  <p className="text-blue-200 text-sm text-center">
-                    If you're not completely satisfied, we'll make it right. That's our promise to your family.
-                  </p>
+                {/* Blue Overlay with 75% opacity */}
+                <div className="absolute inset-0 bg-gray-900/85 border-2"></div>
+                <div className="relative z-10 text-white p-8">
+                  <h3 className="text-2xl font-bold mb-6 text-center">Our Guarantee to You</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center">
+                      <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
+                      <span>1-Year warranty on all workmanship</span>
+                    </div>
+                    <div className="flex items-center">
+                      <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
+                      <span>Upfront, transparent pricing</span>
+                    </div>
+                    <div className="flex items-center">
+                      <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
+                      <span>Clean, respectful service</span>
+                    </div>
+                    <div className="flex items-center">
+                      <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
+                      <span>Licensed & insured professionals</span>
+                    </div>
+                    <div className="flex items-center">
+                      <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
+                      <span>100% satisfaction guarantee</span>
+                    </div>
+                  </div>
+                  <div className="mt-6 pt-6 border-t border-blue-700">
+                    <p className="text-blue-200 text-sm text-center">
+                      If you're not completely satisfied, we'll make it right. That's our promise to your family.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -396,8 +442,20 @@ export default function ResidentialPlumbingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <section className="relative py-16 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/svc/home.webp"
+            alt="Beautiful home with professional plumbing services"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        {/* Blue Overlay with 75% opacity */}
+        <div className="absolute inset-0 bg-blue-600/75"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Ready to Improve Your Home's Plumbing?</h2>
           <p className="text-xl mb-8">
             From small repairs to complete renovations, we're here to help your family live more comfortably.

@@ -3,20 +3,37 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request) {
   try {
-    const formData = await request.formData();
-    
-    const data = {
-      firstName: formData.get('firstName'),
-      lastName: formData.get('lastName'),
-      phone: formData.get('phone'),
-      email: formData.get('email'),
-      serviceType: formData.get('serviceType'),
-      message: formData.get('message'),
-      preferredTime: formData.get('preferredTime'),
-    };
+    const contentType = request.headers.get('content-type');
+    let data = {};
+
+    if (contentType?.includes('application/json')) {
+      // Handle JSON data (compact form)
+      const jsonData = await request.json();
+      data = {
+        firstName: jsonData.name ? jsonData.name.split(' ')[0] : '',
+        lastName: jsonData.name ? jsonData.name.split(' ').slice(1).join(' ') : '',
+        phone: jsonData.phone,
+        email: jsonData.email,
+        serviceType: 'General Inquiry',
+        message: jsonData.details || jsonData.message,
+        preferredTime: 'No preference',
+      };
+    } else {
+      // Handle FormData (main contact form)
+      const formData = await request.formData();
+      data = {
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        phone: formData.get('phone'),
+        email: formData.get('email'),
+        serviceType: formData.get('serviceType'),
+        message: formData.get('message'),
+        preferredTime: formData.get('preferredTime'),
+      };
+    }
 
     // Basic validation
-    if (!data.firstName || !data.lastName || !data.phone || !data.message) {
+    if (!data.firstName || !data.phone || !data.message) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }

@@ -20,7 +20,7 @@ export default function DrainCleaningPage() {
     {
       location: "Kitchen Drains",
       icon: Home,
-      image: "/images/svc/drain-kitchen.webp",
+      image: "/images/svc/kitchen.webp",
       commonIssues: ["Grease buildup", "Food particles", "Soap scum", "Coffee grounds"],
       prevention: ["Use sink strainers", "Dispose grease properly", "Run hot water regularly", "Monthly baking soda flush"],
       severity: "Moderate",
@@ -29,7 +29,7 @@ export default function DrainCleaningPage() {
     {
       location: "Bathroom Drains", 
       icon: Droplets,
-      image: "/images/svc/drain-bathroom.webp",
+      image: "/images/svc/bathroom.webp",
       commonIssues: ["Hair clogs", "Soap buildup", "Toothpaste residue", "Skin cells"],
       prevention: ["Hair catchers", "Weekly hot water flush", "Avoid excess soap", "Regular cleaning"],
       severity: "Moderate",
@@ -38,7 +38,7 @@ export default function DrainCleaningPage() {
     {
       location: "Main Sewer Line",
       icon: AlertTriangle,
-      image: "/images/svc/drain-sewer.webp",
+      image: "/images/svc/sewer.webp",
       commonIssues: ["Tree root invasion", "Pipe collapse", "Grease blockages", "Foreign objects"],
       prevention: ["Root treatment", "Grease disposal education", "Regular inspections", "Proper disposal habits"],
       severity: "Severe",
@@ -47,7 +47,7 @@ export default function DrainCleaningPage() {
     {
       location: "Floor Drains",
       icon: Shield,
-      image: "/images/svc/drain-floor.webp",
+      image: "/images/svc/floor-drain.webp",
       commonIssues: ["Debris accumulation", "Dry P-traps", "Backup issues", "Odor problems"],
       prevention: ["Regular water addition", "Debris removal", "Quarterly inspection", "Professional maintenance"],
       severity: "Variable",

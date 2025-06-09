@@ -157,12 +157,25 @@ export default function EmergencyServicesPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <Phone className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Emergency Response Photo</p>
-                  <p className="text-sm">Our team in action</p>
-                </div>
+              <div className="relative bg-gray-200 rounded-lg h-96 overflow-hidden">
+                {/* Add your image URL here */}
+                {true ? ( // Change 'false' to 'true' and add image path below
+                  <Image 
+                    src="/images/svc/emergency.webp" // Replace with your image path
+                    alt="Emergency plumbing response team in action"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  />
+                ) : (
+                  <div className="h-full flex items-center justify-center">
+                    <div className="text-center text-gray-600">
+                      <Phone className="h-16 w-16 mx-auto mb-4" />
+                      <p className="text-lg font-medium">Emergency Response Photo</p>
+                      <p className="text-sm">Our team in action</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             <div className="order-1 lg:order-2">
@@ -254,12 +267,25 @@ export default function EmergencyServicesPage() {
               </div>
             </div>
             <div className="order-2 lg:order-2">
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <AlertTriangle className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Emergency Checklist Image</p>
-                  <p className="text-sm">What to do in a plumbing emergency</p>
-                </div>
+              <div className="relative bg-gray-200 rounded-lg h-96 overflow-hidden">
+                {/* Add your image URL here */}
+                {true ? ( // Change 'false' to 'true' and add image path below
+                  <Image 
+                    src="/images/svc/plumber.webp" // Replace with your image path
+                    alt="Emergency plumbing checklist and tips"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  />
+                ) : (
+                  <div className="h-full flex items-center justify-center">
+                    <div className="text-center text-gray-600">
+                      <AlertTriangle className="h-16 w-16 mx-auto mb-4" />
+                      <p className="text-lg font-medium">Emergency Checklist Image</p>
+                      <p className="text-sm">What to do in a plumbing emergency</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -269,7 +295,7 @@ export default function EmergencyServicesPage() {
       {/* Customer Stories */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Real Emergency Stories from Our Customers</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Real Stories from Our Customers</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-gray-50 p-6 rounded-lg">

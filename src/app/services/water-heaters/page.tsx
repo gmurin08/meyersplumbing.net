@@ -2,6 +2,7 @@ import { Thermometer, Zap, DollarSign, Clock, Shield, Wrench, Droplets, CheckCir
 import Image from 'next/image';
 import Link from 'next/link';
 import EnergySavingsCalculator from '@/components/ui/EnergySavingsCalculator';
+import ReviewsWidget from '@/components/reviews-widget';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -20,6 +21,7 @@ export default function WaterHeatersPage() {
     {
       type: "Traditional Tank",
       icon: Home,
+      image: "/images/svc/water-heater.webp",
       bestFor: "Budget-conscious families, consistent hot water needs",
       capacity: "30-80 gallons",
       lifespan: "8-12 years",
@@ -31,6 +33,7 @@ export default function WaterHeatersPage() {
     {
       type: "Tankless (On-Demand)",
       icon: Zap,
+      image: "/images/svc/tankless.webp",
       bestFor: "Energy-conscious homeowners, unlimited hot water needs",
       capacity: "Unlimited supply",
       lifespan: "15-20 years", 
@@ -42,6 +45,7 @@ export default function WaterHeatersPage() {
     {
       type: "Hybrid Heat Pump",
       icon: TrendingUp,
+      image: "/images/svc/hybrid-pump.webp",
       bestFor: "Maximum efficiency, warm climate locations",
       capacity: "50-80 gallons",
       lifespan: "10-15 years",
@@ -186,7 +190,7 @@ export default function WaterHeatersPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-96 bg-[url('/images/hero/wrench-bg.webp')] bg-gradient-to-r from-orange-900 to-red-700 text-white">
+      <section className="relative h-150 bg-[url('/images/hero/wrench-bg.webp')] bg-gradient-to-r from-orange-900 to-red-700 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 flex items-center justify-center h-full">
           <div className="max-w-4xl mx-auto px-4 text-center">
@@ -226,8 +230,20 @@ export default function WaterHeatersPage() {
       </section>
 
       {/* Warning Signs */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="relative py-16 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/svc/technician.webp"
+            alt="Professional technician inspecting water heater"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        {/* White Linear Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-white/100"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Is Your Water Heater Trying to Tell You Something?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {warningSigns.map((warning, index) => (
@@ -268,12 +284,24 @@ export default function WaterHeatersPage() {
             <div key={index} className="mb-12 last:mb-0">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className={`${index % 2 === 0 ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}>
-                  <div className="bg-gray-200 rounded-lg h-80 flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <heater.icon className="h-16 w-16 mx-auto mb-4" />
-                      <p className="text-lg font-medium">{heater.type} Water Heater</p>
-                      <p className="text-sm">Professional installation</p>
-                    </div>
+                  <div className="relative bg-gray-200 rounded-lg h-80 overflow-hidden">
+                    {heater.image ? (
+                      <Image 
+                        src={heater.image}
+                        alt={`${heater.type} water heater professional installation`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      />
+                    ) : (
+                      <div className="h-full flex items-center justify-center">
+                        <div className="text-center text-gray-600">
+                          <heater.icon className="h-16 w-16 mx-auto mb-4" />
+                          <p className="text-lg font-medium">{heater.type} Water Heater</p>
+                          <p className="text-sm">Professional installation</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className={`${index % 2 === 0 ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}`}>
@@ -338,11 +366,23 @@ export default function WaterHeatersPage() {
       </section>
 
       {/* Interactive Energy Savings Calculator */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="relative py-16 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/svc/money.webp"
+            alt="Energy savings and money from efficient water heater"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        {/* Green Overlay */}
+        <div className="absolute inset-0 bg-green-900/80"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Your Energy Savings Potential</h2>
-            <p className="text-xl text-gray-600">Calculate exactly how much you could save with a water heater upgrade</p>
+            <h2 className="text-3xl font-bold text-white mb-4">Your Energy Savings Potential</h2>
+            <p className="text-xl text-green-100">Calculate exactly how much you could save with a water heater upgrade</p>
           </div>
           <EnergySavingsCalculator />
         </div>
@@ -393,34 +433,8 @@ export default function WaterHeatersPage() {
       {/* Customer Success Stories */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Real Families, Real Savings</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {customerStories.map((story, index) => (
-              <div key={index} className="bg-gradient-to-b from-orange-50 to-white p-6 rounded-lg border border-orange-100">
-                <div className="mb-4">
-                  <h3 className="font-bold text-gray-900 mb-1">{story.name}</h3>
-                  <span className="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded-full">{story.timeframe}</span>
-                </div>
-                <div className="space-y-3 text-sm">
-                  <div>
-                    <p className="font-medium text-red-600">Challenge:</p>
-                    <p className="text-gray-700">{story.situation}</p>
-                  </div>
-                  <div>
-                    <p className="font-medium text-blue-600">Solution:</p>
-                    <p className="text-gray-700">{story.solution}</p>
-                  </div>
-                  <div>
-                    <p className="font-medium text-green-600">Result:</p>
-                    <p className="text-gray-700">{story.outcome}</p>
-                  </div>
-                </div>
-                <div className="mt-4 p-3 bg-white rounded border-l-4 border-orange-500">
-                  <p className="text-gray-700 italic text-sm">&quot;{story.quote}&quot;</p>
-                </div>
-              </div>
-            ))}
-          </div>
+            <h2 className='text-black'>Real Families, Real Results</h2>
+            <ReviewsWidget/>
         </div>
       </section>
 
@@ -456,12 +470,14 @@ export default function WaterHeatersPage() {
               </div>
             </div>
             <div className="order-2 lg:order-2">
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <Clock className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Maintenance Schedule</p>
-                  <p className="text-sm">Keep your system running smoothly</p>
-                </div>
+              <div className="relative bg-gray-200 rounded-lg h-96 overflow-hidden">
+                <Image 
+                  src="/images/svc/maintenance.webp"
+                  alt="Water heater maintenance and service schedule"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                />
               </div>
             </div>
           </div>
@@ -506,8 +522,20 @@ export default function WaterHeatersPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-blue-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <section className="relative py-16 overflow-hidden text-white">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/svc/technician.webp"
+            alt="Professional water heater technician ready to help"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        {/* Gray Overlay */}
+        <div className="absolute inset-0 bg-blue-950/90"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready for Reliable Hot Water?</h2>
           <p className="text-xl mb-8">
             Whether you need emergency replacement or want to upgrade for efficiency, we&apos;ll find the perfect water heater solution for your home.

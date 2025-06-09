@@ -20,6 +20,7 @@ export default function ExcavationPage() {
     {
       type: "Traditional Open Excavation",
       icon: Shovel,
+      image: "/images/svc/excavation.webp",
       bestFor: "Major pipe replacement, new installations, accessible areas",
       process: "Full excavation with proper shoring and safety protocols",
       advantages: ["Complete access to work area", "Cost-effective for large jobs", "Allows for thorough inspection", "Can address multiple issues"],
@@ -30,6 +31,7 @@ export default function ExcavationPage() {
     {
       type: "Trenchless Technology",
       icon: Zap,
+      image: "/images/svc/trenchless.webp",
       bestFor: "Minimal disruption, under driveways/landscaping, established areas",
       process: "Pipe bursting or pipe lining with minimal surface disturbance",
       advantages: ["Minimal landscape damage", "Faster completion", "Weather resistant", "Preserves mature landscaping"],
@@ -40,6 +42,7 @@ export default function ExcavationPage() {
     {
       type: "Precision Excavation",
       icon: Camera,
+      image: "/images/svc/precision.webp",
       bestFor: "Utility-dense areas, tight spaces, delicate environments",
       process: "Targeted digging with advanced locating and careful hand work",
       advantages: ["Surgical precision", "Protects existing utilities", "Minimizes collateral damage", "Safe around obstacles"],
@@ -89,6 +92,7 @@ export default function ExcavationPage() {
       step: 1,
       title: "Pre-Excavation Planning",
       description: "Comprehensive site assessment and utility location",
+      image: "/images/svc/planning.webp", // Add your image URL here
       activities: [
         "Call 811 for utility marking",
         "Video inspection of existing pipes",
@@ -102,6 +106,7 @@ export default function ExcavationPage() {
       step: 2,
       title: "Site Preparation",
       description: "Protecting your property and establishing work zones",
+      image: "/images/svc/site-prep.webp", // Add your image URL here
       activities: [
         "Landscaping protection measures",
         "Access route preparation",
@@ -115,6 +120,7 @@ export default function ExcavationPage() {
       step: 3,
       title: "Precise Excavation",
       description: "Careful digging with continuous monitoring",
+      image: "/images/svc/excavation.webp", // Add your image URL here
       activities: [
         "Hand digging near utilities",
         "Proper trench shoring",
@@ -128,6 +134,7 @@ export default function ExcavationPage() {
       step: 4,
       title: "Plumbing Work",
       description: "Professional pipe installation or repair",
+      image: "/images/svc/installation.webp", // Add your image URL here
       activities: [
         "Pipe removal/installation",
         "Proper bedding and backfill",
@@ -141,6 +148,7 @@ export default function ExcavationPage() {
       step: 5,
       title: "Complete Restoration",
       description: "Returning your property to original condition",
+      image: "/images/svc/finish.webp", // Add your image URL here
       activities: [
         "Soil compaction and grading",
         "Seed or sod installation",
@@ -267,7 +275,7 @@ export default function ExcavationPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-96 bg-[url('/images/hero/wrench-bg.webp')] bg-gradient-to-r from-amber-900 to-orange-700 text-white">
+      <section className="relative h-129 bg-[url('/images/hero/wrench-bg.webp')] bg-gradient-to-r from-amber-900 to-orange-700 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 flex items-center justify-center h-full">
           <div className="max-w-4xl mx-auto px-4 text-center">
@@ -368,12 +376,24 @@ export default function ExcavationPage() {
             <div key={index} className="mb-16 last:mb-0">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className={`${index % 2 === 0 ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}>
-                  <div className="bg-gray-200 rounded-lg h-80 flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <method.icon className="h-16 w-16 mx-auto mb-4" />
-                      <p className="text-lg font-medium">{method.type}</p>
-                      <p className="text-sm">Professional equipment in action</p>
-                    </div>
+                  <div className="relative bg-gray-200 rounded-lg h-80 overflow-hidden">
+                    {method.image ? (
+                      <Image 
+                        src={method.image}
+                        alt={`${method.type} excavation method`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      />
+                    ) : (
+                      <div className="h-full flex items-center justify-center">
+                        <div className="text-center text-gray-600">
+                          <method.icon className="h-16 w-16 mx-auto mb-4" />
+                          <p className="text-lg font-medium">{method.type}</p>
+                          <p className="text-sm">Professional equipment in action</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className={`${index % 2 === 0 ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}`}>
@@ -445,21 +465,28 @@ export default function ExcavationPage() {
       </section>
 
       {/* Safety Measures */}
-      <section className="py-16 bg-red-50">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="relative py-16 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/svc/site-prep.webp')" }}
+        />
+        <div className="absolute inset-0 bg-blue-800/80" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <div className="bg-red-100 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-red-600">
-                  <Shield className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Safety Equipment</p>
-                  <p className="text-sm">Professional grade protection</p>
-                </div>
+              <div className="relative bg-gray-200 rounded-lg h-96 overflow-hidden">
+                <Image 
+                  src="/images/svc/ppe.webp"
+                  alt="Safety equipment and personal protective gear"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                />
               </div>
             </div>
             <div className="order-1 lg:order-2">
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">Safety is Non-Negotiable</h2>
-              <p className="text-gray-700 mb-8">
+              <h2 className="text-3xl font-bold mb-6 text-white">Safety is Non-Negotiable</h2>
+              <p className="text-gray-200 mb-8">
                 Excavation work carries serious risks. We follow strict safety protocols to protect our workers, your property, and your family.
               </p>
               <div className="space-y-6">
@@ -469,11 +496,11 @@ export default function ExcavationPage() {
                       <safety.icon className="h-6 w-6 text-red-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">{safety.category}</h3>
+                      <h3 className="font-semibold text-white mb-2">{safety.category}</h3>
                       <ul className="space-y-1">
                         {safety.measures.map((measure, measureIndex) => (
-                          <li key={measureIndex} className="text-gray-700 text-sm flex items-start">
-                            <CheckCircle className="h-3 w-3 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          <li key={measureIndex} className="text-gray-200 text-sm flex items-start">
+                            <CheckCircle className="h-3 w-3 text-green-400 mr-2 mt-1 flex-shrink-0" />
                             <span>{measure}</span>
                           </li>
                         ))}
@@ -488,7 +515,7 @@ export default function ExcavationPage() {
       </section>
 
       {/* Project Examples */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Real Projects, Real Solutions</h2>
           <div className="space-y-12">
@@ -523,7 +550,7 @@ export default function ExcavationPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Cost Factors */}
       <section className="py-16 bg-gray-50">
@@ -590,8 +617,13 @@ export default function ExcavationPage() {
       </section>
 
       {/* Emergency Response */}
-      <section className="py-16 bg-red-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="relative py-16 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/svc/installation.webp')" }}
+        />
+        <div className="absolute inset-0 bg-blue-700/75" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
           <div className="mb-8">
             <AlertTriangle className="h-16 w-16 mx-auto mb-4 text-yellow-300" />
             <h2 className="text-3xl font-bold mb-4">Excavation Emergency?</h2>
@@ -601,17 +633,17 @@ export default function ExcavationPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div className="bg-red-700 p-6 rounded-lg">
+            <div className="bg-red-700/75 p-6 rounded-lg">
               <Clock className="h-12 w-12 mx-auto mb-4 text-yellow-300" />
               <h3 className="text-xl font-bold mb-2">24/7 Response</h3>
               <p className="text-red-100">Emergency excavation team ready to mobilize immediately</p>
             </div>
-            <div className="bg-red-700 p-6 rounded-lg">
+            <div className="bg-red-700/75 p-6 rounded-lg">
               <Shield className="h-12 w-12 mx-auto mb-4 text-yellow-300" />
               <h3 className="text-xl font-bold mb-2">Property Protection</h3>
               <p className="text-red-100">Prevent further damage with immediate containment</p>
             </div>
-            <div className="bg-red-700 p-6 rounded-lg">
+            <div className="bg-red-700/75 p-6 rounded-lg">
               <Shovel className="h-12 w-12 mx-auto mb-4 text-yellow-300" />
               <h3 className="text-xl font-bold mb-2">Permanent Solutions</h3>
               <p className="text-red-100">Fix the root cause, not just the symptoms</p>

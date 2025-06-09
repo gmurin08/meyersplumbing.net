@@ -1,4 +1,5 @@
 import { Flame, Shield, AlertTriangle, Wrench, CheckCircle, Clock, Phone, Home, Zap, TreePine, Award, Star, Settings, Eye, HardHat, FileCheck } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import InstallationProcessCarousel from '@/components/ui/InstallationProcessCarousel';
 import globals from 'globals.json';
@@ -19,6 +20,7 @@ export default function GasLinesPage() {
     {
       service: "New Gas Line Installation",
       icon: Wrench,
+      image: "/images/svc/installation.webp", // Add your image URL here
       description: "Professional installation of gas lines for new construction and appliance additions",
       features: [
         "Residential and commercial installations",
@@ -40,6 +42,7 @@ export default function GasLinesPage() {
     {
       service: "Gas Line Repair & Maintenance",
       icon: Settings,
+      image: "/images/svc/repair.webp", // Add your image URL here
       description: "Expert repair services for damaged, leaking, or aging gas lines",
       features: [
         "Leak detection and repair",
@@ -61,6 +64,7 @@ export default function GasLinesPage() {
     {
       service: "Emergency Gas Services",
       icon: AlertTriangle,
+      image: "/images/svc/emergency.webp", // Add your image URL here
       description: "24/7 emergency response for gas leaks and safety concerns",
       features: [
         "Immediate emergency response",
@@ -82,6 +86,7 @@ export default function GasLinesPage() {
     {
       service: "Gas Line Inspections & Testing",
       icon: Eye,
+      image: "/images/svc/inspection.webp", // Add your image URL here
       description: "Comprehensive safety inspections and pressure testing services",
       features: [
         "Pre-purchase home inspections",
@@ -229,6 +234,7 @@ export default function GasLinesPage() {
       step: 1,
       title: "Design & Planning",
       description: "Custom gas line design based on your specific needs",
+      image: "/images/svc/planning.webp", // Add your image URL here
       details: [
         "Site survey and assessment",
         "Load calculations for appliances",
@@ -242,6 +248,7 @@ export default function GasLinesPage() {
       step: 2,
       title: "Permits & Approvals",
       description: "Obtaining all necessary permits and approvals",
+      image: "/images/svc/permits.webp", // Add your image URL here
       details: [
         "Municipal permit applications",
         "Utility company notifications",
@@ -255,6 +262,7 @@ export default function GasLinesPage() {
       step: 3,
       title: "Professional Installation",
       description: "Expert installation by certified gas technicians",
+      image: "/images/svc/installation.webp", // Add your image URL here
       details: [
         "Excavation and trenching",
         "Pipe installation and connections",
@@ -268,6 +276,7 @@ export default function GasLinesPage() {
       step: 4,
       title: "Testing & Inspection",
       description: "Comprehensive testing and official inspections",
+      image: "/images/svc/inspection.webp", // Add your image URL here
       details: [
         "Pressure testing certification",
         "Leak detection verification",
@@ -394,10 +403,12 @@ export default function GasLinesPage() {
         {/* Background Image - Add heroImage property to enable */}
         {true && ( // Change to true and add heroImage when ready
           <div className="absolute inset-0">
-            <img 
-              src="/images/hero/gas-lines-hero.jpg" // Replace with actual image path
+            <Image 
+              src="/images/hero/gas-lines-hero.webp" // Replace with actual image path
               alt="Professional gas line installation"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="100vw"
             />
           </div>
         )}
@@ -483,9 +494,9 @@ export default function GasLinesPage() {
             ))}
           </div>
           <div className="text-center">
-            <div className="bg-red-100 border border-red-300 rounded-lg p-6 max-w-2xl mx-auto">
+            <div className="bg-white border border-red-300 rounded-lg p-6 max-w-2xl mx-auto">
               <h3 className="font-bold text-red-800 mb-2">If You Detect Gas:</h3>
-              <p className="text-red-700 mb-4">Leave immediately, call 911, then call us at {globals.business_phone}</p>
+              <p className="text-red-700 mb-4">Leave immediately, call 911, then call us.</p>
               <a 
                 href={`tel:${globals.business_phone}`}
                 className="bg-red-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors"
@@ -506,12 +517,24 @@ export default function GasLinesPage() {
             <div key={index} className="mb-16 last:mb-0">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className={`${index % 2 === 0 ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}>
-                  <div className="bg-orange-100 rounded-lg h-80 flex items-center justify-center">
-                    <div className="text-center text-orange-600">
-                      <service.icon className="h-16 w-16 mx-auto mb-4" />
-                      <p className="text-lg font-medium">{service.service}</p>
-                      <p className="text-sm">Professional gas line services</p>
-                    </div>
+                  <div className="relative bg-gray-200 rounded-lg h-80 overflow-hidden">
+                    {service.image ? (
+                      <Image 
+                        src={service.image}
+                        alt={`${service.service} professional gas line service`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      />
+                    ) : (
+                      <div className="h-full flex items-center justify-center">
+                        <div className="text-center text-orange-600">
+                          <service.icon className="h-16 w-16 mx-auto mb-4" />
+                          <p className="text-lg font-medium">{service.service}</p>
+                          <p className="text-sm">Professional gas line services</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className={`${index % 2 === 0 ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}`}>
@@ -789,12 +812,14 @@ export default function GasLinesPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <div className="bg-orange-100 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-orange-600">
-                  <Settings className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Gas Line Maintenance</p>
-                  <p className="text-sm">Professional care for safety</p>
-                </div>
+              <div className="relative bg-gray-200 rounded-lg h-96 overflow-hidden">
+                <Image 
+                  src="/images/svc/maintenance.webp" // Add your image URL here
+                  alt="Gas line maintenance and safety inspection"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                />
               </div>
             </div>
             <div className="order-1 lg:order-2">
