@@ -1,6 +1,7 @@
 import { Thermometer, Zap, DollarSign, Clock, Shield, Wrench, Droplets, CheckCircle, Star, AlertTriangle, TrendingUp, Award, Home } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import EnergySavingsCalculator from '@/components/ui/EnergySavingsCalculator';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -336,51 +337,55 @@ export default function WaterHeatersPage() {
         </div>
       </section>
 
-      {/* Cost Savings Calculator */}
+      {/* Interactive Energy Savings Calculator */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Your Energy Savings Potential</h2>
+            <p className="text-xl text-gray-600">Calculate exactly how much you could save with a water heater upgrade</p>
+          </div>
+          <EnergySavingsCalculator />
+        </div>
+      </section>
+
+      {/* Savings Examples */}
       <section className="py-16 bg-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="bg-blue-800 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-blue-200">
-                  <DollarSign className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Energy Savings Calculator</p>
-                  <p className="text-sm">See your potential savings</p>
-                </div>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <h2 className="text-3xl font-bold mb-6">Your Energy Savings Potential</h2>
-              <p className="text-blue-200 mb-8 text-lg">
-                Upgrading to a tankless water heater can save the average family $200-$400 per year on energy costs.
-              </p>
-              
-              <div className="space-y-6">
-                {costCalculator.map((calc, index) => (
-                  <div key={index} className="bg-blue-800 p-6 rounded-lg">
-                    <h3 className="font-bold text-xl mb-4">{calc.scenario}</h3>
-                    <p className="text-blue-200 text-sm mb-4">{calc.usage}</p>
-                    <div className="grid grid-cols-3 gap-4 text-center">
-                      <div>
-                        <p className="text-blue-200 text-xs">Traditional Tank</p>
-                        <p className="font-bold">{calc.traditional.annual}/year</p>
-                        <p className="text-blue-300 text-xs">{calc.traditional.tenYear} over 10 years</p>
-                      </div>
-                      <div>
-                        <p className="text-blue-200 text-xs">Tankless</p>
-                        <p className="font-bold">{calc.tankless.annual}/year</p>
-                        <p className="text-blue-300 text-xs">{calc.tankless.tenYear} over 10 years</p>
-                      </div>
-                      <div>
-                        <p className="text-green-300 text-xs">10-Year Savings</p>
-                        <p className="font-bold text-green-400 text-xl">{calc.savings}</p>
-                        <p className="text-green-300 text-xs">Plus equipment lasts longer</p>
-                      </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Real Savings Examples</h2>
+            <p className="text-blue-200 text-lg max-w-3xl mx-auto">
+              See how much families like yours are saving with energy-efficient water heaters. These are actual savings from Pittsburgh area homes.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {costCalculator.map((calc, index) => (
+              <div key={index} className="bg-blue-800 p-6 rounded-lg">
+                <h3 className="font-bold text-xl mb-4 text-center">{calc.scenario}</h3>
+                <p className="text-blue-200 text-sm mb-4 text-center">{calc.usage}</p>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div>
+                      <p className="text-blue-200 text-xs">Traditional Tank</p>
+                      <p className="font-bold">{calc.traditional.annual}/year</p>
+                    </div>
+                    <div>
+                      <p className="text-blue-200 text-xs">Tankless</p>
+                      <p className="font-bold">{calc.tankless.annual}/year</p>
                     </div>
                   </div>
-                ))}
+                  <div className="text-center border-t border-blue-700 pt-4">
+                    <p className="text-green-300 text-sm">10-Year Savings</p>
+                    <p className="font-bold text-green-400 text-2xl">{calc.savings}</p>
+                    <p className="text-green-300 text-xs">Plus longer equipment life</p>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8">
+            <p className="text-blue-200 text-sm">*Savings based on Pittsburgh area energy costs and average usage patterns</p>
           </div>
         </div>
       </section>
@@ -501,7 +506,7 @@ export default function WaterHeatersPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-orange-600 text-white">
+      <section className="py-16 bg-blue-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready for Reliable Hot Water?</h2>
           <p className="text-xl mb-8">

@@ -1,6 +1,7 @@
 import { Shovel, MapPin, Shield, AlertTriangle, Clock, CheckCircle, Star, Wrench, Home, TreePine, Camera, Zap } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ExcavationProcessCarousel from '@/components/ui/ExcavationProcessCarousel';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -432,39 +433,14 @@ export default function ExcavationPage() {
         </div>
       </section>
 
-      {/* Our Process */}
+      {/* Interactive Excavation Process */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Our Excavation Process</h2>
-          <div className="space-y-8">
-            {processSteps.map((step, index) => (
-              <div key={index} className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-center">
-                <div className="lg:col-span-1">
-                  <div className="bg-amber-100 p-6 rounded-full w-24 h-24 flex items-center justify-center mx-auto lg:mx-0">
-                    <span className="text-amber-600 font-bold text-2xl">{step.step}</span>
-                  </div>
-                </div>
-                <div className="lg:col-span-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-gray-700 mb-4">{step.description}</p>
-                  <ul className="space-y-1">
-                    {step.activities.map((activity, activityIndex) => (
-                      <li key={activityIndex} className="flex items-start">
-                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-600 text-sm">{activity}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="lg:col-span-1">
-                  <div className="bg-gray-50 p-4 rounded-lg text-center">
-                    <Clock className="h-8 w-8 text-gray-600 mx-auto mb-2" />
-                    <p className="font-medium text-gray-900">{step.timeframe}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Excavation Process</h2>
+            <p className="text-xl text-gray-600">Experience our systematic approach to safe and efficient excavation</p>
           </div>
+          <ExcavationProcessCarousel steps={processSteps} />
         </div>
       </section>
 
@@ -653,7 +629,7 @@ export default function ExcavationPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-amber-600 text-white">
+      <section className="py-16 bg-blue-950 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Solve Your Underground Problems?</h2>
           <p className="text-xl mb-8">

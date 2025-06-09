@@ -1,5 +1,6 @@
 import { Flame, Shield, AlertTriangle, Wrench, CheckCircle, Clock, Phone, Home, Zap, TreePine, Award, Star, Settings, Eye, HardHat, FileCheck } from 'lucide-react';
 import Link from 'next/link';
+import InstallationProcessCarousel from '@/components/ui/InstallationProcessCarousel';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -390,6 +391,19 @@ export default function GasLinesPage() {
     <div>
       {/* Hero Section */}
       <section className="relative h-96 bg-gradient-to-r from-red-900 to-orange-700 text-white">
+        {/* Background Image - Add heroImage property to enable */}
+        {true && ( // Change to true and add heroImage when ready
+          <div className="absolute inset-0">
+            <img 
+              src="/images/hero/gas-lines-hero.jpg" // Replace with actual image path
+              alt="Professional gas line installation"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-red-900/80 to-orange-700/80"></div>
+        {/* Dark Overlay for better text contrast */}
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 flex items-center justify-center h-full">
           <div className="max-w-4xl mx-auto px-4 text-center">
@@ -585,39 +599,14 @@ export default function GasLinesPage() {
         </div>
       </section>
 
-      {/* Installation Process */}
+      {/* Interactive Installation Process */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Our Installation Process</h2>
-          <div className="space-y-8">
-            {installationProcess.map((step, index) => (
-              <div key={index} className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
-                <div className="lg:col-span-1">
-                  <div className="bg-red-100 p-6 rounded-full w-24 h-24 flex items-center justify-center mx-auto lg:mx-0">
-                    <span className="text-red-600 font-bold text-2xl">{step.step}</span>
-                  </div>
-                </div>
-                <div className="lg:col-span-3">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-gray-700 mb-4">{step.description}</p>
-                  <ul className="space-y-1">
-                    {step.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-start">
-                        <CheckCircle className="h-4 w-4 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-600 text-sm">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="lg:col-span-1">
-                  <div className="bg-white p-4 rounded-lg border border-red-200 text-center">
-                    <Clock className="h-8 w-8 text-red-600 mx-auto mb-2" />
-                    <p className="font-medium text-gray-900 text-sm">{step.duration}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Installation Process</h2>
+            <p className="text-xl text-gray-600">Experience our step-by-step professional gas line installation process</p>
           </div>
+          <InstallationProcessCarousel steps={installationProcess} />
         </div>
       </section>
 
@@ -754,7 +743,7 @@ export default function GasLinesPage() {
       </section>
 
       {/* Cost Information */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Gas Line Service Pricing</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -793,7 +782,7 @@ export default function GasLinesPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Maintenance Tips */}
       <section className="py-16 bg-gray-50">
@@ -923,7 +912,7 @@ export default function GasLinesPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-red-600 text-white">
+      <section className="py-16 bg-blue-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Professional Gas Line Services You Can Trust</h2>
           <p className="text-xl mb-8">

@@ -1,6 +1,7 @@
-import { Droplets, AlertTriangle, Zap, Shield, Clock, CheckCircle, Star, Wrench, Home, RefreshCw, Microscope, Leaf } from 'lucide-react';
+import { Droplets, AlertTriangle, Zap, Shield, Clock, CheckCircle, Star, Wrench, Home, Microscope, Leaf } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import DrainDecisionTool from '@/components/ui/DrainDecisionTool';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function DrainCleaningPage() {
     {
       location: "Kitchen Drains",
       icon: Home,
+      image: "/images/svc/drain-kitchen.webp",
       commonIssues: ["Grease buildup", "Food particles", "Soap scum", "Coffee grounds"],
       prevention: ["Use sink strainers", "Dispose grease properly", "Run hot water regularly", "Monthly baking soda flush"],
       severity: "Moderate",
@@ -27,6 +29,7 @@ export default function DrainCleaningPage() {
     {
       location: "Bathroom Drains", 
       icon: Droplets,
+      image: "/images/svc/drain-bathroom.webp",
       commonIssues: ["Hair clogs", "Soap buildup", "Toothpaste residue", "Skin cells"],
       prevention: ["Hair catchers", "Weekly hot water flush", "Avoid excess soap", "Regular cleaning"],
       severity: "Moderate",
@@ -35,6 +38,7 @@ export default function DrainCleaningPage() {
     {
       location: "Main Sewer Line",
       icon: AlertTriangle,
+      image: "/images/svc/drain-sewer.webp",
       commonIssues: ["Tree root invasion", "Pipe collapse", "Grease blockages", "Foreign objects"],
       prevention: ["Root treatment", "Grease disposal education", "Regular inspections", "Proper disposal habits"],
       severity: "Severe",
@@ -43,6 +47,7 @@ export default function DrainCleaningPage() {
     {
       location: "Floor Drains",
       icon: Shield,
+      image: "/images/svc/drain-floor.webp",
       commonIssues: ["Debris accumulation", "Dry P-traps", "Backup issues", "Odor problems"],
       prevention: ["Regular water addition", "Debris removal", "Quarterly inspection", "Professional maintenance"],
       severity: "Variable",
@@ -116,40 +121,6 @@ export default function DrainCleaningPage() {
     }
   ];
 
-  const diyVsPro = [
-    {
-      scenario: "Hair Clog in Bathroom Sink",
-      diyApproach: "Drain snake or chemical cleaner",
-      diyResult: "May clear surface clog temporarily",
-      proApproach: "Professional cable cleaning + inspection",
-      proResult: "Complete removal + prevention advice",
-      verdict: "DIY first, pro if recurring"
-    },
-    {
-      scenario: "Kitchen Sink Slow Drainage",
-      diyApproach: "Boiling water and dish soap",
-      diyResult: "Temporary grease dissolution",
-      proApproach: "Hydro jetting to remove all grease buildup",
-      proResult: "Like-new pipe condition + prevention plan",
-      verdict: "Pro recommended for lasting results"
-    },
-    {
-      scenario: "Multiple Drains Backing Up",
-      diyApproach: "Store-bought chemicals",
-      diyResult: "Potential pipe damage, problem persists",
-      proApproach: "Video inspection + targeted treatment",
-      proResult: "Identify root cause + permanent solution",
-      verdict: "Always call professional"
-    },
-    {
-      scenario: "Sewage Backup in Basement",
-      diyApproach: "Attempt plunging or chemicals",
-      diyResult: "Health risk, potential contamination spread",
-      proApproach: "Emergency response + sanitization",
-      proResult: "Safe cleanup + system restoration",
-      verdict: "Emergency professional service only"
-    }
-  ];
 
   const seasonalIssues = [
     {
@@ -296,12 +267,24 @@ export default function DrainCleaningPage() {
             <div key={index} className="mb-12 last:mb-0">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className={`${index % 2 === 0 ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}>
-                  <div className="bg-gray-200 rounded-lg h-80 flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <drain.icon className="h-16 w-16 mx-auto mb-4" />
-                      <p className="text-lg font-medium">{drain.location}</p>
-                      <p className="text-sm">Professional cleaning in progress</p>
-                    </div>
+                  <div className="relative bg-gray-200 rounded-lg h-80 overflow-hidden">
+                    {drain.image ? (
+                      <Image 
+                        src={drain.image}
+                        alt={`${drain.location} cleaning service`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      />
+                    ) : (
+                      <div className="h-full flex items-center justify-center">
+                        <div className="text-center text-gray-600">
+                          <drain.icon className="h-16 w-16 mx-auto mb-4" />
+                          <p className="text-lg font-medium">{drain.location}</p>
+                          <p className="text-sm">Professional cleaning in progress</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className={`${index % 2 === 0 ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}`}>
@@ -398,52 +381,14 @@ export default function DrainCleaningPage() {
         </div>
       </section>
 
-      {/* DIY vs Professional */}
+      {/* DIY vs Professional Decision Tool */}
       <section className="py-16 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="bg-blue-100 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-blue-600">
-                  <RefreshCw className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">DIY vs Professional</p>
-                  <p className="text-sm">Making the right choice</p>
-                </div>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">DIY or Call the Pros?</h2>
-              <p className="text-gray-700 mb-8">
-                We believe in empowering homeowners with knowledge. Here&apos;s honest advice about when to tackle it yourself and when to call us.
-              </p>
-              <div className="space-y-6">
-                {diyVsPro.map((comparison, index) => (
-                  <div key={index} className="bg-white p-6 rounded-lg border border-blue-200">
-                    <h3 className="font-semibold text-gray-900 mb-4">{comparison.scenario}</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                      <div>
-                        <p className="font-medium text-blue-600 text-sm mb-1">DIY Approach:</p>
-                        <p className="text-gray-700 text-sm mb-2">{comparison.diyApproach}</p>
-                        <p className="text-gray-600 text-xs">{comparison.diyResult}</p>
-                      </div>
-                      <div>
-                        <p className="font-medium text-teal-600 text-sm mb-1">Professional Approach:</p>
-                        <p className="text-gray-700 text-sm mb-2">{comparison.proApproach}</p>
-                        <p className="text-gray-600 text-xs">{comparison.proResult}</p>
-                      </div>
-                    </div>
-                    <div className={`p-3 rounded ${
-                      comparison.verdict.includes('DIY') ? 'bg-blue-100' :
-                      comparison.verdict.includes('Pro') ? 'bg-teal-100' :
-                      'bg-red-100'
-                    }`}>
-                      <p className="font-medium text-gray-900 text-sm">Our Recommendation: {comparison.verdict}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">DIY or Call the Pros?</h2>
+            <p className="text-xl text-gray-600">Get personalized advice for your specific drain problem</p>
           </div>
+          <DrainDecisionTool />
         </div>
       </section>
 
@@ -529,7 +474,7 @@ export default function DrainCleaningPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-teal-800 p-8 rounded-lg">
               <h3 className="text-xl font-bold mb-4">Basic Plan</h3>
-              <p className="text-2xl font-bold text-teal-300 mb-4">$89/visit</p>
+              <p className="text-2xl font-bold text-teal-300 mb-4">Budget-Friendly</p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
@@ -552,7 +497,7 @@ export default function DrainCleaningPage() {
             </div>
             <div className="bg-teal-700 p-8 rounded-lg border-2 border-teal-400">
               <h3 className="text-xl font-bold mb-4">Complete Plan</h3>
-              <p className="text-2xl font-bold text-teal-300 mb-4">$149/visit</p>
+              <p className="text-2xl font-bold text-teal-300 mb-4">Most Popular</p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
@@ -571,11 +516,11 @@ export default function DrainCleaningPage() {
                   <span className="text-sm">25% off all services</span>
                 </li>
               </ul>
-              <p className="text-teal-200 text-sm">Most popular - comprehensive protection</p>
+              <p className="text-teal-200 text-sm">Comprehensive protection - best value</p>
             </div>
             <div className="bg-teal-800 p-8 rounded-lg">
               <h3 className="text-xl font-bold mb-4">Commercial Plan</h3>
-              <p className="text-2xl font-bold text-teal-300 mb-4">Custom</p>
+              <p className="text-2xl font-bold text-teal-300 mb-4">Custom Quote</p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
@@ -640,7 +585,7 @@ export default function DrainCleaningPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-teal-600 text-white">
+      <section className="py-16 bg-blue-950 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Keep Your Drains Flowing Smoothly</h2>
           <p className="text-xl mb-8">

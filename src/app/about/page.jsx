@@ -26,7 +26,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold mb-6 text-gray-900">Our Story</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Founded in 1985 by Master Plumber Michael Meyers, M. Meyers Plumbing has been a cornerstone of the Pittsburgh community for nearly four decades. What started as a one-man operation has grown into a trusted family business, now led by Michael's son Matt, who continues the tradition of excellence.
+                  With over 20 years of hands-on plumbing experience, Matt Meyers has built M. Meyers Plumbing on the foundation of integrity, quality workmanship, and exceptional customer service. What started as a commitment to serving the local community has grown into a trusted plumbing business that treats every customer like family.
                 </p>
                 <p>
                   Our commitment to quality workmanship and honest service has earned us thousands of satisfied customers throughout the greater Pittsburgh area. We treat every home and business like our own, ensuring that each job is completed to the highest standards.
@@ -53,8 +53,15 @@ export default function AboutPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-1 bg-[url('/images/portraits/matt.webp')]">
-                  {/* <Image src='/images/portraits/matt.webp' width={345} height={502} alt='Matthew Meyers, owner of Matt Meyers Plumbing'/> */}
+            <div className="order-1">
+              <div className="relative h-96 lg:h-[500px] w-full rounded-lg overflow-hidden shadow-lg">
+                <Image 
+                  src='/images/portraits/matt.webp' 
+                  fill
+                  alt='Matthew Meyers, owner of Matt Meyers Plumbing'
+                  className="object-cover object-center"
+                />
+              </div>
             </div>
             <div className="order-2">
               <h2 className="text-3xl font-bold mb-6 text-gray-900">Meet Matt Meyers</h2>

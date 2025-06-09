@@ -385,7 +385,7 @@ export default function ToiletServicesPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 text-white" style={{backgroundColor: globals.primary_color}}>
+      <section className="py-16 bg-blue-950 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Professional Toilet Services in {globals.business_city}, {globals.business_state}</h2>
           <p className="text-xl mb-8">

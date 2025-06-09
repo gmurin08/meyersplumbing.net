@@ -180,8 +180,13 @@ export default function ServiceAreasPage() {
       </section>
 
       {/* Response Time Guarantee */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="relative py-16 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/vans/van-mockup.webp')" }}
+        />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }} />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
           <h2 className="text-3xl font-bold mb-6">Fast Response Times Guaranteed</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>

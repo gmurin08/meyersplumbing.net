@@ -30,28 +30,6 @@ export default function TrenchlessPipeRepairPage() {
       timeframe: "1 day",
       disruption: "Access through existing openings",
       lifespan: "50+ years"
-    },
-    {
-      method: "Pipe Coating",
-      icon: Leaf,
-      bestFor: "Preventive maintenance, minor corrosion, extending pipe life",
-      process: "Epoxy coating applied to interior pipe walls",
-      advantages: ["Lowest cost option", "Improves flow capacity", "Prevents future corrosion", "Minimal preparation required"],
-      idealConditions: ["Relatively clean pipes", "Minor corrosion only", "Good access for cleaning", "Stable pipe structure"],
-      timeframe: "4-6 hours",
-      disruption: "Temporary water service interruption",
-      lifespan: "15-20 years"
-    },
-    {
-      method: "Spot Repairs",
-      icon: Wrench,
-      bestFor: "Localized damage, single joint failures, targeted fixes",
-      process: "Robotic cutters and installation tools target specific areas",
-      advantages: ["Precise repairs", "Cost-effective for small areas", "Maintains pipe integrity", "Quick completion"],
-      idealConditions: ["Isolated damage", "Accessible pipe sections", "Known problem locations", "Stable surrounding pipe"],
-      timeframe: "2-4 hours",
-      disruption: "Brief service interruption",
-      lifespan: "25-30 years"
     }
   ];
 
@@ -276,35 +254,6 @@ export default function TrenchlessPipeRepairPage() {
     }
   ];
 
-  const customerStories = [
-    {
-      customer: "Historic Home Owner",
-      problem: "100-year-old cast iron pipe under prize-winning garden",
-      challenge: "Couldn't bear to destroy 30 years of landscaping work",
-      solution: "CIPP pipe lining through existing cleanouts",
-      outcome: "Perfect repair with zero garden damage, new pipe life expectancy of 50+ years",
-      timeline: "Completed in 6 hours",
-      quote: "I was amazed they could fix our old pipes without touching a single plant. The garden is my life's work."
-    },
-    {
-      customer: "Business Owner",
-      problem: "Restaurant sewer line failure under parking lot",
-      challenge: "Couldn't afford to close restaurant for traditional excavation",
-      solution: "Pipe bursting with new pipe installation",
-      outcome: "Restaurant stayed open, new pipe capacity improved drainage",
-      timeline: "2 days total, nights and early morning work",
-      quote: "They worked around our schedule. Our customers never knew we had a major pipe problem."
-    },
-    {
-      customer: "Suburban Family",
-      problem: "Recurring backups from root-damaged clay pipes",
-      challenge: "Previous traditional repairs failed within 2 years",
-      solution: "Complete pipe lining system with root-resistant coating",
-      outcome: "No issues in 3 years since repair, eliminated ongoing maintenance costs",
-      timeline: "1 day installation",
-      quote: "Best investment we've made in our home. No more emergency plumber calls!"
-    }
-  ];
 
   return (
     <div>
@@ -618,43 +567,7 @@ export default function TrenchlessPipeRepairPage() {
         </div>
       </section>
 
-      {/* Customer Success Stories */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Success Stories: Property Saved, Problems Solved</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {customerStories.map((story, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <div className="mb-4">
-                  <h3 className="font-bold text-gray-900 mb-1">{story.customer}</h3>
-                  <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">{story.timeline}</span>
-                </div>
-                <div className="space-y-3 text-sm">
-                  <div>
-                    <p className="font-medium text-red-600">Problem:</p>
-                    <p className="text-gray-700">{story.problem}</p>
-                  </div>
-                  <div>
-                    <p className="font-medium text-orange-600">Challenge:</p>
-                    <p className="text-gray-700">{story.challenge}</p>
-                  </div>
-                  <div>
-                    <p className="font-medium text-blue-600">Solution:</p>
-                    <p className="text-gray-700">{story.solution}</p>
-                  </div>
-                  <div>
-                    <p className="font-medium text-green-600">Result:</p>
-                    <p className="text-gray-700">{story.outcome}</p>
-                  </div>
-                </div>
-                <div className="mt-4 p-3 bg-green-50 rounded border-l-4 border-green-500">
-                  <p className="text-gray-700 italic text-sm">&quot;{story.quote}&quot;</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Environmental Benefits */}
       <section className="py-16 bg-green-50">
@@ -784,7 +697,7 @@ export default function TrenchlessPipeRepairPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-green-600 text-white">
+      <section className="py-16 bg-blue-950 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Experience the Future of Pipe Repair</h2>
           <p className="text-xl mb-8">

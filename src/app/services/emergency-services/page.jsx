@@ -1,6 +1,7 @@
 import { Phone, Clock, AlertTriangle, Wrench, Shield, CheckCircle, Star, Users } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ServiceAreaMap from '@/components/ui/ServiceAreaMap';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -73,21 +74,21 @@ export default function EmergencyServicesPage() {
 
   const testimonials = [
     {
-      name: "Sarah Martinez",
-      issue: "Burst pipe at 2 AM",
-      text: "Our basement was flooding at 2 AM on a Sunday. Matt answered the phone personally and was at our house within 45 minutes. Saved our home from major damage!",
+      name: "Megan Magnanti",
+      issue: "",
+      text: "Matt Meyers is one of the hardest working in the business. Honest pricing, hard working, dependable and always available if you have a question. Anytime anyone needs a recommendation, it’s ALWAYS Meyers Plumbing. Best in the business!",
       rating: 5
     },
     {
-      name: "Robert Chen", 
-      issue: "Sewer backup emergency",
-      text: "Professional, fast, and handled a disgusting situation with complete professionalism. Had our sewer line cleared and sanitized in under 3 hours.",
+      name: "Tony Magnanti", 
+      issue: "",
+      text: "Incredible service, top notch experience. Fast, friendly and excellent experience. Highly recommend!",
       rating: 5
     },
     {
-      name: "Lisa Thompson",
-      issue: "No hot water in winter",
-      text: "Water heater died during the January cold snap. They came out same day, diagnosed the problem, and had hot water restored by evening. Lifesavers!",
+      name: "Anna Brailey",
+      issue: "",
+      text: "Meyer’s plumbing has been my go to for my business for years. They are always prompt, reasonable, and do quality work. Big jobs and small, they always make time to fit us in to keep my business running efficiently!",
       rating: 5
     }
   ];
@@ -293,13 +294,7 @@ export default function EmergencyServicesPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <Users className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Service Area Map</p>
-                  <p className="text-sm">Pittsburgh & Surrounding Areas</p>
-                </div>
-              </div>
+              <ServiceAreaMap />
             </div>
             <div className="order-1 lg:order-2">
               <h2 className="text-3xl font-bold mb-6 text-gray-900">Emergency Coverage Area</h2>
@@ -339,14 +334,14 @@ export default function EmergencyServicesPage() {
             <h2 className="text-3xl font-bold mb-4">Emergency Service Pricing & Guarantee</h2>
             <p className="text-xl text-blue-200">Transparent pricing with no surprise charges</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* <div className="text-center">
               <div className="bg-blue-800 p-6 rounded-lg">
                 <h3 className="text-xl font-semibold mb-3">Service Call Fee</h3>
-                <p className="text-2xl font-bold text-yellow-400 mb-2">$95</p>
+                <p className="text-2xl font-bold text-yellow-400 mb-2">Transparent</p>
                 <p className="text-blue-200 text-sm">Applied toward repair cost</p>
               </div>
-            </div>
+            </div> */}
             <div className="text-center">
               <div className="bg-blue-800 p-6 rounded-lg">
                 <h3 className="text-xl font-semibold mb-3">No Hidden Fees</h3>
@@ -380,12 +375,12 @@ export default function EmergencyServicesPage() {
               <Phone className="h-6 w-6" />
               <span>EMERGENCY: {globals.business_phone}</span>
             </a>
-            <Link 
+            {/* <Link 
               href="/contact"
               className="bg-white text-red-600 px-8 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition-colors"
             >
               Non-Emergency Contact
-            </Link>
+            </Link> */}
           </div>
           <p className="text-sm mt-4 text-red-200">
             Available 24/7/365 • Licensed & Insured • Satisfaction Guaranteed

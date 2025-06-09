@@ -3,38 +3,55 @@ import { Phone, Clock, Shield, Star, Wrench, Droplets } from 'lucide-react';
 import BackgroundVideo from 'next-video/background-video';
 import desktopHero from '/videos/desktop-hero.mp4'
 import globals from '/globals.json'
-import CTAButton from '@/components/ui/ctabtn'
+import ReviewsWidget from '@/components/reviews-widget'
+import AnimatedVan from '@/components/ui/AnimatedVan'
 
 export default function HomePage() {
-  return (<><BackgroundVideo src={desktopHero} />
+  return (<>
+    <div className="h-65 lg:h-80 xl:h-190 overflow-hidden">
+      <BackgroundVideo src={desktopHero} />
+    </div>
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-      
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-6">
-            24/7 Emergency Plumbing Services
-          </h1>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Licensed, insured, and ready to solve your plumbing problems day or night. 
-            Fast response times and quality workmanship guaranteed.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href={`tel:${globals.business_phone}`}
-              className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-red-700 transition-colors"
-            >
-              Call Now: {globals.business_phone}
-            </a>
-            <Link 
-              href="/get-quote"
-              className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-orange-600 transition-colors"
-            >
-              Get Free Quote
-            </Link>
+      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-10 relative">
+        <div className="max-w-7xl mx-auto px-4">
+          {/* Mobile: Van above, Desktop: Side by side */}
+          <div className="flex flex-col lg:flex-row items-center justify-between">
+            
+            {/* Van Image - Above on mobile, Left on desktop */}
+            <div className="order-1 lg:order-1 flex justify-center lg:justify-start lg:flex-1 relative">
+              <AnimatedVan />
+            </div>
+
+            {/* Hero Content - Below on mobile, Right on desktop */}
+            <div className="order-2 lg:order-2 text-center lg:text-left lg:flex-1">
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+                24/7 Emergency Plumbing Services
+              </h1>
+              <p className="text-xl mb-8 max-w-2xl lg:max-w-none">
+                Licensed, insured, and ready to solve your plumbing problems day or night. 
+                Fast response times and quality workmanship guaranteed.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a 
+                  href={`tel:${globals.business_phone}`}
+                  className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-red-700 transition-colors"
+                >
+                  Call Now: {globals.business_phone}
+                </a>
+                <Link 
+                  href="/get-quote"
+                  className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-orange-600 transition-colors"
+                >
+                  Get Free Quote
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      
 
       {/* Services Grid */}
       <section className="py-16 bg-gray-50">
@@ -44,50 +61,56 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Emergency Repairs", icon: "🚨", desc: "24/7 emergency plumbing services", image:'/images/cards/emergency.webp' },
-              { title: "Water Heaters", icon: "🔥", desc: "Installation, repair, and maintenance", image:'/images/cards/water-heater.webp' },
-              { title: "Drain Cleaning", icon: "🚿", desc: "Professional drain and sewer cleaning", image:'/images/cards/drain.webp' },
-              { title: "Leak Detection", icon: "💧", desc: "Advanced leak detection technology", image:'/images/cards/pipe-repair.webp' },
-              { title: "Residential", icon: "🔧", desc: "Trenchless pipe repair solutions", image:'/images/cards/residential.webp' },
-              { title: "Commercial", icon: "🛁", desc: "Complete bathroom plumbing services", image:'/images/cards/commercial.webp' }
+              { title: "Emergency Repairs", icon: "🚨", desc: "24/7 emergency plumbing services", image:'/images/cards/emergency.webp', href: '/services/emergency-services' },
+              { title: "Water Heaters", icon: "🔥", desc: "Installation, repair, and maintenance", image:'/images/cards/water-heater.webp', href: '/services/water-heaters' },
+              { title: "Drain Cleaning", icon: "🚿", desc: "Professional drain and sewer cleaning", image:'/images/cards/drain.webp', href: '/services/drain-cleaning' },
+              { title: "Trenchless Pipe Repair", icon: "🔧", desc: "Advanced trenchless pipe repair solutions", image:'/images/cards/pipe-repair.webp', href: '/services/trenchless' },
+              { title: "Residential", icon: "🏠", desc: "Complete residential plumbing services", image:'/images/cards/residential.webp', href: '/services/residential' },
+              { title: "Commercial", icon: "🏢", desc: "Professional commercial plumbing services", image:'/images/cards/commercial.webp', href: '/services/commercial' }
             ].map((service, index) => (
-              <div key={index} 
-              style={{ backgroundImage: `url(${service.image})`, backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat'}}
-              className="h-75 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{service.title}</h3>
-                <p className="text-white-600 mb-4">{service.desc}</p>
-                <Link href="/services" className="text-red-400 font-medium hover:text-blue-800">
-                  Learn More →
-                </Link>
-              </div>
+              <Link key={index} href={service.href} className="block group">
+                <div 
+                style={{ backgroundImage: `url(${service.image})`, backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'}}
+                className="h-75 p-6 rounded-lg shadow-md hover:shadow-lg group-hover:transform group-hover:scale-105 transition-all">
+                  <div className="text-4xl mb-4">{service.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">{service.title}</h3>
+                  <p className="text-white-600 mb-4">{service.desc}</p>
+                  <span className="text-red-400 font-medium group-hover:text-blue-800">
+                    Learn More →
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+      <section 
+        className="py-16 bg-cover bg-center bg-no-repeat relative min-h-96"
+        style={{ backgroundImage: "url('/images/vans/van-mockup.webp')" }}
+      >
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}></div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <h2 className="text-3xl font-bold text-center mb-12 text-white drop-shadow-lg">
             Why Choose M. Meyers Plumbing?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <Clock className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">24/7 Availability</h3>
-              <p className="text-gray-600">Plumbing emergencies don&apos;t wait for business hours. We&apos;re here when you need us most.</p>
+            <div className="text-center p-6 rounded-lg" >
+              <Clock className="h-16 w-16 text-blue-400 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-white">24/7 Availability</h3>
+              <p className="text-gray-200">Plumbing emergencies don&apos;t wait for business hours. We&apos;re here when you need us most.</p>
             </div>
-            <div className="text-center">
-              <Shield className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Licensed & Insured</h3>
-              <p className="text-gray-600">Fully licensed and insured for your protection and peace of mind.</p>
+            <div className="text-center p-6 rounded-lg">
+              <Shield className="h-16 w-16 text-blue-400 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-white">Licensed & Insured</h3>
+              <p className="text-gray-200">Fully licensed and insured for your protection and peace of mind.</p>
             </div>
-            <div className="text-center">
-              <Star className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Quality Work</h3>
-              <p className="text-gray-600">Professional workmanship backed by our satisfaction guarantee.</p>
+            <div className="text-center p-6 rounded-lg">
+              <Star className="h-16 w-16 text-blue-400 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-white">Quality Work</h3>
+              <p className="text-gray-200">Professional workmanship backed by our satisfaction guarantee.</p>
             </div>
           </div>
         </div>
@@ -99,23 +122,7 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
             What Our Customers Say
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { name: "Sarah Johnson", rating: 5, text: "Called at midnight with a burst pipe. They were here in 30 minutes and fixed everything perfectly!" },
-              { name: "Mike Rodriguez", rating: 5, text: "Professional, fair pricing, and excellent work. Highly recommend for any plumbing needs." },
-              { name: "Lisa Chen", rating: 5, text: "Best plumber in town! Fixed our water heater quickly and explained everything clearly." }
-            ].map((review, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <div className="flex mb-4">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4">{`"${review.text}`}</p>
-                <p className="font-semibold text-gray-900">- {review.name}</p>
-              </div>
-            ))}
-          </div>
+          <ReviewsWidget />
         </div>
       </section>
 

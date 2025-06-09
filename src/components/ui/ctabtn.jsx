@@ -1,13 +1,20 @@
 'use client'
 import styled from 'styled-components';
+import { useRouter } from 'next/navigation';
 
 const Button = () => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/contact');
+  };
+
   return (
     <StyledWrapper>
-      <button className="button">
+      <button className="button" onClick={handleClick}>
         <div className="dots_border" />
 
-        <span className="text_button">Scedule Service</span>
+        <span className="text_button">Schedule Service</span>
       </button>
     </StyledWrapper>
   );

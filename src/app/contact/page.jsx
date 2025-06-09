@@ -182,7 +182,7 @@ export default function ContactPage() {
             </p>
           </div>
         </div>
-      </section>
+      </section> 
     </div>
   );
 }

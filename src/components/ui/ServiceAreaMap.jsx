@@ -10,9 +10,14 @@ const Marker = dynamic(() => import('react-leaflet').then(mod => mod.Marker), { 
 const Popup = dynamic(() => import('react-leaflet').then(mod => mod.Popup), { ssr: false })
 
 const ServiceAreaMap = () => {
+  const [isMounted, setIsMounted] = useState(false)
   const [leaflet, setLeaflet] = useState(null)
   const [businessIcon, setBusinessIcon] = useState(null)
   const [serviceIcon, setServiceIcon] = useState(null)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   // Business location (Oakdale, PA)
   const businessLocation = {
@@ -74,8 +79,8 @@ const ServiceAreaMap = () => {
     })
   }, [])
 
-  // Don't render until Leaflet is loaded
-  if (!leaflet || !businessIcon || !serviceIcon) {
+  // Don't render until component is mounted and Leaflet is loaded
+  if (!isMounted || !leaflet || !businessIcon || !serviceIcon) {
     return (
       <div className="bg-gray-300 rounded-lg h-96 flex items-center justify-center">
         <div className="text-center text-gray-600">

@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Emergency CTA Section */}
-      <div className="bg-red-600 py-6">
+      {/* <div className="bg-red-600 py-6">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold mb-2">Plumbing Emergency?</h3>
           <p className="text-red-100 mb-4">Don't wait! Call us now for immediate assistance</p>
@@ -18,7 +18,7 @@ export default function Footer() {
             <span>{globals.business_phone}</span>
           </a>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 py-12">
