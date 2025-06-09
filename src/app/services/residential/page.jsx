@@ -404,7 +404,7 @@ export default function ResidentialPlumbingPage() {
                   />
                 </div>
                 {/* Blue Overlay with 75% opacity */}
-                <div className="absolute inset-0 bg-gray-900/85 border-2"></div>
+                <div className="absolute inset-0 bg-gray-900/85 "></div>
                 <div className="relative z-10 text-white p-8">
                   <h3 className="text-2xl font-bold mb-6 text-center">Our Guarantee to You</h3>
                   <div className="space-y-4">
@@ -463,13 +463,13 @@ export default function ResidentialPlumbingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href={`tel:${globals.business_phone}`}
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
+              className="bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
             >
               Call Today: {globals.business_phone}
             </a>
             <Link 
               href="/contact"
-              className="bg-blue-500 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-400 transition-colors"
+              className="bg-red-500 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-red-600 transition-colors"
             >
               Schedule Free Consultation
             </Link>
