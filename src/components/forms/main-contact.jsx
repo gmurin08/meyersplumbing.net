@@ -124,26 +124,6 @@ export default function ContactForm() {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Service Type
-          </label>
-          <select 
-            name="serviceType"
-            disabled={isLoading}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors disabled:opacity-50"
-          >
-            <option value="">Select a service...</option>
-            <option value="emergency">Emergency Repair</option>
-            <option value="water-heater">Water Heater Service</option>
-            <option value="drain-cleaning">Drain Cleaning</option>
-            <option value="leak-detection">Leak Detection</option>
-            <option value="bathroom">Bathroom Plumbing</option>
-            <option value="general">General Plumbing</option>
-            <option value="estimate">Free Estimate</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
             Message *
           </label>
           <textarea 
@@ -154,23 +134,6 @@ export default function ContactForm() {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors resize-vertical disabled:opacity-50"
             placeholder="Please describe your plumbing issue or what service you need..."
           ></textarea>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Preferred Contact Time
-          </label>
-          <select 
-            name="preferredTime"
-            disabled={isLoading}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors disabled:opacity-50"
-          >
-            <option value="">No preference</option>
-            <option value="morning">Morning (8AM - 12PM)</option>
-            <option value="afternoon">Afternoon (12PM - 5PM)</option>
-            <option value="evening">Evening (5PM - 8PM)</option>
-            <option value="asap">ASAP - Emergency</option>
-          </select>
         </div>
 
         <button 

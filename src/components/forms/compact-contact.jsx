@@ -26,19 +26,22 @@ const CompactContactForm = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/contact-mini', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-        redirect: 'manual' // Prevent automatic redirect
       });
 
-      if (response.status === 0 || response.type === 'opaqueredirect' || response.url.includes('success=true')) {
-        // Redirect response indicates success
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', phone: '', details: '' });
+      if (response.ok) {
+        const result = await response.json();
+        if (result.success) {
+          setSubmitStatus('success');
+          setFormData({ name: '', email: '', phone: '', details: '' });
+        } else {
+          setSubmitStatus('error');
+        }
       } else {
         setSubmitStatus('error');
       }

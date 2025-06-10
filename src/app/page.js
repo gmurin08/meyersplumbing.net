@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Clock, Shield, Star, Wrench, Droplets } from 'lucide-react';
 import BackgroundVideo from 'next-video/background-video';
 import desktopHero from '/videos/desktop-hero.mp4'
 import globals from '/globals.json'
 import ReviewsWidget from '@/components/reviews-widget'
 import AnimatedVan from '@/components/ui/AnimatedVan'
+import CompactContactForm from '@/components/forms/compact-contact'
 
 export default function HomePage() {
   return (<>
@@ -125,6 +127,25 @@ export default function HomePage() {
           <ReviewsWidget />
         </div>
       </section>
+
+      {/* Compact Contact Form */}
+      <div className="relative w-full py-8">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/vans/van-mockup.webp"
+            alt="M. Meyers Plumbing service van background"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        {/* Black Overlay */}
+        <div className="absolute inset-0 bg-black/80"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
+          <CompactContactForm />
+        </div>
+      </div>
 
       {/* CTA Section */}
       <section className="py-16 bg-blue-900 text-white">
