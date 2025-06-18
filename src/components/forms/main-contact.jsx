@@ -146,7 +146,7 @@ export default function ContactForm() {
 
         <p className="text-sm text-gray-600 text-center">
           * Required fields. For emergencies, please call us directly at{' '}
-          <a href="tel:555-123-4567" className="text-blue-600 font-medium">
+          <a href={`tel:${data.business_phone}`} className="text-blue-600 font-medium">
             {data.business_phone}
           </a>
         </p>
