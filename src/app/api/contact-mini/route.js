@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { Client } from 'pg';
 
 export async function POST(request) {
   try {
@@ -59,7 +60,7 @@ Meyer's Plumbing
     const mailOptions = {
       from: process.env.SMTP_FROM,
       to: process.env.CONTACT_EMAIL,
-      subject: 'Quick Contact Form - Meyer\'s Plumbing',
+      subject: 'New Contact Form Submission - meyersplumbing.net',
       text: textContent,
       html: emailHTML,
     };
@@ -67,6 +68,39 @@ Meyer's Plumbing
     // Send email
     const info = await transporter.sendMail(mailOptions);
     console.log('Mini form email sent:', info.messageId);
+
+    // Save to database
+    const client = new Client({
+      host: process.env.PGHOST,
+      database: process.env.PGDATABASE,
+      user: process.env.PGUSER,
+      password: process.env.PGPASSWORD,
+      port: 5432,
+      ssl: { rejectUnauthorized: false }
+    });
+
+    try {
+      await client.connect();
+      
+      const formData = {
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
+        details: data.details || null,
+        submittedAt: new Date().toISOString()
+      };
+
+      await client.query(
+        'INSERT INTO form_submissions (client_id, data) VALUES ($1, $2)',
+        [process.env.ACD_CLIENT_ID, JSON.stringify(formData)]
+      );
+      console.log('Mini form data saved to database');
+    } catch (dbError) {
+      console.error('Database save error:', dbError);
+      // Continue execution - don't fail if email was sent
+    } finally {
+      await client.end();
+    }
 
     return NextResponse.json(
       { success: true, message: 'Email sent successfully' },

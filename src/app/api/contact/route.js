@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { Client } from 'pg';
 
 export async function POST(request) {
   try {
@@ -52,7 +53,7 @@ export async function POST(request) {
     const mailOptions = {
       from: process.env.SMTP_FROM,
       to: process.env.CONTACT_EMAIL,
-      subject: 'New Contact Form Submission',
+      subject: 'New Contact Form Submission - meyersplumbing.net',
       html: emailHTML,
     };
 
@@ -61,6 +62,40 @@ export async function POST(request) {
     // Send email
     const info = await transporter.sendMail(mailOptions);
     console.log('Email sent successfully:', info.messageId);
+
+    // Save to database
+    const client = new Client({
+      host: process.env.PGHOST,
+      database: process.env.PGDATABASE,
+      user: process.env.PGUSER,
+      password: process.env.PGPASSWORD,
+      port: 5432,
+      ssl: { rejectUnauthorized: false }
+    });
+
+    try {
+      await client.connect();
+      
+      const formData = {
+        firstName,
+        lastName,
+        phone,
+        email,
+        message,
+        submittedAt: new Date().toISOString()
+      };
+
+      await client.query(
+        'INSERT INTO form_submissions (client_id, data) VALUES ($1, $2)',
+        [process.env.ACD_CLIENT_ID, JSON.stringify(formData)]
+      );
+      console.log('Form data saved to database');
+    } catch (dbError) {
+      console.error('Database save error:', dbError);
+      // Continue execution - don't fail if email was sent
+    } finally {
+      await client.end();
+    }
 
     // Return success
     return NextResponse.json(
