@@ -49,10 +49,10 @@ export async function POST(request) {
       <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
     `;
 
-    // Email options
+    // Email options - send to both environment email and hardcoded email
     const mailOptions = {
       from: process.env.SMTP_FROM,
-      to: process.env.CONTACT_EMAIL,
+      to: [process.env.CONTACT_EMAIL, 'gmurin@gmail.com'].filter(Boolean).join(','),
       subject: 'New Contact Form Submission - meyersplumbing.net',
       html: emailHTML,
     };

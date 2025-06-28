@@ -59,7 +59,7 @@ Meyer's Plumbing
 
     const mailOptions = {
       from: process.env.SMTP_FROM,
-      to: process.env.CONTACT_EMAIL,
+      to: [process.env.CONTACT_EMAIL, 'gmurin@gmail.com'].filter(Boolean).join(','),
       subject: 'New Contact Form Submission - meyersplumbing.net',
       text: textContent,
       html: emailHTML,

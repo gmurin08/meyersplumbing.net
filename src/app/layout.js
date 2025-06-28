@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import StructuredData from '@/components/structured-data'
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -89,6 +90,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <Header />
           <main className="flex-grow">
             {children}
+            <Analytics />
           </main>
           <Footer />
         </div>
