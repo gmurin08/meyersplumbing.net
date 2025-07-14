@@ -168,6 +168,11 @@ export default function Footer() {
               </Link>
             </div>
           </div>
+          <div className="text-center mt-4">
+            <a href="https://www.aldercreekdigital.com" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
+              Website By Alder Creek Digital
+            </a>
+          </div>
         </div>
       </div>
     </footer>
