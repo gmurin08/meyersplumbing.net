@@ -1,9 +1,11 @@
 'use client'
 import { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Phone, Mail, Send } from 'lucide-react';
 
 const CompactContactForm = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,8 +39,7 @@ const CompactContactForm = () => {
       if (response.ok) {
         const result = await response.json();
         if (result.success) {
-          setSubmitStatus('success');
-          setFormData({ name: '', email: '', phone: '', details: '' });
+          router.push('/thank-you');
         } else {
           setSubmitStatus('error');
         }
@@ -167,12 +168,6 @@ const CompactContactForm = () => {
               </div>
 
               {/* Status Messages */}
-              {submitStatus === 'success' && (
-                <div className="text-center p-3 bg-green-100 border border-green-400 rounded-md">
-                  <p className="text-green-700 font-medium">Thank you! We'll contact you within 24 hours.</p>
-                </div>
-              )}
-              
               {submitStatus === 'error' && (
                 <div className="text-center p-3 bg-red-100 border border-red-400 rounded-md">
                   <p className="text-red-700 font-medium">Sorry, there was an error. Please try again or call us directly.</p>

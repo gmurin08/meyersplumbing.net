@@ -1,11 +1,11 @@
 'use client'
 import { useState } from 'react';
 import Image from 'next/image';
-import {  CheckCircle } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import data from '/globals.json'
 
 export default function ContactForm() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -21,7 +21,7 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        setIsSubmitted(true);
+        router.push('/thank-you');
       } else {
         alert('There was an error sending your message. Please try again.');
       }
@@ -32,26 +32,6 @@ export default function ContactForm() {
       setIsLoading(false);
     }
   };
-
-  if (isSubmitted) {
-    return (
-      <div className="bg-white p-8 rounded-lg shadow-lg border">
-        <div className="text-center">
-          <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Thank You!</h2>
-          <p className="text-gray-600 mb-6">
-            Your message has been sent successfully. We'll get back to you within 24 hours.
-          </p>
-          <p className="text-sm text-gray-500">
-            For emergencies, please call us directly at{' '}
-            <a href="tel:555-123-4567" className="text-blue-600 font-medium">
-              (555) 123-4567
-            </a>
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (<>
     <div>
