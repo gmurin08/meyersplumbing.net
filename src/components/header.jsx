@@ -23,6 +23,7 @@ export default function Header() {
     { name: 'Emergency Services', href: '/services/emergency-services' },
     { name: 'Residential Plumbing', href: '/services/residential' },
     { name: 'Commercial Plumbing', href: '/services/commercial' },
+    { name: 'Pool Installation', href: '/services/pools' },
     { name: 'Water Heaters', href: '/services/water-heaters' },
     { name: 'Drain Cleaning', href: '/services/drain-cleaning' },
     { name: 'Gas Lines', href: '/services/gas-lines' },
