@@ -10,12 +10,12 @@ export const metadata = {
   openGraph: {
     title: 'Pool Installation Pittsburgh - Matt Meyers Plumbing',
     description: 'Professional pool installation serving Pittsburgh, Oakdale, Moon Township. Complete installation from excavation to deck. Licensed & insured. Call 1-833-663-9377',
-    url: 'https://meyersplumbing.net/services/pools',
+    url: '/services/pools',
     type: 'website',
     siteName: 'Matt Meyers Plumbing',
     locale: 'en_US',
     images: [{
-      url: 'https://meyersplumbing.net/images/pools/pool-og.webp',
+      url: '/images/pools/pool-og.webp',
       width: 1200,
       height: 630,
       alt: 'Pool Installation Services by Matt Meyers Plumbing - Pittsburgh PA'
@@ -25,7 +25,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Pool Installation Pittsburgh - Matt Meyers Plumbing',
     description: 'Professional pool installation from excavation to deck. Serving Pittsburgh, Oakdale, Moon Township PA.',
-    images: ['https://meyersplumbing.net/images/pools/pool-og.webp']
+    images: ['/images/pools/pool-og.webp']
   },
   alternates: {
     canonical: 'https://meyersplumbing.net/services/pools'
