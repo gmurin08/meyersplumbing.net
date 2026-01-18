@@ -1,0 +1,13 @@
+{
+  "instances": [
+    {
+      "prompt": "Photorealistic plumber performing backflow testing..."
+    }
+  ],
+  "parameters": {
+    "aspectRatio": "16:9",
+    "sampleCount": 4,
+    "sampleImageSize": "1k"
+  }
+}
+

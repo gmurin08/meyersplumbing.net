@@ -26,11 +26,16 @@ export default function Header() {
     { name: 'Pool Installation', href: '/services/pools' },
     { name: 'Water Heaters', href: '/services/water-heaters' },
     { name: 'Drain Cleaning', href: '/services/drain-cleaning' },
+    { name: 'Hydro Jetting', href: '/services/hydro-jetting' },
+    { name: 'Camera Inspections', href: '/services/camera-inspections' },
+    { name: 'Backflow Testing', href: '/services/backflow-testing' },
+    { name: 'Dye Testing', href: '/services/dye-testing' },
     { name: 'Gas Lines', href: '/services/gas-lines' },
     { name: 'Excavation', href: '/services/excavation' },
     { name: 'Trenchless Repair', href: '/services/trenchless' },
     { name: 'Toilet Repair', href: '/services/toilets' }
   ];
+
 
   const serviceAreas = [
     { name: 'All Service Areas', href: '/service-areas' },
