@@ -96,11 +96,17 @@ export default function Header() {
                   >
                     About Us
                   </Link>
-                  <Link 
-                    href="/faq" 
+                  <Link
+                    href="/faq"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                   >
                     FAQs
+                  </Link>
+                  <Link
+                    href="/careers"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                  >
+                    Careers
                   </Link>
                 </div>
               </div>
@@ -221,6 +227,13 @@ export default function Header() {
                     className="block text-sm text-gray-600 py-2 hover:text-blue-600"
                   >
                     FAQs
+                  </Link>
+                  <Link
+                    href="/careers"
+                    onClick={handleMobileLinkClick}
+                    className="block text-sm text-gray-600 py-2 hover:text-blue-600"
+                  >
+                    Careers
                   </Link>
                 </div>
               )}
