@@ -4,9 +4,16 @@ import { Client } from 'pg';
 
 export async function POST(request) {
   try {
-    const data = await request.json();
+    const formData = await request.formData();
 
-    if (!data.name || !data.phone || !data.email || !data.experience) {
+    const name = formData.get('name');
+    const phone = formData.get('phone');
+    const email = formData.get('email');
+    const experience = formData.get('experience');
+    const message = formData.get('message') || '';
+    const resumeFile = formData.get('resume');
+
+    if (!name || !phone || !email || !experience) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -25,14 +32,15 @@ export async function POST(request) {
 
     const emailHTML = `
       <h2>New Job Application - Careers Page</h2>
-      <p><strong>Name:</strong> ${data.name}</p>
-      <p><strong>Phone:</strong> ${data.phone}</p>
-      <p><strong>Email:</strong> ${data.email}</p>
-      <p><strong>Years of Experience:</strong> ${data.experience}</p>
-      ${data.message ? `
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Years of Experience:</strong> ${experience}</p>
+      ${message ? `
       <p><strong>About the Applicant:</strong></p>
-      <p>${data.message}</p>
+      <p>${message}</p>
       ` : ''}
+      ${resumeFile ? '<p><strong>Resume:</strong> See attached PDF</p>' : ''}
       <hr>
       <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
     `;
@@ -41,12 +49,13 @@ export async function POST(request) {
 New Job Application - Careers Page
 
 Applicant Details:
-Name: ${data.name}
-Phone: ${data.phone}
-Email: ${data.email}
-Years of Experience: ${data.experience}
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Years of Experience: ${experience}
 
-${data.message ? `About the Applicant:\n${data.message}` : ''}
+${message ? `About the Applicant:\n${message}` : ''}
+${resumeFile ? 'Resume: See attached PDF' : ''}
 
 Submitted: ${new Date().toLocaleString()}
 ---
@@ -56,10 +65,20 @@ M. Meyers Plumbing
     const mailOptions = {
       from: process.env.SMTP_FROM,
       to: [process.env.CONTACT_EMAIL, 'gmurin@gmail.com'].filter(Boolean).join(','),
-      subject: 'New Job Application - meyersplumbing.net',
+      subject: `New Job Application from ${name} - meyersplumbing.net`,
       text: textContent,
       html: emailHTML,
+      attachments: [],
     };
+
+    if (resumeFile && resumeFile.size > 0) {
+      const buffer = Buffer.from(await resumeFile.arrayBuffer());
+      mailOptions.attachments.push({
+        filename: resumeFile.name || 'resume.pdf',
+        content: buffer,
+        contentType: 'application/pdf',
+      });
+    }
 
     const info = await transporter.sendMail(mailOptions);
     console.log('Careers form email sent:', info.messageId);
@@ -76,19 +95,20 @@ M. Meyers Plumbing
     try {
       await client.connect();
 
-      const formData = {
+      const dbData = {
         type: 'career_application',
-        name: data.name,
-        phone: data.phone,
-        email: data.email,
-        experience: data.experience,
-        message: data.message || null,
+        name,
+        phone,
+        email,
+        experience,
+        message: message || null,
+        hasResume: !!(resumeFile && resumeFile.size > 0),
         submittedAt: new Date().toISOString()
       };
 
       await client.query(
         'INSERT INTO form_submissions (client_id, data) VALUES ($1, $2)',
-        [process.env.ACD_CLIENT_ID, JSON.stringify(formData)]
+        [process.env.ACD_CLIENT_ID, JSON.stringify(dbData)]
       );
       console.log('Careers form data saved to database');
     } catch (dbError) {

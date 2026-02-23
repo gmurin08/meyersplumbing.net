@@ -1,7 +1,7 @@
 'use client'
-import { DollarSign, Calendar, Users, Wrench, Car, Shield, CheckCircle, Phone } from 'lucide-react';
+import { DollarSign, Calendar, Users, Wrench, Car, Shield, CheckCircle, Phone, Upload } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import globals from '/globals.json';
 
 export default function CareersPage() {
@@ -12,11 +12,23 @@ export default function CareersPage() {
     experience: '',
     message: '',
   });
+  const [resumeFile, setResumeFile] = useState(null);
+  const fileInputRef = useRef(null);
   const [status, setStatus] = useState({ type: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file && file.type === 'application/pdf' && file.size <= 5 * 1024 * 1024) {
+      setResumeFile(file);
+    } else if (file) {
+      setStatus({ type: 'error', message: 'Please upload a PDF file under 5MB.' });
+      e.target.value = '';
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -25,15 +37,26 @@ export default function CareersPage() {
     setStatus({ type: '', message: '' });
 
     try {
+      const body = new FormData();
+      body.append('name', formData.name);
+      body.append('phone', formData.phone);
+      body.append('email', formData.email);
+      body.append('experience', formData.experience);
+      body.append('message', formData.message);
+      if (resumeFile) {
+        body.append('resume', resumeFile);
+      }
+
       const res = await fetch('/api/careers', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body,
       });
 
       if (res.ok) {
         setStatus({ type: 'success', message: 'Application submitted! We\'ll be in touch soon.' });
         setFormData({ name: '', phone: '', email: '', experience: '', message: '' });
+        setResumeFile(null);
+        if (fileInputRef.current) fileInputRef.current.value = '';
       } else {
         setStatus({ type: 'error', message: 'Something went wrong. Please try again or email us directly.' });
       }
@@ -232,6 +255,39 @@ export default function CareersPage() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                   placeholder="Briefly describe your plumbing experience, specialties, certifications, etc."
                 />
+              </div>
+
+              <div>
+                <label htmlFor="resume" className="block text-sm font-medium text-gray-700 mb-1">
+                  Upload Resume (PDF, max 5MB)
+                </label>
+                <div className="flex items-center space-x-3">
+                  <label
+                    htmlFor="resume"
+                    className="cursor-pointer inline-flex items-center space-x-2 px-4 py-3 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                  >
+                    <Upload className="h-4 w-4" />
+                    <span>{resumeFile ? resumeFile.name : 'Choose file...'}</span>
+                  </label>
+                  <input
+                    type="file"
+                    id="resume"
+                    name="resume"
+                    accept=".pdf"
+                    ref={fileInputRef}
+                    onChange={handleFileChange}
+                    className="hidden"
+                  />
+                  {resumeFile && (
+                    <button
+                      type="button"
+                      onClick={() => { setResumeFile(null); if (fileInputRef.current) fileInputRef.current.value = ''; }}
+                      className="text-sm text-red-600 hover:underline"
+                    >
+                      Remove
+                    </button>
+                  )}
+                </div>
               </div>
 
               {status.message && (
