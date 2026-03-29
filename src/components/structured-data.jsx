@@ -120,13 +120,42 @@ export default function StructuredData() {
           "addressRegion": "PA"
         }
       ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "license",
+          "name": "Pennsylvania Plumbing License",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Commonwealth of Pennsylvania"
+          },
+          "identifier": "PA202254"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "certification",
+          "name": "Master Plumber"
+        }
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Matt Meyers",
+        "jobTitle": "Licensed Master Plumber"
+      },
       "serviceType": [
         "Emergency Plumbing",
-        "Residential Plumbing", 
+        "Residential Plumbing",
         "Commercial Plumbing",
         "Water Heater Repair",
+        "Water Heater Installation",
         "Drain Cleaning",
-        "Leak Detection"
+        "Leak Detection",
+        "Gas Line Services",
+        "Hydro Jetting",
+        "Trenchless Pipe Repair",
+        "Sewer Camera Inspection",
+        "Backflow Testing",
+        "Excavation Services"
       ]
     });
     document.head.appendChild(script);

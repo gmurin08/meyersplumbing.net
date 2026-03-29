@@ -23,9 +23,13 @@ export default function Header() {
     { name: 'Emergency Services', href: '/services/emergency-services' },
     { name: 'Residential Plumbing', href: '/services/residential' },
     { name: 'Commercial Plumbing', href: '/services/commercial' },
-    { name: 'Pool Installation', href: '/services/pools' },
     { name: 'Water Heaters', href: '/services/water-heaters' },
+    { name: 'Water Heater Repair', href: '/services/water-heater-repair' },
+    { name: 'Water Heater Installation', href: '/services/water-heater-installation' },
     { name: 'Drain Cleaning', href: '/services/drain-cleaning' },
+    { name: 'Sewer Line Repair', href: '/services/sewer-line-repair' },
+    { name: 'Leak Detection', href: '/services/leak-detection' },
+    { name: 'Sump Pumps', href: '/services/sump-pump' },
     { name: 'Hydro Jetting', href: '/services/hydro-jetting' },
     { name: 'Camera Inspections', href: '/services/camera-inspections' },
     { name: 'Backflow Testing', href: '/services/backflow-testing' },
@@ -33,20 +37,30 @@ export default function Header() {
     { name: 'Gas Lines', href: '/services/gas-lines' },
     { name: 'Excavation', href: '/services/excavation' },
     { name: 'Trenchless Repair', href: '/services/trenchless' },
-    { name: 'Toilet Repair', href: '/services/toilets' }
+    { name: 'Toilet Repair', href: '/services/toilets' },
+    { name: 'Pool Plumbing', href: '/services/pools' }
   ];
 
 
   const serviceAreas = [
     { name: 'All Service Areas', href: '/service-areas' },
     { name: 'Pittsburgh', href: '/service-areas/pittsburgh' },
+    { name: 'Oakdale', href: '/service-areas/oakdale' },
     { name: 'Moon Township', href: '/service-areas/moon-township' },
     { name: 'Robinson Township', href: '/service-areas/robinson-township' },
     { name: 'Sewickley', href: '/service-areas/sewickley' },
     { name: 'Carnegie', href: '/service-areas/carnegie' },
+    { name: 'Coraopolis', href: '/service-areas/coraopolis' },
+    { name: 'Bridgeville', href: '/service-areas/bridgeville' },
     { name: 'Mt. Lebanon', href: '/service-areas/mt-lebanon' },
     { name: 'Upper St. Clair', href: '/service-areas/upper-st-clair' },
-    { name: 'Peters Township', href: '/service-areas/peters-township' }
+    { name: 'Peters Township', href: '/service-areas/peters-township' },
+    { name: 'Bethel Park', href: '/service-areas/bethel-park' },
+    { name: 'Dormont', href: '/service-areas/dormont' },
+    { name: 'Imperial', href: '/service-areas/imperial' },
+    { name: 'Findlay Township', href: '/service-areas/findlay-township' },
+    { name: 'McMurray', href: '/service-areas/mcmurray' },
+    { name: 'Canonsburg', href: '/service-areas/canonsburg' }
   ];
 
   return (
