@@ -6,7 +6,10 @@ import globals from '/globals.json';
 export const metadata = {
   title: 'Plumber in Moon Township PA | Matt Meyers Plumbing Services',
   description: 'Professional plumbing services in Moon Township, PA. Emergency plumber near Pittsburgh International Airport. Residential and commercial plumbing repairs.',
-  keywords: 'plumber Moon Township PA, Moon Township plumbing services, emergency plumber Moon Township, water heater repair Moon Township, drain cleaning Moon Township'
+  keywords: 'plumber Moon Township PA, Moon Township plumbing services, emergency plumber Moon Township, water heater repair Moon Township, drain cleaning Moon Township',
+  alternates: {
+    canonical: '/service-areas/moon-township'
+  }
 };
 
 export default function MoonTownshipServicePage() {

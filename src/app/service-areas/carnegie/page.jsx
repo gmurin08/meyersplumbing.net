@@ -6,7 +6,10 @@ import globals from '/globals.json';
 export const metadata = {
   title: 'Plumber in Carnegie PA | Matt Meyers Plumbing Services',
   description: 'Professional plumbing services in Carnegie, PA. Emergency plumber serving Carnegie residential and commercial properties with fast, reliable service.',
-  keywords: 'plumber Carnegie PA, Carnegie plumbing services, emergency plumber Carnegie, water heater repair Carnegie, drain cleaning Carnegie'
+  keywords: 'plumber Carnegie PA, Carnegie plumbing services, emergency plumber Carnegie, water heater repair Carnegie, drain cleaning Carnegie',
+  alternates: {
+    canonical: '/service-areas/carnegie'
+  }
 };
 
 export default function CarnegieServicePage() {

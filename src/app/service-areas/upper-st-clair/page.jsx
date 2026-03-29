@@ -6,7 +6,10 @@ import globals from '/globals.json';
 export const metadata = {
   title: 'Plumber in Upper St. Clair PA | Matt Meyers Plumbing Services',
   description: 'Professional plumbing services in Upper St. Clair, PA. Emergency plumber serving Upper St. Clair luxury homes and commercial properties.',
-  keywords: 'plumber Upper St Clair PA, Upper St Clair plumbing services, emergency plumber Upper St Clair, water heater repair Upper St Clair, luxury home plumbing'
+  keywords: 'plumber Upper St Clair PA, Upper St Clair plumbing services, emergency plumber Upper St Clair, water heater repair Upper St Clair, luxury home plumbing',
+  alternates: {
+    canonical: '/service-areas/upper-st-clair'
+  }
 };
 
 export default function UpperStClairServicePage() {

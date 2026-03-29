@@ -6,7 +6,10 @@ import globals from '/globals.json';
 export const metadata = {
   title: 'Plumber in Robinson Township PA | Matt Meyers Plumbing Services',
   description: 'Professional plumbing services in Robinson Township, PA. Emergency plumber serving Robinson Township residential and commercial properties.',
-  keywords: 'plumber Robinson Township PA, Robinson Township plumbing services, emergency plumber Robinson Township, water heater repair Robinson Township, drain cleaning Robinson Township'
+  keywords: 'plumber Robinson Township PA, Robinson Township plumbing services, emergency plumber Robinson Township, water heater repair Robinson Township, drain cleaning Robinson Township',
+  alternates: {
+    canonical: '/service-areas/robinson-township'
+  }
 };
 
 export default function RobinsonTownshipServicePage() {

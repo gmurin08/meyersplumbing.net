@@ -12,6 +12,9 @@ export const metadata = {
     title: 'Commercial Plumbing Services - Pittsburgh Emergency Plumber',
     description: 'Professional commercial plumbing for businesses in Pittsburgh PA. 24/7 emergency service, preventive maintenance programs.',
     url: 'https://meyersplumbing.net/services/commercial',
+  },
+  alternates: {
+    canonical: '/services/commercial'
   }
 };
 

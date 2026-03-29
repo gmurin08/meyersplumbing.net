@@ -6,7 +6,10 @@ import globals from '/globals.json';
 export const metadata = {
   title: 'Plumber in Pittsburgh PA | Matt Meyers Plumbing Services',
   description: 'Professional plumbing services in Pittsburgh, PA. Emergency plumber available 24/7 for repairs, installations, and maintenance. Serving all Pittsburgh neighborhoods.',
-  keywords: 'plumber Pittsburgh PA, Pittsburgh plumbing services, emergency plumber Pittsburgh, Pittsburgh water heater repair, drain cleaning Pittsburgh'
+  keywords: 'plumber Pittsburgh PA, Pittsburgh plumbing services, emergency plumber Pittsburgh, Pittsburgh water heater repair, drain cleaning Pittsburgh',
+  alternates: {
+    canonical: '/service-areas/pittsburgh'
+  }
 };
 
 export default function PittsburghServicePage() {

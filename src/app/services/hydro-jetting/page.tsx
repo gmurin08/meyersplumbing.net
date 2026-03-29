@@ -12,6 +12,9 @@ export const metadata = {
     title: 'Hydro Jetting Services - Deep Drain Cleaning',
     description: 'High-pressure jetting removes stubborn buildup and restores full pipe flow.',
     url: 'https://meyersplumbing.net/services/hydro-jetting'
+  },
+  alternates: {
+    canonical: '/services/hydro-jetting'
   }
 };
 

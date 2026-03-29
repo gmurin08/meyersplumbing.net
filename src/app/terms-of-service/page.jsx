@@ -1,6 +1,19 @@
 import Link from 'next/link';
 import globals from 'globals.json'
 
+export const metadata = {
+  title: 'Terms & Conditions - M. Meyers Plumbing',
+  description: 'Review the terms and conditions for M. Meyers Plumbing services. Information about service agreements, warranties, payment terms, and customer responsibilities.',
+  openGraph: {
+    title: 'Terms & Conditions - M. Meyers Plumbing',
+    description: 'Terms and conditions for M. Meyers Plumbing services in Pittsburgh and surrounding areas.',
+    url: 'https://meyersplumbing.net/terms-of-service',
+  },
+  alternates: {
+    canonical: '/terms-of-service'
+  }
+};
+
 export default function TermsConditionsPage() {
   return (
     <div>

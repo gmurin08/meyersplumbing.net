@@ -28,7 +28,7 @@ export const metadata = {
     images: ['/images/pools/pool-og.webp']
   },
   alternates: {
-    canonical: 'https://meyersplumbing.net/services/pools'
+    canonical: '/services/pools'
   },
   robots: {
     index: true,

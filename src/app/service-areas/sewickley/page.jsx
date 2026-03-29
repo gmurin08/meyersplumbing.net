@@ -6,7 +6,10 @@ import globals from '/globals.json';
 export const metadata = {
   title: 'Plumber in Sewickley PA | Matt Meyers Plumbing Services',
   description: 'Professional plumbing services in Sewickley, PA. Emergency plumber serving historic Sewickley homes and businesses along the Ohio River.',
-  keywords: 'plumber Sewickley PA, Sewickley plumbing services, emergency plumber Sewickley, water heater repair Sewickley, drain cleaning Sewickley'
+  keywords: 'plumber Sewickley PA, Sewickley plumbing services, emergency plumber Sewickley, water heater repair Sewickley, drain cleaning Sewickley',
+  alternates: {
+    canonical: '/service-areas/sewickley'
+  }
 };
 
 export default function SewickleyServicePage() {

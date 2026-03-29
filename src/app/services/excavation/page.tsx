@@ -12,6 +12,9 @@ export const metadata = {
     title: 'Excavation Services - Pittsburgh Professional Plumber',
     description: 'Professional plumbing excavation services in Pittsburgh PA. Expert pipe replacement and sewer line repair.',
     url: 'https://meyersplumbing.net/services/excavation',
+  },
+  alternates: {
+    canonical: '/services/excavation'
   }
 };
 

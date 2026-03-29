@@ -3,6 +3,20 @@ import Image from 'next/image';
 import ServiceAreaMap from '@/components/ui/ServiceAreaMap';
 import CTAButton from '@/components/ui/ctabtn';
 
+export const metadata = {
+  title: 'Service Areas - Plumber Serving Pittsburgh & Western PA',
+  description: 'M. Meyers Plumbing serves Pittsburgh, Oakdale, Moon Township, Robinson Township, Sewickley, Carnegie, Mt. Lebanon, Upper St. Clair, Peters Township & surrounding communities. 24/7 emergency plumbing.',
+  keywords: 'plumber Pittsburgh, plumber Oakdale PA, plumber Moon Township, plumber Robinson Township, plumber Sewickley, plumber Carnegie, plumber Mt Lebanon, Western PA plumber',
+  openGraph: {
+    title: 'Service Areas - M. Meyers Plumbing Pittsburgh',
+    description: 'Professional plumbing services throughout western Pittsburgh and surrounding communities. Fast response times and 24/7 emergency service.',
+    url: 'https://meyersplumbing.net/service-areas',
+  },
+  alternates: {
+    canonical: '/service-areas'
+  }
+};
+
 export default function ServiceAreasPage() {
   const serviceAreas = [
     {

@@ -12,6 +12,9 @@ export const metadata = {
     title: 'Dye Testing - Leak and Cross-Connection Detection',
     description: 'Trace leaks and drainage issues quickly with professional dye testing.',
     url: 'https://meyersplumbing.net/services/dye-testing'
+  },
+  alternates: {
+    canonical: '/services/dye-testing'
   }
 };
 

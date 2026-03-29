@@ -12,6 +12,9 @@ export const metadata = {
     title: 'Gas Line Services - Pittsburgh Licensed Gas Fitters',
     description: 'Professional gas line installation and repair services in Pittsburgh PA. Emergency gas line service available 24/7.',
     url: 'https://meyersplumbing.net/services/gas-lines',
+  },
+  alternates: {
+    canonical: '/services/gas-lines'
   }
 };
 

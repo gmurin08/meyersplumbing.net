@@ -12,6 +12,9 @@ export const metadata = {
     title: 'Camera Inspections - Video Pipe Diagnostics',
     description: 'See exactly what is happening inside your pipes with high-definition camera inspections.',
     url: 'https://meyersplumbing.net/services/camera-inspections'
+  },
+  alternates: {
+    canonical: '/services/camera-inspections'
   }
 };
 

@@ -12,6 +12,9 @@ export const metadata = {
     title: 'Backflow Testing & Prevention - 24/7 Service',
     description: 'Certified backflow testing and prevention with emergency response for water safety concerns.',
     url: 'https://meyersplumbing.net/services/backflow-testing'
+  },
+  alternates: {
+    canonical: '/services/backflow-testing'
   }
 };
 

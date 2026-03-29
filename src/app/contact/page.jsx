@@ -13,6 +13,9 @@ export const metadata = {
     title: 'Emergency Plumbing Services - Pittsburgh 24/7 Plumber',
     description: '24/7 emergency plumbing services in Pittsburgh PA. Fast response for plumbing disasters and emergencies.',
     url: 'https://meyersplumbing.net/contact',
+  },
+  alternates: {
+    canonical: '/contact'
   }
 };
 

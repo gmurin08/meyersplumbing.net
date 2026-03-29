@@ -1,10 +1,20 @@
 import { Zap, Leaf, Clock, Shield, CheckCircle, Star, Wrench, Home, Camera, TreePine, DollarSign, Award, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import globals from 'globals.json';
 
-// Mock globals for demo
-const globals = {
-  business_phone: "(555) 123-4567"
+export const metadata = {
+  title: 'Trenchless Pipe Repair - No-Dig Sewer Solutions Pittsburgh',
+  description: 'Trenchless pipe repair and sewer line replacement in Pittsburgh PA. Pipe bursting, CIPP lining, and no-dig solutions. Save your landscaping with minimal disruption. Licensed plumber serving Oakdale & surrounding areas.',
+  keywords: 'trenchless pipe repair Pittsburgh, no-dig sewer repair, pipe bursting PA, CIPP pipe lining, trenchless sewer replacement Oakdale',
+  openGraph: {
+    title: 'Trenchless Pipe Repair - M. Meyers Plumbing Pittsburgh',
+    description: 'No-dig pipe repair solutions in Pittsburgh. Pipe bursting and CIPP lining with minimal property disruption.',
+    url: 'https://meyersplumbing.net/services/trenchless',
+  },
+  alternates: {
+    canonical: '/services/trenchless'
+  }
 };
 
 export default function TrenchlessPipeRepairPage() {

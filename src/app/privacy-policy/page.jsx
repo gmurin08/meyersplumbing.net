@@ -1,6 +1,19 @@
 import Link from 'next/link';
 import globals from 'globals.json'
 
+export const metadata = {
+  title: 'Privacy Policy - M. Meyers Plumbing',
+  description: 'Read the M. Meyers Plumbing privacy policy. Learn how we collect, use, and protect your personal information when you use our plumbing services or visit our website.',
+  openGraph: {
+    title: 'Privacy Policy - M. Meyers Plumbing',
+    description: 'How M. Meyers Plumbing collects, uses, and protects your personal information.',
+    url: 'https://meyersplumbing.net/privacy-policy',
+  },
+  alternates: {
+    canonical: '/privacy-policy'
+  }
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <div>

@@ -6,6 +6,9 @@ import data from 'globals.json';
 export const metadata = {
   title: 'Thank You - M. Meyers Plumbing',
   description: 'Thank you for contacting M. Meyers Plumbing. We\'ll get back to you within 24 hours.',
+  alternates: {
+    canonical: '/thank-you'
+  }
 };
 
 export default function ThankYouPage() {

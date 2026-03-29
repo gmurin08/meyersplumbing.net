@@ -12,6 +12,9 @@ export const metadata = {
     title: 'Drain Cleaning Services - Pittsburgh Emergency Plumber',
     description: 'Professional drain cleaning & clog removal in Pittsburgh PA. Emergency service available 24/7.',
     url: 'https://meyersplumbing.net/services/drain-cleaning',
+  },
+  alternates: {
+    canonical: '/services/drain-cleaning'
   }
 };
 

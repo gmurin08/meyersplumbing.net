@@ -6,7 +6,10 @@ import globals from '/globals.json';
 export const metadata = {
   title: 'Plumber in Peters Township PA | Matt Meyers Plumbing Services',
   description: 'Professional plumbing services in Peters Township, PA. Emergency plumber serving Peters Township luxury homes and commercial properties in the South Hills.',
-  keywords: 'plumber Peters Township PA, Peters Township plumbing services, emergency plumber Peters Township, water heater repair Peters Township, luxury home plumbing Peters Township'
+  keywords: 'plumber Peters Township PA, Peters Township plumbing services, emergency plumber Peters Township, water heater repair Peters Township, luxury home plumbing Peters Township',
+  alternates: {
+    canonical: '/service-areas/peters-township'
+  }
 };
 
 export default function PetersTownshipServicePage() {

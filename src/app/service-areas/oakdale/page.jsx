@@ -11,6 +11,9 @@ export const metadata = {
     title: 'Oakdale Plumber - Local Emergency Plumbing Services',
     description: `Professional plumbing services in Oakdale, PA. Based locally, we provide 24/7 emergency plumbing, water heater repair, drain cleaning and more.`,
     url: 'https://meyersplumbing.net/service-areas/oakdale',
+  },
+  alternates: {
+    canonical: '/service-areas/oakdale'
   }
 };
 

@@ -6,7 +6,10 @@ import globals from '/globals.json';
 export const metadata = {
   title: 'Plumber in Mt. Lebanon PA | Matt Meyers Plumbing Services',
   description: 'Professional plumbing services in Mt. Lebanon, PA. Emergency plumber serving Mt. Lebanon residential and commercial properties in the South Hills.',
-  keywords: 'plumber Mt Lebanon PA, Mt Lebanon plumbing services, emergency plumber Mt Lebanon, water heater repair Mt Lebanon, drain cleaning Mt Lebanon'
+  keywords: 'plumber Mt Lebanon PA, Mt Lebanon plumbing services, emergency plumber Mt Lebanon, water heater repair Mt Lebanon, drain cleaning Mt Lebanon',
+  alternates: {
+    canonical: '/service-areas/mt-lebanon'
+  }
 };
 
 export default function MtLebanonServicePage() {

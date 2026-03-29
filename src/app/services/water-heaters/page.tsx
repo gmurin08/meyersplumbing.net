@@ -13,6 +13,9 @@ export const metadata = {
     title: 'Water Heater Services - Pittsburgh Emergency Plumber',
     description: 'Expert water heater installation & repair in Pittsburgh PA. Same-day service available. Call for emergency water heater replacement.',
     url: 'https://meyersplumbing.net/services/water-heaters',
+  },
+  alternates: {
+    canonical: '/services/water-heaters'
   }
 };
 

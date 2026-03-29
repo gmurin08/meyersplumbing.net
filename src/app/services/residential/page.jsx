@@ -12,6 +12,9 @@ export const metadata = {
     title: 'Residential Plumbing Services - Pittsburgh Home Plumber',
     description: 'Expert residential plumbing services for Pittsburgh homes. Kitchen, bathroom, and whole house plumbing solutions.',
     url: 'https://meyersplumbing.net/services/residential',
+  },
+  alternates: {
+    canonical: '/services/residential'
   }
 };
 

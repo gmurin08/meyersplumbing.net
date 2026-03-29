@@ -11,6 +11,9 @@ export const metadata = {
     title: 'Toilet Services - Pittsburgh Professional Plumber',
     description: 'Expert toilet installation, repair and replacement services in Pittsburgh PA. Emergency toilet service available.',
     url: 'https://meyersplumbing.net/services/toilets',
+  },
+  alternates: {
+    canonical: '/services/toilets'
   }
 };
 
