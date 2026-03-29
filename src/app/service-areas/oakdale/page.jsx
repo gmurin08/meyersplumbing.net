@@ -1,3 +1,4 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { MapPin, Phone, Clock, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -40,12 +41,17 @@ export default function OakdalePage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Service Areas", href: "/service-areas" },
+        { label: "Oakdale", href: "/service-areas/oakdale" }
+      ]} />
       {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
         <div className="absolute inset-0">
-          <Image 
-            src="/images/hero/wrench-bg.webp" 
-            height={1080} 
+          <Image
+            src="/images/hero/wrench-bg.webp"
+            height={1080}
             width={1920}
             alt="Oakdale plumber service area"
             className="w-full h-full object-cover"

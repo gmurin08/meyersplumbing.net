@@ -1,8 +1,10 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Thermometer, Zap, DollarSign, Clock, Shield, Wrench, Droplets, CheckCircle, Star, AlertTriangle, TrendingUp, Award, Home } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import EnergySavingsCalculator from '@/components/ui/EnergySavingsCalculator';
 import ReviewsWidget from '@/components/reviews-widget';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -192,6 +194,12 @@ export default function WaterHeatersPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Water Heater Services", href: "/services/water-heaters" }
+      ]} />
+      <ServiceSchema serviceName="Water Heater Installation & Repair" serviceDescription="Professional water heater installation, repair, and replacement services including tankless and traditional units." serviceUrl="/services/water-heaters" />
       {/* Hero Section */}
       <section className="relative h-150 bg-[url('/images/hero/wrench-bg.webp')] bg-gradient-to-r from-orange-900 to-red-700 text-white">
         <div className="absolute inset-0 bg-black/20"></div>

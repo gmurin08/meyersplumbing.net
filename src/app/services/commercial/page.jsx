@@ -1,7 +1,9 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Building, Clock, Shield, Wrench, Users, TrendingUp, Zap, CheckCircle, Star, Phone, AlertTriangle, Calculator, Award } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import MaintenanceROICalculator from '@/components/ui/MaintenanceROICalculator';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -131,6 +133,12 @@ export default function CommercialPlumbingPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Commercial Plumbing", href: "/services/commercial" }
+      ]} />
+      <ServiceSchema serviceName="Commercial Plumbing Services" serviceDescription="Professional commercial plumbing for businesses including preventive maintenance, emergency repairs, and new construction." serviceUrl="/services/commercial" />
       {/* Hero Section */}
       <section className="relative h-130 bg-[url('/images/hero/wrench-bg.webp')] bg-gradient-to-r from-gray-900 to-gray-700 text-white">
         <div className="absolute inset-0 bg-black/30"></div>

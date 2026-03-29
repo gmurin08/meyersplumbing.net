@@ -1,6 +1,8 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Wrench, Droplets, Settings, AlertTriangle, CheckCircle, Clock, Award, Shield, Home, Eye, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from '/globals.json';
 
 export const metadata = {
@@ -133,6 +135,12 @@ export default function ToiletServicesPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Toilet Services", href: "/services/toilets" }
+      ]} />
+      <ServiceSchema serviceName="Toilet Installation & Repair" serviceDescription="Expert toilet installation, repair, and replacement services for residential and commercial properties." serviceUrl="/services/toilets" />
       {/* Hero Section */}
       <section className="relative h-96 bg-gradient-to-r from-blue-900 to-cyan-700 text-white">
         <div className="absolute inset-0 bg-black/20"></div>

@@ -1,3 +1,4 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Phone, Clock, MapPin, Wrench, Home, Building2 } from 'lucide-react';
 import Image from 'next/image';
 import CTAButton from '@/components/ui/ctabtn';
@@ -39,13 +40,18 @@ export default function MoonTownshipServicePage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Service Areas", href: "/service-areas" },
+        { label: "Moon Township", href: "/service-areas/moon-township" }
+      ]} />
       {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/80"></div>
         <div className="absolute inset-0 transform-gpu">
-          <Image 
-            src="/images/hero/wrench-bg.webp" 
-            height={1080} 
+          <Image
+            src="/images/hero/wrench-bg.webp"
+            height={1080}
             width={1920}
             alt="Moon Township plumbing services"
             className="w-full h-full object-cover scale-110 transform-gpu will-change-transform"

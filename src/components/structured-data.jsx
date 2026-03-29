@@ -23,22 +23,16 @@ export default function StructuredData() {
       },
       "url": "https://meyersplumbing.net",
       "email": globals.business_email,
-      "description": "Professional plumbing services available 24/7. Licensed, insured plumber serving residential and commercial clients.",
+      "description": "Professional plumbing services serving the greater Pittsburgh area. Licensed Master Plumber with 20+ years of experience. Regular hours Mon-Fri 8AM-6PM, with 24/7 emergency plumbing service available.",
       "priceRange": "$$",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday", 
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
       "areaServed": [
         {
           "@type": "City",

@@ -1,7 +1,9 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Zap, Droplets, AlertTriangle, CheckCircle, Gauge, Wrench, Shield, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -144,6 +146,12 @@ export default function HydroJettingPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Hydro Jetting", href: "/services/hydro-jetting" }
+      ]} />
+      <ServiceSchema serviceName="Hydro Jetting Services" serviceDescription="High-pressure hydro jetting for deep drain cleaning, removing stubborn buildup and restoring full pipe flow." serviceUrl="/services/hydro-jetting" />
       <Script
         id="hydro-jetting-faq-schema"
         type="application/ld+json"

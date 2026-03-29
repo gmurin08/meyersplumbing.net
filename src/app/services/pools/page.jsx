@@ -1,6 +1,8 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Waves, Shovel, Wrench, Home, Shield, CheckCircle, Clock, Droplets, Sun, Sparkles, Award, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -286,6 +288,12 @@ export default function PoolsPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Pool Plumbing", href: "/services/pools" }
+      ]} />
+      <ServiceSchema serviceName="Pool Plumbing Services" serviceDescription="Professional pool plumbing installation, repair, and maintenance services for residential pools." serviceUrl="/services/pools" />
       {/* Structured Data for SEO */}
       <script
         type="application/ld+json"

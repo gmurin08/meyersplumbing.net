@@ -1,7 +1,9 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Camera, AlertTriangle, Shield, CheckCircle, Clock, Wrench, MapPinned, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -144,6 +146,12 @@ export default function CameraInspectionsPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Camera Inspections", href: "/services/camera-inspections" }
+      ]} />
+      <ServiceSchema serviceName="Sewer Camera Inspections" serviceDescription="High-definition video pipe inspection to diagnose problems inside sewer and drain lines without digging." serviceUrl="/services/camera-inspections" />
       <Script
         id="camera-inspections-faq-schema"
         type="application/ld+json"

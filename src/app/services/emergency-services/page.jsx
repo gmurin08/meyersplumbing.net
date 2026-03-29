@@ -1,7 +1,9 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Phone, Clock, AlertTriangle, Wrench, Shield, CheckCircle, Star, Users } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ServiceAreaMap from '@/components/ui/ServiceAreaMap';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -98,6 +100,12 @@ export default function EmergencyServicesPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Emergency Services", href: "/services/emergency-services" }
+      ]} />
+      <ServiceSchema serviceName="24/7 Emergency Plumbing Services" serviceDescription="Round-the-clock emergency plumbing services for burst pipes, sewer backups, major leaks, and other urgent plumbing issues." serviceUrl="/services/emergency-services" />
       {/* Emergency Hero Section */}
       <section className="relative h-96 bg-[url('/images/hero/wrench-bg.webp')] bg-gradient-to-r from-red-900 to-red-700 text-white">
         <div className="absolute inset-0 bg-black/30"></div>

@@ -1,7 +1,9 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Droplets, AlertTriangle, CheckCircle, Shield, Wrench, Search, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -144,6 +146,12 @@ export default function DyeTestingPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Dye Testing", href: "/services/dye-testing" }
+      ]} />
+      <ServiceSchema serviceName="Dye Testing Services" serviceDescription="Professional dye testing to trace leaks, identify cross-connections, and diagnose drainage issues." serviceUrl="/services/dye-testing" />
       <Script
         id="dye-testing-faq-schema"
         type="application/ld+json"

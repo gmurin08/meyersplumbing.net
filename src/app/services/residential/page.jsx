@@ -1,8 +1,10 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Home, Heart, Shield, Wrench, Droplets, Thermometer, Zap, CheckCircle, Star, Users, Clock, Award } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import globals from 'globals.json';
 import ReviewsWidget from '@/components/reviews-widget';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 
 export const metadata = {
   title: 'Residential Plumbing Services - Pittsburgh & Oakdale PA | Expert Home Plumbers',
@@ -126,6 +128,12 @@ export default function ResidentialPlumbingPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Residential Plumbing", href: "/services/residential" }
+      ]} />
+      <ServiceSchema serviceName="Residential Plumbing Services" serviceDescription="Complete residential plumbing services including kitchen, bathroom, water heater, and whole-house plumbing solutions." serviceUrl="/services/residential" />
       {/* Hero Section */}
       <section className="relative h-96 bg-[url('/images/hero/wrench-bg.webp')] bg-gradient-to-r from-blue-900 to-blue-700 text-white">
         <div className="absolute inset-0 bg-black/20"></div>

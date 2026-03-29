@@ -1,7 +1,9 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Flame, Shield, AlertTriangle, Wrench, CheckCircle, Clock, Phone, Home, Zap, TreePine, Award, Star, Settings, Eye, HardHat, FileCheck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import InstallationProcessCarousel from '@/components/ui/InstallationProcessCarousel';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -401,6 +403,12 @@ export default function GasLinesPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Gas Line Services", href: "/services/gas-lines" }
+      ]} />
+      <ServiceSchema serviceName="Gas Line Installation & Repair" serviceDescription="Licensed gas line installation, repair, and leak detection services for residential and commercial properties." serviceUrl="/services/gas-lines" />
       {/* Hero Section */}
       <section className="relative h-96 bg-gradient-to-r from-red-900 to-orange-700 text-white">
         {/* Background Image - Add heroImage property to enable */}

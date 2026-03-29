@@ -1,7 +1,9 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Shovel, MapPin, Shield, AlertTriangle, Clock, CheckCircle, Star, Wrench, Home, TreePine, Camera, Zap } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ExcavationProcessCarousel from '@/components/ui/ExcavationProcessCarousel';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -277,6 +279,12 @@ export default function ExcavationPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Excavation Services", href: "/services/excavation" }
+      ]} />
+      <ServiceSchema serviceName="Plumbing Excavation Services" serviceDescription="Professional plumbing excavation for pipe replacement, sewer line repair, and underground utility work." serviceUrl="/services/excavation" />
       {/* Hero Section */}
       <section className="relative h-129 bg-[url('/images/hero/wrench-bg.webp')] bg-gradient-to-r from-amber-900 to-orange-700 text-white">
         <div className="absolute inset-0 bg-black/20"></div>

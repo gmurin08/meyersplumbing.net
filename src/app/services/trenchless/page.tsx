@@ -1,6 +1,8 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Zap, Leaf, Clock, Shield, CheckCircle, Star, Wrench, Home, Camera, TreePine, DollarSign, Award, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -252,6 +254,12 @@ export default function TrenchlessPipeRepairPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Trenchless Pipe Repair", href: "/services/trenchless" }
+      ]} />
+      <ServiceSchema serviceName="Trenchless Pipe Repair" serviceDescription="No-dig trenchless pipe repair and sewer line replacement using pipe bursting and CIPP lining technology." serviceUrl="/services/trenchless" />
       {/* Hero Section */}
       <section className="relative h-96 bg-gradient-to-r from-green-900 to-teal-700 text-white">
         <div className="absolute inset-0 bg-black/20"></div>

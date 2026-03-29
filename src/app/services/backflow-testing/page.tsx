@@ -1,7 +1,9 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Shield, AlertTriangle, Droplets, Clock, CheckCircle, Wrench, FileCheck, Gauge, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -144,6 +146,12 @@ export default function BackflowTestingPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Backflow Testing", href: "/services/backflow-testing" }
+      ]} />
+      <ServiceSchema serviceName="Backflow Testing & Prevention" serviceDescription="Certified backflow testing, prevention device installation, and annual compliance testing services." serviceUrl="/services/backflow-testing" />
       <Script
         id="backflow-faq-schema"
         type="application/ld+json"

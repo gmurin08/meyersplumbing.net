@@ -1,7 +1,9 @@
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import { Droplets, AlertTriangle, Zap, Shield, Clock, CheckCircle, Star, Wrench, Home, Microscope, Leaf } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import DrainDecisionTool from '@/components/ui/DrainDecisionTool';
+import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
 
 export const metadata = {
@@ -185,6 +187,12 @@ export default function DrainCleaningPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Drain Cleaning", href: "/services/drain-cleaning" }
+      ]} />
+      <ServiceSchema serviceName="Drain Cleaning Services" serviceDescription="Professional drain cleaning and clog removal using hydro jetting, video inspection, and emergency drain service." serviceUrl="/services/drain-cleaning" />
       {/* Hero Section */}
       <section className="relative h-96 bg-[url('/images/hero/wrench-bg.webp')] bg-gradient-to-r from-blue-900 to-teal-700 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
