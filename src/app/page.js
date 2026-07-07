@@ -8,6 +8,7 @@ import ReviewsWidget from '@/components/reviews-widget'
 import AnimatedVan from '@/components/ui/AnimatedVan'
 import CompactContactForm from '@/components/forms/compact-contact'
 import reviewsData from '@/data/reviews.json'
+import Certifications from '@/components/sections/Certifications'
 
 export default function HomePage() {
   return (<>
@@ -145,6 +146,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Certifications */}
+      <Certifications />
 
       {/* Testimonials */}
       <section className="py-16 bg-gray-50">
