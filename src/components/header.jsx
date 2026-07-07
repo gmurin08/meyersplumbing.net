@@ -170,6 +170,9 @@ export default function Header() {
                 </div>
               </div>
             </div>
+            <Link href="/reviews" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+              Reviews
+            </Link>
             <Link href="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               Contact
             </Link>
@@ -309,6 +312,9 @@ export default function Header() {
               )}
             </div>
 
+            <Link href="/reviews" onClick={handleMobileLinkClick} className="block text-gray-700 font-medium py-2">
+              Reviews
+            </Link>
             <Link href="/contact" onClick={handleMobileLinkClick} className="block text-gray-700 font-medium py-2">
               Contact
             </Link>

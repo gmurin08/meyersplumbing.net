@@ -7,6 +7,7 @@ import globals from '/globals.json'
 import ReviewsWidget from '@/components/reviews-widget'
 import AnimatedVan from '@/components/ui/AnimatedVan'
 import CompactContactForm from '@/components/forms/compact-contact'
+import reviewsData from '@/data/reviews.json'
 
 export default function HomePage() {
   return (<>
@@ -53,7 +54,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      
+      {/* Reviews Callout */}
+      <section className="bg-white border-b border-gray-100 py-6">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-center sm:text-left">
+            <div className="flex items-center gap-3">
+              <div className="flex">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="h-7 w-7 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <span className="text-3xl font-bold text-gray-900">
+                {reviewsData.aggregate.ratingValue}
+              </span>
+            </div>
+            <p className="text-lg text-gray-700">
+              Rated <span className="font-bold">{reviewsData.aggregate.ratingValue} stars</span> by{' '}
+              <span className="font-bold">{reviewsData.aggregate.reviewCount}+</span> verified Google
+              customers
+            </p>
+            <Link
+              href="/reviews"
+              className="bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors whitespace-nowrap"
+            >
+              Read Our Reviews →
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Services Grid */}
       <section className="py-16 bg-gray-50">
@@ -121,10 +149,28 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+          <h2 className="text-3xl font-bold text-center mb-2 text-gray-900">
             What Our Customers Say
           </h2>
+          <div className="flex items-center justify-center gap-2 mb-12">
+            <div className="flex">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+              ))}
+            </div>
+            <span className="text-gray-700 font-medium">
+              {reviewsData.aggregate.ratingValue} stars · {reviewsData.aggregate.reviewCount}+ Google reviews
+            </span>
+          </div>
           <ReviewsWidget />
+          <div className="text-center mt-10">
+            <Link
+              href="/reviews"
+              className="inline-block bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-800 transition-colors"
+            >
+              Read All {reviewsData.aggregate.reviewCount}+ Reviews
+            </Link>
+          </div>
         </div>
       </section>
 
