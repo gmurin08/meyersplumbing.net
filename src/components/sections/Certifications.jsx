@@ -15,28 +15,28 @@ const DEFAULT_CERTS = [
     name: 'NASSCO Certified',
     issuer: 'Pipeline Assessment (PACP)',
     Icon: Camera,
-    logo: null, // e.g. '/images/certs/nassco.webp'
+    logo: '/images/logos/nassco.jpeg',
   },
   {
     id: 'master-plumber',
     name: 'Allegheny County Master Plumber',
     issuer: 'Licensed & Registered',
     Icon: BadgeCheck,
-    logo: null,
+    logo: '/images/logos/26-261760_seal-of-allegheny-county-pennsylvania-chester-county-pa-flag.png',
   },
   {
     id: 'dot-gas',
     name: 'DOT Gas Certified',
     issuer: 'Operator Qualified',
     Icon: Flame,
-    logo: null,
+    logo: '/images/logos/dot.jpg',
   },
   {
     id: 'backflow',
     name: 'ASSE Backflow Certified',
     issuer: 'Backflow Prevention',
     Icon: ShieldCheck,
-    logo: null,
+    logo: '/images/logos/asse-certified-vector-logo.png',
   },
   {
     id: 'experience',
@@ -69,14 +69,18 @@ export default function Certifications({
               key={id}
               className="flex flex-col items-center text-center p-5 rounded-lg border border-gray-100 hover:shadow-md transition-shadow"
             >
-              <div className="h-20 w-20 flex items-center justify-center bg-blue-50 rounded-full mb-4 overflow-hidden">
+              <div
+                className={`h-20 w-20 flex items-center justify-center rounded-full mb-4 overflow-hidden ${
+                  logo ? 'bg-white border border-gray-100 p-2' : 'bg-blue-50'
+                }`}
+              >
                 {logo ? (
                   <Image
                     src={logo}
                     alt={`${name} logo`}
                     width={64}
                     height={64}
-                    className="object-contain"
+                    className="object-contain max-h-full w-auto"
                   />
                 ) : (
                   Icon && <Icon className="h-9 w-9 text-blue-700" aria-hidden="true" />

@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import StructuredData from '@/components/structured-data'
+import GoogleAdsTag from '@/components/google-ads-tag'
 import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ['latin'] })
@@ -86,6 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             height="0" width="0" style={{display: 'none', visibility: 'hidden'}}></iframe>
         </noscript>
         <StructuredData />
+        <GoogleAdsTag />
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-grow">

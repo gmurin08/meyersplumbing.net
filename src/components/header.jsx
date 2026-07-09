@@ -181,7 +181,7 @@ export default function Header() {
           {/* CTA Button & Mobile Menu */}
           <div className="flex items-center space-x-4">
             {/* <a 
-              href="tel:555-123-4567"
+              href="tel:1-833-663-9377"
               className="hidden sm:inline-flex bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
             >
               Call Now

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import data from '/globals.json'
+import { trackFormConversion } from '@/lib/gtag'
 
 export default function ContactForm() {
   const router = useRouter();
@@ -21,6 +22,7 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
+        await trackFormConversion();
         router.push('/thank-you');
       } else {
         alert('There was an error sending your message. Please try again.');

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Phone, Mail, Send } from 'lucide-react';
+import { trackFormConversion } from '@/lib/gtag';
 
 const CompactContactForm = () => {
   const router = useRouter();
@@ -39,6 +40,7 @@ const CompactContactForm = () => {
       if (response.ok) {
         const result = await response.json();
         if (result.success) {
+          await trackFormConversion();
           router.push('/thank-you');
         } else {
           setSubmitStatus('error');
