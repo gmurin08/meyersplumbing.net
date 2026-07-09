@@ -5,6 +5,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import StructuredData from '@/components/structured-data'
 import GoogleAdsTag from '@/components/google-ads-tag'
+import CallClickTracker from '@/components/call-click-tracker'
 import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ['latin'] })
@@ -88,6 +89,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         <StructuredData />
         <GoogleAdsTag />
+        <CallClickTracker />
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-grow">
