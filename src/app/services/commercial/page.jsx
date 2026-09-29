@@ -5,6 +5,7 @@ import Link from 'next/link';
 import MaintenanceROICalculator from '@/components/ui/MaintenanceROICalculator';
 import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
+import BookOnlineButton from '@/components/book-online-button';
 
 export const metadata = {
   title: 'Commercial Plumbing Services - Pittsburgh & Oakdale PA | 24/7 Emergency',
@@ -164,6 +165,7 @@ export default function CommercialPlumbingPage() {
               >
                 Request Quote
               </Link>
+              <BookOnlineButton className="hidden lg:inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors" />
             </div>
           </div>
         </div>

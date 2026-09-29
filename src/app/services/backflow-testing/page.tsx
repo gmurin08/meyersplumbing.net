@@ -5,6 +5,7 @@ import Script from 'next/script';
 import Link from 'next/link';
 import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
+import BookOnlineButton from '@/components/book-online-button';
 
 export const metadata = {
   title: 'Backflow Testing & Prevention - Emergency Plumbing Services',
@@ -190,6 +191,7 @@ export default function BackflowTestingPage() {
               >
                 Schedule Testing
               </Link>
+              <BookOnlineButton className="hidden lg:inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors" />
             </div>
           </div>
         </div>

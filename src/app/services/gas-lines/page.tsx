@@ -5,6 +5,7 @@ import Link from 'next/link';
 import InstallationProcessCarousel from '@/components/ui/InstallationProcessCarousel';
 import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
+import BookOnlineButton from '@/components/book-online-button';
 
 export const metadata = {
   title: 'Gas Line Installation & Repair Services - Pittsburgh & Oakdale PA | Licensed Gas Fitters',
@@ -449,6 +450,7 @@ export default function GasLinesPage() {
               >
                 Schedule Service
               </Link>
+              <BookOnlineButton className="hidden lg:inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors" />
             </div>
           </div>
         </div>

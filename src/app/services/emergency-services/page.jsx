@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ServiceAreaMap from '@/components/ui/ServiceAreaMap';
 import ServiceSchema from '@/components/seo/ServiceSchema';
 import globals from 'globals.json';
+import BookOnlineButton from '@/components/book-online-button';
 
 export const metadata = {
   title: 'Emergency Plumbing Services - Pittsburgh & Oakdale PA | 24/7 Response',
@@ -125,6 +126,7 @@ export default function EmergencyServicesPage() {
               <Phone className="h-6 w-6" />
               <span>CALL NOW: {globals.business_phone}</span>
             </a>
+            <BookOnlineButton className="hidden lg:inline-flex lg:ml-4 items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-green-700 transition-colors" />
           </div>
         </div>
       </section>
