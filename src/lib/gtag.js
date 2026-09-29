@@ -21,6 +21,15 @@ export const FORM_CONVERSION_LABEL = 'd2rTCNmYiYQbEILa8u8_';
 // Google Ads conversion: "Call Link Click (Not from Ads)" (ID 17146096898).
 export const CALL_CLICK_CONVERSION_LABEL = '35FwCPupq80cEILa8u8_';
 
+// Online booking conversion label. Fires on /booking-complete, which the
+// Housecall Pro booking widget redirects to after a booking is submitted.
+// Google Ads conversion: "Book With Housecall" (ID 17146096898).
+export const BOOKING_CONVERSION_LABEL = '_E1mCKa_hosdEILa8u8_';
+
+// Housecall Pro online booking widget.
+export const HCP_TOKEN = '1bdb6501d5534a82a5c21153bb05f1bf';
+export const HCP_ORG_NAME = 'Meyers-plumbing';
+
 /**
  * Fire the contact-form conversion. Safe to call before a client-side redirect —
  * it returns a promise that resolves once gtag reports the hit sent (or after a
@@ -96,5 +105,24 @@ export function trackCallClick() {
 
     // Fallback in case the callback never fires (e.g. blocked network).
     setTimeout(finish, 800);
+  });
+}
+
+/**
+ * Fire the online booking conversion. Called once on mount of /booking-complete.
+ * Set the conversion action's Count to "One" in Google Ads so a refresh of the
+ * page doesn't count a second booking.
+ */
+export function trackBookingConversion() {
+  if (typeof window === 'undefined') return;
+
+  // Mirror into the dataLayer so GTM can trigger off it too.
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'booking_complete' });
+
+  if (typeof window.gtag !== 'function' || !BOOKING_CONVERSION_LABEL) return;
+
+  window.gtag('event', 'conversion', {
+    send_to: `${GOOGLE_ADS_ID}/${BOOKING_CONVERSION_LABEL}`,
   });
 }

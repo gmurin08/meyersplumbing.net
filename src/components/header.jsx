@@ -5,6 +5,7 @@ import { Phone, Clock, Menu, X, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import globals from '/globals.json'
 import CTAButton from '@/components/ui/ctabtn'
+import BookOnlineButton from '@/components/book-online-button'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -192,6 +193,7 @@ export default function Header() {
             >
               Free Quote
             </Link> */}
+            <BookOnlineButton className="hidden md:inline-flex items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors" />
                       <CTAButton/>
 
             
@@ -326,6 +328,7 @@ export default function Header() {
                 <Phone className="h-5 w-5" />
                 <span>{globals.business_phone}</span>
               </a>
+              <BookOnlineButton className="mt-2 w-full flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors" />
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@ import StructuredData from '@/components/structured-data'
 import GoogleAdsTag from '@/components/google-ads-tag'
 import CallClickTracker from '@/components/call-click-tracker'
 import StickyCallBar from '@/components/sticky-call-bar'
+import { HCP_TOKEN, HCP_ORG_NAME } from '@/lib/gtag'
 import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ['latin'] })
@@ -100,6 +101,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <Footer />
         </div>
         <StickyCallBar />
+        {/* Housecall Pro online booking widget — opened by BookOnlineButton */}
+        <Script
+          id="hcp-booking-widget"
+          strategy="afterInteractive"
+          src={`https://online-booking.housecallpro.com/script.js?token=${HCP_TOKEN}&orgName=${HCP_ORG_NAME}`}
+        />
       </body>
     </html>
   )

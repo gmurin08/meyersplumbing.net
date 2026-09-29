@@ -1,11 +1,11 @@
-import Link from 'next/link';
-import { Phone, CalendarCheck } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import globals from '/globals.json';
+import BookOnlineButton from '@/components/book-online-button';
 
 /**
  * Fixed call/schedule bar pinned to the bottom of the viewport on phones.
  * Hidden from md up, where the header already exposes the phone number and the
- * Schedule Service CTA.
+ * Book Online / Schedule Service CTAs.
  *
  * The tel: link needs no click handler — CallClickTracker's delegated listener
  * fires the call conversion for any tel: link on the page.
@@ -21,13 +21,10 @@ export default function StickyCallBar() {
           <Phone className="h-5 w-5 shrink-0" />
           <span>Call Now</span>
         </a>
-        <Link
-          href="/contact"
-          className="flex-[2] flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-3.5 text-white font-semibold shadow-lg active:bg-blue-700 transition-colors"
-        >
-          <CalendarCheck className="h-5 w-5 shrink-0" />
-          <span>Schedule</span>
-        </Link>
+        <BookOnlineButton
+          label="Book Online"
+          className="flex-[2] flex items-center justify-center gap-2 rounded-lg bg-green-600 px-4 py-3.5 text-white font-semibold shadow-lg active:bg-green-700 transition-colors"
+        />
       </div>
     </div>
   );
