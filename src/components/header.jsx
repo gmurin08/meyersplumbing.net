@@ -191,7 +191,7 @@ export default function Header() {
               href="#"
               className="bg-orange-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors"
             >
-              Free Quote
+              Schedule Service
             </Link> */}
             <BookOnlineButton className="hidden md:inline-flex items-center gap-2 bg-green-600 text-white px-5 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors" />
                       <CTAButton/>

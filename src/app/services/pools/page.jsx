@@ -337,7 +337,7 @@ export default function PoolsPage() {
                 href="/contact"
                 className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors shadow-lg"
               >
-                Get Free Quote
+                Schedule Service
               </Link>
               <BookOnlineButton className="hidden lg:inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors" />
             </div>
@@ -660,7 +660,7 @@ export default function PoolsPage() {
             <div className="flex items-center justify-center space-x-4">
               <Phone className="h-5 w-5 text-blue-600" />
               <a href={`tel:${globals.business_phone}`} className="text-blue-600 font-bold hover:text-blue-700">
-                Call {globals.business_phone} for Pool Installation Quote
+                Call {globals.business_phone} to Schedule Pool Installation
               </a>
             </div>
           </div>
@@ -734,7 +734,7 @@ export default function PoolsPage() {
               href="/contact"
               className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
             >
-              Get Free Pittsburgh Pool Quote
+              Schedule Your Pittsburgh Pool Project
             </Link>
             <a 
               href={`tel:${globals.business_phone}`}

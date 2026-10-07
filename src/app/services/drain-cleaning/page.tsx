@@ -533,7 +533,7 @@ export default function DrainCleaningPage() {
             </div>
             <div className="bg-teal-800 p-8 rounded-lg">
               <h3 className="text-xl font-bold mb-4">Commercial Plan</h3>
-              <p className="text-2xl font-bold text-teal-300 mb-4">Custom Quote</p>
+              <p className="text-2xl font-bold text-teal-300 mb-4">Custom Pricing</p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-400 mr-2" />

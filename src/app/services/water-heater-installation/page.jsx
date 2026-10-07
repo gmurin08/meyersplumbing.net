@@ -79,7 +79,7 @@ export default function WaterHeaterInstallationPage() {
   ];
 
   const installProcess = [
-    { step: "1", title: "Free In-Home Assessment", description: "We evaluate your current setup, hot water usage, and home layout to recommend the best option for your family and budget." },
+    { step: "1", title: "In-Home Assessment", description: "We evaluate your current setup, hot water usage, and home layout to recommend the best option for your family and budget." },
     { step: "2", title: "Selection & Sizing", description: "We help you choose the right type and size. An undersized heater means cold showers; oversized means wasted energy. We get it right." },
     { step: "3", title: "Permits & Scheduling", description: "We handle all permits required by Allegheny County and Pennsylvania code. You do not have to worry about paperwork." },
     { step: "4", title: "Professional Installation", description: "Our licensed plumbers remove the old unit, install the new water heater, connect all plumbing and gas or electrical lines, and test everything." },
@@ -133,7 +133,7 @@ export default function WaterHeaterInstallationPage() {
                 href="/contact"
                 className="bg-white text-cyan-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
               >
-                Get a Free Quote
+                Schedule Service
               </Link>
               <BookOnlineButton className="hidden lg:inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors" />
             </div>
@@ -305,7 +305,7 @@ export default function WaterHeaterInstallationPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready for a New Water Heater?</h2>
           <p className="text-xl mb-8">
-            {globals.business_name} makes water heater installation easy. Free estimates, expert sizing advice, professional installation, and we handle the permits. Serving Pittsburgh, {globals.business_city}, and all surrounding communities.
+            {globals.business_name} makes water heater installation easy. Expert sizing advice, professional installation, and we handle the permits. Serving Pittsburgh, {globals.business_city}, and all surrounding communities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Link
@@ -313,7 +313,7 @@ export default function WaterHeaterInstallationPage() {
               className="bg-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
               style={{ color: globals.primary_color }}
             >
-              Get a Free Estimate
+              Schedule Service
             </Link>
             <a
               href={`tel:${globals.business_phone}`}
@@ -323,7 +323,7 @@ export default function WaterHeaterInstallationPage() {
             </a>
           </div>
           <p className="text-sm opacity-90">
-            Licensed Plumbers &bull; Free Estimates &bull; Permits Included &bull; Serving {globals.business_city} &amp; Greater Pittsburgh
+            Licensed Plumbers &bull; Upfront Pricing &bull; Permits Included &bull; Serving {globals.business_city} &amp; Greater Pittsburgh
           </p>
         </div>
       </section>

@@ -284,7 +284,7 @@ export default function TrenchlessPipeRepairPage() {
                 href="/contact"
                 className="bg-white text-green-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
               >
-                Get Trenchless Quote
+                Schedule Trenchless Service
               </Link>
               <BookOnlineButton className="hidden lg:inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors" />
             </div>
@@ -705,13 +705,13 @@ export default function TrenchlessPipeRepairPage() {
               href={`tel:${globals.business_phone}`}
               className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors"
             >
-              Schedule Free Assessment: {globals.business_phone}
+              Schedule an Assessment: {globals.business_phone}
             </a>
             <Link 
               href="/contact"
               className="bg-white border-2 border-green-600 text-green-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-50 transition-colors"
             >
-              Get Detailed Quote
+              Schedule Service
             </Link>
           </div>
         </div>
@@ -729,7 +729,7 @@ export default function TrenchlessPipeRepairPage() {
               href="/contact"
               className="bg-white text-green-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
             >
-              Get Free Trenchless Assessment
+              Get a Trenchless Assessment
             </Link>
             <a 
               href={`tel:${globals.business_phone}`}

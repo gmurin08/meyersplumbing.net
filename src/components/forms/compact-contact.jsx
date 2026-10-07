@@ -71,7 +71,7 @@ const CompactContactForm = () => {
                 className="object-contain"
               />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Get Your Free Quote</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Schedule Service</h3>
             <p className="text-gray-600 text-sm mb-4">Professional plumbing services you can trust</p>
             <div className="flex flex-col space-y-2 text-sm text-gray-700">
               <div className="flex items-center justify-center lg:justify-start">

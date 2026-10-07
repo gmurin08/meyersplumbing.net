@@ -309,7 +309,7 @@ export default function ExcavationPage() {
                 href="/contact"
                 className="bg-white text-amber-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
               >
-                Free Site Assessment
+                Site Assessment
               </Link>
               <BookOnlineButton className="hidden lg:inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors" />
             </div>
@@ -599,7 +599,7 @@ export default function ExcavationPage() {
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
-                    <span>Free on-site assessment and estimate</span>
+                    <span>Detailed on-site assessment and estimate</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0" />
@@ -685,7 +685,7 @@ export default function ExcavationPage() {
               href="/contact"
               className="bg-white text-amber-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
             >
-              Get Free Site Assessment
+              Get a Site Assessment
             </Link>
             <a 
               href={`tel:${globals.business_phone}`}

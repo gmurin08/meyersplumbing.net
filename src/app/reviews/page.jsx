@@ -107,7 +107,7 @@ export default function ReviewsPage() {
               href="/contact"
               className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-orange-600 transition-colors"
             >
-              Get a Free Quote
+              Schedule Service
             </Link>
           </div>
         </div>

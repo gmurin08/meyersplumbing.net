@@ -177,7 +177,7 @@ export default function AboutPage() {
               href="/contact"
               className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
             >
-              Get Free Estimate
+              Schedule Service
             </Link>
           </div>
         </div>

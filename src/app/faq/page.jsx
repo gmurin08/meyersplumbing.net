@@ -33,8 +33,8 @@ const faqs = [
     icon: DollarSign,
     questions: [
       {
-        question: "Do you provide free estimates?",
-        answer: "Yes, we provide free estimates for most plumbing projects. Contact us to schedule an appointment, and we'll assess your needs and provide you with a detailed, no-obligation estimate."
+        question: "How does pricing work?",
+        answer: "Schedule a service visit and our plumber will diagnose the problem and give you upfront pricing before any work begins."
       },
       {
         question: "What payment methods do you accept?",

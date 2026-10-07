@@ -50,10 +50,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Do you provide free estimates?",
+      "name": "How does pricing work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, we provide free estimates for most plumbing projects. Contact us to schedule an appointment, and we'll assess your needs and provide you with a detailed, no-obligation estimate."
+        "text": "Schedule a service visit and our plumber will diagnose the problem and give you upfront pricing before any work begins."
       }
     },
     {

@@ -224,7 +224,7 @@ export default function WaterHeatersPage() {
                 href="/contact"
                 className="bg-white text-orange-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
               >
-                Free Energy Consultation
+                Energy Consultation
               </Link>
               <BookOnlineButton className="hidden lg:inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors" />
             </div>
@@ -506,7 +506,7 @@ export default function WaterHeatersPage() {
               <div className="bg-orange-100 p-6 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4">
                 <span className="text-orange-600 font-bold text-2xl">1</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Free Assessment</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Assessment</h3>
               <p className="text-gray-600 text-sm">We evaluate your current system, usage patterns, and recommend the best solution for your needs and budget.</p>
             </div>
             <div className="text-center">
@@ -564,7 +564,7 @@ export default function WaterHeatersPage() {
               href="/contact"
               className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-orange-400 transition-colors"
             >
-              Schedule Free Consultation
+              Schedule a Consultation
             </Link>
           </div>
           <p className="text-sm mt-6 text-orange-200">

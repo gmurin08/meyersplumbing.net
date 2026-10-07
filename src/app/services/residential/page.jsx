@@ -158,7 +158,7 @@ export default function ResidentialPlumbingPage() {
                 href="/contact"
                 className="bg-white text-blue-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
               >
-                Get Free Estimate
+                Schedule Service
               </Link>
               <BookOnlineButton className="hidden lg:inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors" />
             </div>
@@ -484,7 +484,7 @@ export default function ResidentialPlumbingPage() {
               href="/contact"
               className="bg-red-500 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-red-600 transition-colors"
             >
-              Schedule Free Consultation
+              Schedule a Consultation
             </Link>
           </div>
           <p className="text-sm mt-6 text-blue-200">

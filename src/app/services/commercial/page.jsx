@@ -163,7 +163,7 @@ export default function CommercialPlumbingPage() {
                 href="/contact"
                 className="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
               >
-                Request Quote
+                Schedule Service
               </Link>
               <BookOnlineButton className="hidden lg:inline-flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors" />
             </div>
@@ -445,7 +445,7 @@ export default function CommercialPlumbingPage() {
               href="/contact"
               className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-700 transition-colors"
             >
-              Request Commercial Quote
+              Schedule Commercial Service
             </Link>
             <Link 
               href={`tel:${globals.business_phone}`}

@@ -799,14 +799,14 @@ export default function GasLinesPage() {
           </div>
           <div className="text-center mt-12">
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-2xl mx-auto">
-              <h3 className="font-bold text-blue-800 mb-2">Free Estimates Available</h3>
-              <p className="text-blue-700 mb-4">Get an accurate quote for your gas line project. All estimates include materials, labor, and permits.</p>
+              <h3 className="font-bold text-blue-800 mb-2">Upfront Pricing</h3>
+              <p className="text-blue-700 mb-4">Get accurate, upfront pricing for your gas line project. All estimates include materials, labor, and permits.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
                   href="/contact"
                   className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
                 >
-                  Request Free Estimate
+                  Schedule Service
                 </Link>
                 <a 
                   href={`tel:${globals.business_phone}`}
@@ -967,7 +967,7 @@ export default function GasLinesPage() {
               href="/contact"
               className="bg-red-500 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-red-400 transition-colors"
             >
-              Request Free Estimate
+              Schedule Service
             </Link>
           </div>
           <p className="text-sm text-red-200">

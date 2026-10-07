@@ -217,7 +217,7 @@ export default function EmergencyServicesPage() {
                     <span className="text-red-600 font-bold text-lg">3</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Assess & Quote</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2">Assess & Price</h3>
                     <p className="text-gray-700">We'll diagnose the problem and provide transparent, upfront pricing before beginning any repair work.</p>
                   </div>
                 </div>

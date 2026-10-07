@@ -421,7 +421,7 @@ export default function ToiletServicesPage() {
               className="bg-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
               style={{color: globals.primary_color}}
             >
-              Get Free Estimate
+              Schedule Service
             </Link>
             <a 
               href={`tel:${globals.business_phone}`}
