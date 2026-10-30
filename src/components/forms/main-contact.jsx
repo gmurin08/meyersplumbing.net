@@ -1,13 +1,16 @@
 'use client'
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import data from '/globals.json'
 import { trackFormConversion } from '@/lib/gtag'
+import Turnstile from './turnstile'
 
 export default function ContactForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const turnstileRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,10 +28,12 @@ export default function ContactForm() {
         await trackFormConversion();
         router.push('/thank-you');
       } else {
+        turnstileRef.current?.reset();
         alert('There was an error sending your message. Please try again.');
       }
     } catch (error) {
       console.error('Error:', error);
+      turnstileRef.current?.reset();
       alert('There was an error sending your message. Please try again.');
     } finally {
       setIsLoading(false);
@@ -118,9 +123,11 @@ export default function ContactForm() {
           ></textarea>
         </div>
 
+        <Turnstile ref={turnstileRef} onVerify={setTurnstileToken} className="flex justify-center" />
+
         <button 
           type="submit"
-          disabled={isLoading}
+          disabled={isLoading || !turnstileToken}
           className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 outline-none disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? 'Sending...' : 'Send Message'}

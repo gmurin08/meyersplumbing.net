@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { Client } from 'pg';
+import { verifyTurnstile } from '@/lib/turnstile';
 
 export async function POST(request) {
   try {
@@ -12,6 +13,13 @@ export async function POST(request) {
     const experience = formData.get('experience');
     const message = formData.get('message') || '';
     const resumeFile = formData.get('resume');
+
+    if (!(await verifyTurnstile(formData.get('cf-turnstile-response'), request))) {
+      return NextResponse.json(
+        { error: 'Verification failed' },
+        { status: 403 }
+      );
+    }
 
     if (!name || !phone || !email || !experience) {
       return NextResponse.json(

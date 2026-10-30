@@ -1,12 +1,20 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { Client } from 'pg';
+import { verifyTurnstile } from '@/lib/turnstile';
 
 export async function POST(request) {
   try {
     // Parse JSON data from compact form
     const data = await request.json();
     console.log('Mini contact form data:', data);
+
+    if (!(await verifyTurnstile(data.turnstileToken, request))) {
+      return NextResponse.json(
+        { error: 'Verification failed' },
+        { status: 403 }
+      );
+    }
 
     // Validate required fields
     if (!data.name || !data.phone || !data.email) {

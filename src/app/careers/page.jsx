@@ -3,6 +3,7 @@ import { DollarSign, Calendar, Users, Wrench, Car, Shield, CheckCircle, Phone, U
 import Link from 'next/link';
 import { useState, useRef } from 'react';
 import globals from '/globals.json';
+import Turnstile from '@/components/forms/turnstile';
 
 export default function CareersPage() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,8 @@ export default function CareersPage() {
   const fileInputRef = useRef(null);
   const [status, setStatus] = useState({ type: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const turnstileRef = useRef(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -43,6 +46,7 @@ export default function CareersPage() {
       body.append('email', formData.email);
       body.append('experience', formData.experience);
       body.append('message', formData.message);
+      body.append('cf-turnstile-response', turnstileToken);
       if (resumeFile) {
         body.append('resume', resumeFile);
       }
@@ -57,10 +61,13 @@ export default function CareersPage() {
         setFormData({ name: '', phone: '', email: '', experience: '', message: '' });
         setResumeFile(null);
         if (fileInputRef.current) fileInputRef.current.value = '';
+        turnstileRef.current?.reset();
       } else {
+        turnstileRef.current?.reset();
         setStatus({ type: 'error', message: 'Something went wrong. Please try again or email us directly.' });
       }
     } catch {
+      turnstileRef.current?.reset();
       setStatus({ type: 'error', message: 'Something went wrong. Please try again or email us directly.' });
     } finally {
       setSubmitting(false);
@@ -290,6 +297,8 @@ export default function CareersPage() {
                 </div>
               </div>
 
+              <Turnstile ref={turnstileRef} onVerify={setTurnstileToken} className="flex justify-center" />
+
               {status.message && (
                 <div
                   className={`p-4 rounded-lg text-sm ${
@@ -304,7 +313,7 @@ export default function CareersPage() {
 
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={submitting || !turnstileToken}
                 className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {submitting ? 'Submitting...' : 'Submit Application'}

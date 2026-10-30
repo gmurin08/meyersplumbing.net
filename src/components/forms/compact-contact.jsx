@@ -1,9 +1,10 @@
 'use client'
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Phone, Mail, Send } from 'lucide-react';
 import { trackFormConversion } from '@/lib/gtag';
+import Turnstile from './turnstile';
 
 const CompactContactForm = () => {
   const router = useRouter();
@@ -15,6 +16,8 @@ const CompactContactForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const turnstileRef = useRef(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -34,7 +37,7 @@ const CompactContactForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, turnstileToken }),
       });
 
       if (response.ok) {
@@ -44,12 +47,15 @@ const CompactContactForm = () => {
           router.push('/thank-you');
         } else {
           setSubmitStatus('error');
+          turnstileRef.current?.reset();
         }
       } else {
         setSubmitStatus('error');
+        turnstileRef.current?.reset();
       }
     } catch (error) {
       setSubmitStatus('error');
+      turnstileRef.current?.reset();
     } finally {
       setIsSubmitting(false);
     }
@@ -154,7 +160,7 @@ const CompactContactForm = () => {
                 <div>
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !turnstileToken}
                     className="w-full bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 font-medium"
                   >
                     {isSubmitting ? (
@@ -168,6 +174,8 @@ const CompactContactForm = () => {
                   </button>
                 </div>
               </div>
+
+              <Turnstile ref={turnstileRef} onVerify={setTurnstileToken} className="flex justify-center lg:justify-end" />
 
               {/* Status Messages */}
               {submitStatus === 'error' && (

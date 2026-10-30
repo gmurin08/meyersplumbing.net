@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { Client } from 'pg';
+import { verifyTurnstile } from '@/lib/turnstile';
 
 export async function POST(request) {
   try {
@@ -16,6 +17,13 @@ export async function POST(request) {
     const message = formData.get('message') || '';
 
     console.log('Extracted fields:', { firstName, lastName, phone, email, message });
+
+    if (!(await verifyTurnstile(formData.get('cf-turnstile-response'), request))) {
+      return NextResponse.json(
+        { success: false, error: 'Verification failed' },
+        { status: 403 }
+      );
+    }
 
     // Validation
     if (!firstName || !lastName || !phone || !message) {
