@@ -4,6 +4,10 @@
 // loaded here to avoid double-counting. This file only handles the Google Ads
 // (AW-) tag, which GTM is not managing: the call-tracking number swap and the
 // form-submission conversion event.
+//
+// Each helper also sends the matching Meta Pixel standard event (Meta only).
+
+import { trackMetaEvent } from './meta-pixel';
 
 export const GOOGLE_ADS_ID = 'AW-17146096898';
 
@@ -41,6 +45,7 @@ export function trackFormConversion() {
     if (typeof window !== 'undefined') {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'generate_lead' });
+      trackMetaEvent('Lead');
     }
 
     if (
@@ -80,6 +85,7 @@ export function trackCallClick() {
     if (typeof window !== 'undefined') {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'call_link_click' });
+      trackMetaEvent('Contact');
     }
 
     if (
@@ -119,6 +125,15 @@ export function trackBookingConversion() {
   // Mirror into the dataLayer so GTM can trigger off it too.
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event: 'booking_complete' });
+
+  // Meta has no "count once" setting, so guard against a refresh of
+  // /booking-complete sending a second Schedule event in the same session.
+  let alreadySent = false;
+  try {
+    alreadySent = sessionStorage.getItem('meta_schedule_sent') === '1';
+    sessionStorage.setItem('meta_schedule_sent', '1');
+  } catch {}
+  if (!alreadySent) trackMetaEvent('Schedule');
 
   if (typeof window.gtag !== 'function' || !BOOKING_CONVERSION_LABEL) return;
 

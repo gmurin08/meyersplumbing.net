@@ -6,6 +6,7 @@ import Footer from '@/components/footer'
 import StructuredData from '@/components/structured-data'
 import GoogleAdsTag from '@/components/google-ads-tag'
 import CallClickTracker from '@/components/call-click-tracker'
+import MetaPixelPageView from '@/components/meta-pixel-pageview'
 import StickyCallBar from '@/components/sticky-call-bar'
 import { HCP_TOKEN, HCP_ORG_NAME } from '@/lib/gtag'
 import { Analytics } from "@vercel/analytics/next"
@@ -92,6 +93,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <StructuredData />
         <GoogleAdsTag />
         <CallClickTracker />
+        <MetaPixelPageView />
         <div className="min-h-screen flex flex-col pb-20 md:pb-0">
           <Header />
           <main className="flex-grow">
